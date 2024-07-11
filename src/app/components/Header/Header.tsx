@@ -12,7 +12,7 @@ const Header = () => {
         className="w-36 h-6"
       />
       <div className="flex gap-24 justify-center items-center">
-        <div className="hidden md:block flex justify-center items-center gap-2">
+        <div className="hidden md:flex justify-center items-center gap-2">
           <PhoneForwarded size={34} />
           <div className="text-sm">
             <p>Бърз контакт с нас</p>
