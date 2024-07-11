@@ -16,7 +16,7 @@ const Header = () => {
           <PhoneForwarded size={34} />
           <div className="text-sm">
             <p>Бърз контакт с нас</p>
-            <p>+359 888 888 888</p>
+            <p>+359 897 413 241</p>
           </div>
         </div>
         <ShoppingCart size={28} />
