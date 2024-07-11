@@ -31,7 +31,6 @@ const MobileCategories = () => {
           key={subComponent}
           className="flex items-center cursor-pointer uppercase"
         >
-          <Image />
           <p>{subComponent}</p>
         </div>
       ))}
