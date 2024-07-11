@@ -3,7 +3,7 @@ import Image from "next/image";
 
 const Header = () => {
   return (
-    <nav className="flex justify-between px-96 py-4 items-center bg-slate-100">
+    <nav className="flex justify-around md:justify-between flex-wrap px-4 md:px-24 lg:px-36 xl:px-96 py-4 items-center bg-slate-100">
       <Image
         src="/LOGO.png"
         width={100}
@@ -12,7 +12,7 @@ const Header = () => {
         className="w-36 h-6"
       />
       <div className="flex gap-24 justify-center items-center">
-        <div className="flex justify-center items-center gap-2">
+        <div className="hidden md:block flex justify-center items-center gap-2">
           <PhoneForwarded size={34} />
           <div className="text-sm">
             <p>Бърз контакт с нас</p>

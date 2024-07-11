@@ -32,7 +32,7 @@ const NewsCarousel = () => {
   }, [api]);
 
   return (
-    <div className="relative">
+    <div className="relative hidden md:block mt-4">
       <Carousel
         setApi={setApi}
         plugins={[

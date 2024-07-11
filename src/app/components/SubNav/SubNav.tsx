@@ -12,8 +12,8 @@ const SubNav: React.FC = () => {
   };
 
   return (
-    <nav className="w-3/4 m-auto py-6 relative">
-      <ul className="w-max flex justify-center gap-8 uppercase text-sm">
+    <nav className="hidden md:block m-auto py-6 relative">
+      <ul className="flex flex-wrap justify-center gap-8 uppercase text-sm">
         <li
           className="cursor-pointer"
           onMouseEnter={() => handleHover("computers")}
@@ -21,10 +21,7 @@ const SubNav: React.FC = () => {
         >
           компютри
           {activeMenu === "computers" && (
-            <SubMenuHover
-              menus={subComponents[0]["computers"]}
-              className="-left-20"
-            />
+            <SubMenuHover menus={subComponents[0]["computers"]} />
           )}
         </li>
         <li
@@ -34,10 +31,7 @@ const SubNav: React.FC = () => {
         >
           компоненти
           {activeMenu === "components" && (
-            <SubMenuHover
-              menus={subComponents[0]["components"]}
-              className="left-[3.5rem]"
-            />
+            <SubMenuHover menus={subComponents[0]["components"]} />
           )}
         </li>
         <li
@@ -47,10 +41,7 @@ const SubNav: React.FC = () => {
         >
           периферия
           {activeMenu === "peripherals" && (
-            <SubMenuHover
-              menus={subComponents[0]["peripherals"]}
-              className="left-44"
-            />
+            <SubMenuHover menus={subComponents[0]["peripherals"]} />
           )}
         </li>
         <li
@@ -60,10 +51,7 @@ const SubNav: React.FC = () => {
         >
           лаптопи
           {activeMenu === "laptops" && (
-            <SubMenuHover
-              menus={subComponents[0]["laptops"]}
-              className="left-72"
-            />
+            <SubMenuHover menus={subComponents[0]["laptops"]} />
           )}
         </li>
         <li className="cursor-pointer">монитори</li>
@@ -74,10 +62,7 @@ const SubNav: React.FC = () => {
         >
           втора употреба
           {activeMenu === "second-hand" && (
-            <SubMenuHover
-              menus={subComponents[0]["second-hand"]}
-              className="right-20"
-            />
+            <SubMenuHover menus={subComponents[0]["second-hand"]} />
           )}
         </li>
         <li className="cursor-pointer">сервиз</li>
