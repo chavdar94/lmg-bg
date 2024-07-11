@@ -1,7 +1,7 @@
 import { Product } from "@/definitions/types";
 import Image from "next/image";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: any }) => {
   return (
     <div className="border-2 h-80 flex flex-col justify-between text-center hover:border-3 hover:border-slate-300 hover:shadow-lg transition-all duration-300 ease-in-out">
       <div>
