@@ -11,6 +11,7 @@ import {
 import data from "@/data/carousel.json";
 import { type CarouselApi } from "@/app/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
+import Image from "next/image"; // Import Image from next/image
 
 const NewsCarousel = () => {
   const [api, setApi] = useState<CarouselApi>();
@@ -43,11 +44,12 @@ const NewsCarousel = () => {
         <CarouselContent>
           {data.map((item) => (
             <CarouselItem key={item.id}>
-              <div className="w-full h-96">
-                <img
+              <div className="w-full h-96 relative">
+                <Image
                   src={item.img}
                   alt={item.description}
-                  className="w-full h-full object-cover"
+                  layout="fill"
+                  objectFit="fill"
                 />
               </div>
             </CarouselItem>
@@ -66,4 +68,5 @@ const NewsCarousel = () => {
     </div>
   );
 };
+
 export default NewsCarousel;
