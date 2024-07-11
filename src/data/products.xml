@@ -1,0 +1,392 @@
+<product id="50783" uid="1963">
+<code>RPT-800DU 800VA/AVR/USB</code>
+<name>RPT-800DU 800VA/AVR/USB</name>
+<searchstring>REPOTEC UPS LINE INTERACTIVE 800VA SIMULATED SINE WAVE 3xSCHUKO USB 2xRJ-11</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname> Line-interactive</classname>
+<classname_full>All » UPS » Line-interactive</classname_full>
+<class_id>84</class_id>
+<price>44.70</price>
+<currency>USD</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/3646.jpg</main_picture_url>
+<manufacturer id="33">REPOTEC</manufacturer>
+<category id="16">UPS</category>
+<subcategory id="237">Line-Interactive</subcategory>
+<partnum>RPT-800DU / RPT-800DU</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/3646.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/3646.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_400DU/RPT_400DU_33.asp</vendor_url>
+<properties>
+<property name="Manufacturer" order="70">Repotec</property>
+<property name="Mnfr Part #" order="71">RPT-800DU</property>
+<property name="Model" order="72">RPT-800DU</property>
+<property name="Capacity" order="73">800VA/480W</property>
+<property name="Type" order="74">Line-interactive</property>
+<property name="Input" order="75">Voltage:110/115/120VAC or 220/230/240VAC; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).</property>
+<property name="Output" order="76">Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:< 6ms (Typical); Outlet:IEC-320/Nema 5-15R 4/4/; Universal/German:2/3.</property>
+<property name="Interface" order="77">Communication port:USB or RS232 port</property>
+<property name="Display" order="78">LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)</property>
+<property name="Alarms" order="79">Battery Mode:Beeping twice every 8 second; Low Battery:Beeping five times every second; Overload:Beeping continuously; Fault:Beeping continuously.</property>
+<property name="Battery" order="79">Voltage:12VDC; Recharge Time:5hr to 90% after complete discharge; Safety Protection:Over Charge & Discharge Protection; Advanced Battery Management:Yes; Battery Back-up Time:30 Minutes.</property>
+<property name="Environment" order="80">AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:<40 dB at 1M.</property>
+<property name="Standarts" order="81">Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).</property>
+<property name="Dimensions" order="83">305x98x170mm</property>
+<property name="Warranty" order="84">24 months, 12 months battery</property>
+</properties>
+</product>
+<product id="27722" uid="20">
+<code>CANON BCI-11BL</code>
+<name>CANON BCI-11BL</name>
+<searchstring>BJC-70 BJC-80</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>1</haspromo>
+<general_description/>
+<classname>Ink Cartridge</classname>
+<classname_full>All » Consumables » Ink Cartridge</classname_full>
+<class_id>62</class_id>
+<price>5.75</price>
+<currency>EUR</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/11294.jpg</main_picture_url>
+<manufacturer id="22">CANON</manufacturer>
+<category id="26">CARTRIDGE</category>
+<subcategory id="283">Ink Cartr</subcategory>
+<partnum>Canon BCI-11BL / BEF47-0761500</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/11294.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/11294.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://canon.bg</vendor_url>
+<properties>
+<property name="Manufacturer" order="92">CANON</property>
+<property name="Mnfr Part #" order="148">BEF47-0761500</property>
+<property name="Compatible" order="264">BJC-70 and BJC-80</property>
+<property name="Capacity" order="264">60</property>
+<property name="Color" order="677">BLACK</property>
+<property name="Other" order="678">-</property>
+<property name="Warranty" order="679">-</property>
+</properties>
+</product>
+<product id="49173" uid="6297">
+<code>RPT-1003DU 1000VA/AVR/USB</code>
+<name>RPT-1003DU 1000VA/AVR/USB</name>
+<searchstring>REPOTEC UPS LINE INTERACTIVE 1000VA SIMULATED SINE WAVE 3xSCHUKO USB 2xRJ-11</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname> Line-interactive</classname>
+<classname_full>All » UPS » Line-interactive</classname_full>
+<class_id>84</class_id>
+<price>75.40</price>
+<currency>USD</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/4199.jpg</main_picture_url>
+<manufacturer id="33">REPOTEC</manufacturer>
+<category id="16">UPS</category>
+<subcategory id="237">Line-Interactive</subcategory>
+<partnum>RPT-1003DU / RPT-1003DU</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/4199.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/4199.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_400DU/RPT_400DU_33.asp</vendor_url>
+<properties>
+<property name="Manufacturer" order="70">Repotec</property>
+<property name="Model" order="72">RPT-1003DU</property>
+<property name="Capacity" order="73">1KVA/600W</property>
+<property name="Type" order="74">Line-interactive</property>
+<property name="Input" order="75">Voltage:110/115/120VAC or 220/230/240VAC; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).</property>
+<property name="Output" order="76">Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:< 6ms (Typical); Outlet:IEC-320/Nema 5-15R 6/6/; Universal/German:2/3.</property>
+<property name="Interface" order="77">Communication port:USB or RS232 port</property>
+<property name="Display" order="78">LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)</property>
+<property name="Alarms" order="79">Battery Mode:Beeping twice every 8 second; Low Battery:Beeping five times every second; Overload:Beeping continuously; Fault:Beeping continuously.</property>
+<property name="Battery" order="79">Voltage:24VDC; Recharge Time:5hr to 90% after complete discharge; Safety Protection:Over Charge & Discharge Protection; Advanced Battery Management:Yes; Battery Back-up Time:40 Minutes.</property>
+<property name="Environment" order="80">AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:<40 dB at 1M.</property>
+<property name="Standarts" order="81">Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).</property>
+<property name="Dimensions" order="83">385x98x170mm</property>
+<property name="Warranty" order="84">24 months, 12 months battery</property>
+</properties>
+</product>
+<product id="27723" uid="21">
+<code>CANON BCI-11COLOR</code>
+<name>CANON BCI-11COLOR</name>
+<searchstring>BJC-70 NoteJet IIIcx</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>1</haspromo>
+<general_description/>
+<classname>Ink Cartridge</classname>
+<classname_full>All » Consumables » Ink Cartridge</classname_full>
+<class_id>62</class_id>
+<price>5.75</price>
+<currency>EUR</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/3056.jpg</main_picture_url>
+<manufacturer id="22">CANON</manufacturer>
+<category id="26">CARTRIDGE</category>
+<subcategory id="283">Ink Cartr</subcategory>
+<partnum>BCI-11COLOR / BEF47-0771500</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/3056.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/3056.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://canon.bg</vendor_url>
+<properties>
+<property name="Manufacturer" order="92">CANON</property>
+<property name="Mnfr Part #" order="148">BEF47-0771500</property>
+<property name="Compatible" order="264">BJC-70, NoteJet IIIcx</property>
+<property name="Capacity" order="264">40</property>
+<property name="Color" order="677">Cyan, Magenta, Yellow</property>
+<property name="Other" order="678">-</property>
+<property name="Warranty" order="679">-</property>
+</properties>
+</product>
+<product id="68229" uid="60035">
+<code>RPT-5720DU 2000VA /AVR/USB</code>
+<name>RPT-5720DU 2KVA/1200W W/USB</name>
+<searchstring>REPOTEC UPS LINE INTERACTIVE 2000VA SIMULATED SINE WAVE 4xSCHUKO 2xIEC-320 USB 2xRJ-45</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname> Line-interactive</classname>
+<classname_full>All » UPS » Line-interactive</classname_full>
+<class_id>84</class_id>
+<price>125.50</price>
+<currency>USD</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/36996.png</main_picture_url>
+<manufacturer id="33">REPOTEC</manufacturer>
+<category id="16">UPS</category>
+<subcategory id="237">Line-Interactive</subcategory>
+<partnum>RPT-5720DU / RPT-5720DU</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/36996.png</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/36996.png</thumbnail_url>
+</picture>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/36997.png</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/36997.png</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>https://www.repotec.com/index.php/ups/line-interactive-ups/rpt-5715du/</vendor_url>
+<properties>
+<property name="Capacity" order="73">2000VA/1200W </property>
+<property name="Input" order="75">Voltage:220/230/240Vac; Voltage Range: -30%,+25%; Frequency:50/60Hz(auto-sensing); Type of Plug:German input power cable</property>
+<property name="Output" order="76">Voltage (DC mode):220/230/240Vac +/-10%; Frequency:50/60Hz +/-1Hz; Waveform:Simulated Sinewave; Steps of Regulation:II Boost + I Buck; Transfer Time:<6ms typical; Socket:Schuko*4pcs + IEC320 C13*2pcs for Back-up/AVR/Surge</property>
+<property name="Display" order="78">LED indicator</property>
+<property name="Alarms" order="79">AC normal (Green), Batt. Backup (Yellow), UPS cut off / fault (Red)</property>
+<property name="Battery" order="79">Voltage:24VDC; Type:12V/9AH*2pcs; Recharge Time(to 90%):5H</property>
+<property name="Environment" order="80">Humidity: 0-95% non-condensing; Temperature:0-40°C; Overload Protection:Yes Short Circuit Protection:AC fuse and Electornics Circuit Auto-recharge:Yes Auto-restart:Yes Battery Door Design Casing:Yes</property>
+<property name="Dimensions" order="83">343 x 135 x 208mm</property>
+<property name="Warranty" order="84">24 Months</property>
+</properties>
+</product>
+<product id="47204" uid="1155">
+<code>CM STORM RECON</code>
+<name>CM STORM RECON</name>
+<searchstring>COOLER MASTER WIRED OPTICAL BLACK GAMING</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname>Mouse</classname>
+<classname_full>All » Peripherals » Mouse</classname_full>
+<class_id>30</class_id>
+<price>36.90</price>
+<currency>USD</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/865.jpg</main_picture_url>
+<manufacturer id="37">COOLERMASTER</manufacturer>
+<category id="11">MOUSE</category>
+<subcategory id=""/>
+<partnum>RECON MOUCE / SGM-4001-KLLW1</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/865.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/865.jpg</thumbnail_url>
+</picture>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/943.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/943.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://www.cmstorm.com</vendor_url>
+<properties>
+<property name="Manufacturer" order="148">Cooler Master</property>
+<property name="Model" order="155">SGM-4001-KLLW1</property>
+<property name="Sensors" order="156">Avago ADNS-3090 Optical Sensor</property>
+<property name="Type" order="156">USB wired</property>
+<property name="Movement Resolution" order="158">800-4000 dpi</property>
+<property name="Buttons" order="169">9</property>
+<property name="System requirements" order="261">Windows® 7 / Windows Vista® / Windows® XP Internet connection (for driver installation) At least 35MB of hard disk space</property>
+<property name="Other" order="262">Onboard Memory 32KB; Polling Rate 1000 Hz /1 ms; Velocity Up to 60 ips; Acceleration 20 g; Flexible 1.8 meter or 78.6 inch long cable;</property>
+<property name="Color" order="262">Black</property>
+<property name="Warranty" order="521">24 Months</property>
+</properties>
+</product>
+<product id="49174" uid="1504">
+<code>RPT-2003DU 2000VA /AVR/USB</code>
+<name>RPT-2003DU 2000VA/AVR/USB</name>
+<searchstring>REPOTEC UPS LINE INTERACTIVE 2000VA SIMULATED SINE WAVE 8xIEC-320 USB 2xRJ-11</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname> Line-interactive</classname>
+<classname_full>All » UPS » Line-interactive</classname_full>
+<class_id>84</class_id>
+<price>148.50</price>
+<currency>USD</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/3645.jpg</main_picture_url>
+<manufacturer id="33">REPOTEC</manufacturer>
+<category id="16">UPS</category>
+<subcategory id="237">Line-Interactive</subcategory>
+<partnum>RPT-2003DU / RPT-2003DU</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/3645.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/3645.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_2003DU/RPT_2003DU_33.asp</vendor_url>
+<properties>
+<property name="Manufacturer" order="70">Repotec</property>
+<property name="Mnfr Part #" order="71">RPT-2003DU</property>
+<property name="Model" order="72">RPT-2003DU</property>
+<property name="Capacity" order="73">2KVA 1200W</property>
+<property name="Type" order="74">Line-interactive</property>
+<property name="Input" order="75">Voltage:110/115/120Vac or 220V/230/240Vac; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).</property>
+<property name="Output" order="76">Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:< 6ms (Typical); Outlet:IEC-320/Nema 5-15R 8/8/; Universal/German:6/6.</property>
+<property name="Interface" order="77">Communication port:USB port</property>
+<property name="Display" order="78">LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)</property>
+<property name="Alarms" order="79">Battery Mode:Beeping twice every 8 second; Low Battery:Beeping four times every second; Overload:Beeping continuously; Fault:Beeping continuously.</property>
+<property name="Battery" order="79">Voltage:24VDC; Recharge Time:5hr to 90% after complete discharge; Safety Protection:Over Charge & Discharge Protection; Advanced Battery Management:Yes; Battery Back-up Time:50 Minutes.</property>
+<property name="Environment" order="80">AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:<40 dB at 1M.</property>
+<property name="Standarts" order="81">Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).</property>
+<property name="Dimensions" order="83">360x150x160mm</property>
+<property name="Warranty" order="84">24 months, 12 months battery</property>
+</properties>
+</product>
+<product id="27583" uid="6">
+<code>CANON BC-05 COLOR</code>
+<name>CANON BC-05 COLOR</name>
+<searchstring>BJC-210 BJC-240 BJC-250</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname>Ink Cartridge</classname>
+<classname_full>All » Consumables » Ink Cartridge</classname_full>
+<class_id>62</class_id>
+<price>34.90</price>
+<currency>EUR</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/3043.jpg</main_picture_url>
+<manufacturer id="22">CANON</manufacturer>
+<category id="26">CARTRIDGE</category>
+<subcategory id="283">Ink Cartr</subcategory>
+<partnum>BC05 / BEF45-0891500</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/3043.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/3043.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://canon.bg</vendor_url>
+<properties>
+<property name="Manufacturer" order="92">CANON</property>
+<property name="Mnfr Part #" order="148">BEF45-0891500</property>
+<property name="Compatible" order="264">Canon BJC-210 and BJC-240</property>
+<property name="Capacity" order="264">200</property>
+<property name="Color" order="677">yellow, cyan, magenta</property>
+<property name="Other" order="678">-</property>
+<property name="Warranty" order="679">-</property>
+</properties>
+</product>
+<product id="50004" uid="1731">
+<code>CM STORM RECON WHITE</code>
+<name>CM STORM RECON WHITE</name>
+<searchstring>COOLER MASTER WIRED OPTICAL WHITE GAMING</searchstring>
+<product_status>Обадете се</product_status>
+<haspromo>0</haspromo>
+<general_description/>
+<classname>Mouse</classname>
+<classname_full>All » Peripherals » Mouse</classname_full>
+<class_id>30</class_id>
+<price>36.90</price>
+<currency>USD</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/940.jpg</main_picture_url>
+<manufacturer id="37">COOLERMASTER</manufacturer>
+<category id="11">MOUSE</category>
+<subcategory id=""/>
+<partnum>STORM RECON WHITE / SGM-4001-WLLW1</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/940.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/940.jpg</thumbnail_url>
+</picture>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/941.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/941.jpg</thumbnail_url>
+</picture>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/945.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/945.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://www.cmstorm.com</vendor_url>
+<properties>
+<property name="Manufacturer" order="148">Cooler Master</property>
+<property name="Mnfr Part #" order="149">SGM-4001-WLLW1</property>
+<property name="Model" order="155">STORM RECON</property>
+<property name="Sensors" order="156">Avago ADNS-3090 Optical Sensor</property>
+<property name="Type" order="156">USB wired</property>
+<property name="Movement Resolution" order="158">800-4000 dpi</property>
+<property name="Wireless" order="168">-</property>
+<property name="Buttons" order="169">9</property>
+<property name="Battery" order="170">-</property>
+<property name="System requirements" order="261">Windows® 7 / Windows Vista® / Windows® XP Internet connection (for driver installation) At least 35MB of hard disk space</property>
+<property name="Other" order="262">-</property>
+<property name="Color" order="262">White</property>
+<property name="Weight" order="264">139 g</property>
+<property name="Dimensions" order="520">64.4 x 116.4 x 42 mm</property>
+<property name="Warranty" order="521">24 Months</property>
+</properties>
+</product>
+<product id="27584" uid="7">
+<code>CANON BC-06 PHOTO</code>
+<name>CANON BC-06 PHOTO</name>
+<searchstring>BJC-240 BJC-240L BJC-240P BJC-250 BJC-251 BJC-255 BJC-1000 BJC-1010</searchstring>
+<product_status>Наличен</product_status>
+<haspromo>1</haspromo>
+<general_description/>
+<classname>Ink Cartridge</classname>
+<classname_full>All » Consumables » Ink Cartridge</classname_full>
+<class_id>62</class_id>
+<price>5.75</price>
+<currency>EUR</currency>
+<main_picture_url>http://www.mostcomputers.bg/upload/3044.jpg</main_picture_url>
+<manufacturer id="22">CANON</manufacturer>
+<category id="26">CARTRIDGE</category>
+<subcategory id="283">Ink Cartr</subcategory>
+<partnum>BC-06 PHOTO / BEF45-1131300</partnum>
+<gallery>
+<picture>
+<picture_url>http://www.mostcomputers.bg/upload/3044.jpg</picture_url>
+<thumbnail_url>http://www.mostcomputers.bg/upload/3044.jpg</thumbnail_url>
+</picture>
+</gallery>
+<vendor_url>http://canon.bg</vendor_url>
+<properties>
+<property name="Manufacturer" order="92">CANON</property>
+<property name="Mnfr Part #" order="148">BEF45-1131300</property>
+<property name="Compatible" order="264">BJC-240, BJC-240L, BJC-240P, BJC-250, BJC-251, BJC-255, BJC-1000, BJC-1010.</property>
+<property name="Capacity" order="264">90</property>
+<property name="Color" order="677">-</property>
+<property name="Other" order="678">-</property>
+<property name="Warranty" order="679">-</property>
+</properties>
+</product>

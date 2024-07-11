@@ -1,0 +1,460 @@
+[
+  {
+    "product_1": {
+      "code": "RPT-800DU 800VA/AVR/USB",
+      "name": "RPT-800DU 800VA/AVR/USB",
+      "searchstring": "REPOTEC UPS LINE INTERACTIVE 800VA SIMULATED SINE WAVE 3xSCHUKO USB 2xRJ-11",
+      "product_status": "Наличен",
+      "haspromo": 0,
+      "general_description": "",
+      "classname": "Line-interactive",
+      "classname_full": "All » UPS » Line-interactive",
+      "class_id": 84,
+      "price": 44.7,
+      "currency": "USD",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/3646.jpg",
+      "manufacturer": "REPOTEC",
+      "category": "UPS",
+      "subcategory": "Line-Interactive",
+      "partnum": "RPT-800DU / RPT-800DU",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/3646.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/3646.jpg"
+        }
+      },
+      "vendor_url": "http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_400DU/RPT_400DU_33.asp",
+      "properties": {
+        "property": [
+          "Repotec",
+          "RPT-800DU",
+          "RPT-800DU",
+          "800VA/480W",
+          "Line-interactive",
+          "Voltage:110/115/120VAC or 220/230/240VAC; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).",
+          {
+            "#text": "Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:",
+            "": {
+              "property": [
+                "Communication port:USB or RS232 port",
+                "LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)",
+                "Battery Mode:Beeping twice every 8 second; Low Battery:Beeping five times every second; Overload:Beeping continuously; Fault:Beeping continuously.",
+                {
+                  "40": [
+                    "Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).",
+                    "305x98x170mm",
+                    "24 months, 12 months battery"
+                  ],
+                  "#text": "AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "product_2": {
+      "code": "CANON BCI-11BL",
+      "name": "CANON BCI-11BL",
+      "searchstring": "BJC-70 BJC-80",
+      "product_status": "Наличен",
+      "haspromo": 1,
+      "general_description": "",
+      "classname": "Ink Cartridge",
+      "classname_full": "All » Consumables » Ink Cartridge",
+      "class_id": 62,
+      "price": 5.75,
+      "currency": "EUR",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/11294.jpg",
+      "manufacturer": "CANON",
+      "category": "CARTRIDGE",
+      "subcategory": "Ink Cartridge",
+      "partnum": "Canon BCI-11BL / BEF47-0761500",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/11294.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/11294.jpg"
+        }
+      },
+      "vendor_url": "http://canon.bg",
+      "properties": {
+        "property": [
+          "CANON",
+          "BEF47-0761500",
+          "BJC-70 and BJC-80",
+          "60",
+          "BLACK",
+          "-",
+          "-"
+        ]
+      }
+    },
+    "product_3": {
+      "code": "RPT-1003DU 1000VA/AVR/USB",
+      "name": "RPT-1003DU 1000VA/AVR/USB",
+      "searchstring": "REPOTEC UPS LINE INTERACTIVE 1000VA SIMULATED SINE WAVE 3xSCHUKO USB 2xRJ-11",
+      "product_status": "Наличен",
+      "haspromo": 0,
+      "general_description": "",
+      "classname": "Line-interactive",
+      "classname_full": "All » UPS » Line-interactive",
+      "class_id": 84,
+      "price": 75.4,
+      "currency": "USD",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/4199.jpg",
+      "manufacturer": "REPOTEC",
+      "category": "UPS",
+      "subcategory": "Line-Interactive",
+      "partnum": "RPT-1003DU / RPT-1003DU",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/4199.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/4199.jpg"
+        }
+      },
+      "vendor_url": "http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_400DU/RPT_400DU_33.asp",
+      "properties": {
+        "property": [
+          "Repotec",
+          "RPT-1003DU",
+          "1KVA/600W",
+          "Line-interactive",
+          "Voltage:110/115/120VAC or 220/230/240VAC; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).",
+          {
+            "#text": "Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:",
+            "": {
+              "property": [
+                "Communication port:USB or RS232 port",
+                "LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)",
+                "Battery Mode:Beeping twice every 8 second; Low Battery:Beeping five times every second; Overload:Beeping continuously; Fault:Beeping continuously.",
+                "Voltage:24VDC; Recharge Time:5hr to 90% after complete discharge; Safety Protection:Over Charge & Discharge Protection; Advanced Battery Management:Yes; Battery Back-up Time:40 Minutes.",
+                {
+                  "#text": "AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:",
+                  "": [
+                    "Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).",
+                    "385x98x170mm",
+                    "24 months, 12 months battery"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "product_4": {
+      "code": "CANON BCI-11COLOR",
+      "name": "CANON BCI-11COLOR",
+      "searchstring": "BJC-70 NoteJet IIIcx",
+      "product_status": "Наличен",
+      "haspromo": 1,
+      "general_description": "",
+      "classname": "Ink Cartridge",
+      "classname_full": "All » Consumables » Ink Cartridge",
+      "class_id": 62,
+      "price": 5.75,
+      "currency": "EUR",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/3056.jpg",
+      "manufacturer": "CANON",
+      "category": "CARTRIDGE",
+      "subcategory": "Ink Cartridge",
+      "partnum": "BCI-11COLOR / BEF47-0771500",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/3056.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/3056.jpg"
+        }
+      },
+      "vendor_url": "http://canon.bg",
+      "properties": {
+        "property": [
+          "CANON",
+          "BEF47-0771500",
+          "BJC-70, NoteJet IIIcx",
+          "40",
+          "Cyan, Magenta, Yellow",
+          "-",
+          "-"
+        ]
+      }
+    },
+    "product_5": {
+      "code": "RPT-5720DU 2000VA /AVR/USB",
+      "name": "RPT-5720DU 2KVA/1200W W/USB",
+      "searchstring": "REPOTEC UPS LINE INTERACTIVE 2000VA SIMULATED SINE WAVE 4xSCHUKO 2xIEC-320 USB 2xRJ-45",
+      "product_status": "Наличен",
+      "haspromo": 0,
+      "general_description": "",
+      "classname": "Line-interactive",
+      "classname_full": "All » UPS » Line-interactive",
+      "class_id": 84,
+      "price": 125.5,
+      "currency": "USD",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/36996.png",
+      "manufacturer": "REPOTEC",
+      "category": "UPS",
+      "subcategory": "Line-Interactive",
+      "partnum": "RPT-5720DU / RPT-5720DU",
+      "gallery": {
+        "picture": [
+          {
+            "picture_url": "http://www.mostcomputers.bg/upload/36996.png",
+            "thumbnail_url": "http://www.mostcomputers.bg/upload/36996.png"
+          },
+          {
+            "picture_url": "http://www.mostcomputers.bg/upload/36997.png",
+            "thumbnail_url": "http://www.mostcomputers.bg/upload/36997.png"
+          }
+        ]
+      },
+      "vendor_url": "https://www.repotec.com/index.php/ups/line-interactive-ups/rpt-5715du/",
+      "properties": {
+        "property": [
+          "2000VA/1200W",
+          "Voltage:220/230/240Vac; Voltage Range: -30%,+25%; Frequency:50/60Hz(auto-sensing); Type of Plug:German input power cable",
+          {
+            "#text": "Voltage (DC mode):220/230/240Vac +/-10%; Frequency:50/60Hz +/-1Hz; Waveform:Simulated Sinewave; Steps of Regulation:II Boost + I Buck; Transfer Time:",
+            "6ms": {
+              "property": [
+                "LED indicator",
+                "AC normal (Green), Batt. Backup (Yellow), UPS cut off / fault (Red)",
+                "Voltage:24VDC; Type:12V/9AH*2pcs; Recharge Time(to 90%):5H",
+                "Humidity: 0-95% non-condensing; Temperature:0-40°C; Overload Protection:Yes Short Circuit Protection:AC fuse and Electornics Circuit Auto-recharge:Yes Auto-restart:Yes Battery Door Design Casing:Yes",
+                "343 x 135 x 208mm",
+                "24 Months"
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "product_6": {
+      "code": "RPT-800DU 800VA/AVR/USB",
+      "name": "RPT-800DU 800VA/AVR/USB",
+      "searchstring": "REPOTEC UPS LINE INTERACTIVE 800VA SIMULATED SINE WAVE 3xSCHUKO USB 2xRJ-11",
+      "product_status": "Наличен",
+      "haspromo": 0,
+      "general_description": "",
+      "classname": "Line-interactive",
+      "classname_full": "All » UPS » Line-interactive",
+      "class_id": 84,
+      "price": 44.7,
+      "currency": "USD",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/3646.jpg",
+      "manufacturer": "REPOTEC",
+      "category": "UPS",
+      "subcategory": "Line-Interactive",
+      "partnum": "RPT-800DU / RPT-800DU",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/3646.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/3646.jpg"
+        }
+      },
+      "vendor_url": "http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_400DU/RPT_400DU_33.asp",
+      "properties": {
+        "property": [
+          "Repotec",
+          "RPT-800DU",
+          "RPT-800DU",
+          "800VA/480W",
+          "Line-interactive",
+          "Voltage:110/115/120VAC or 220/230/240VAC; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).",
+          {
+            "#text": "Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:",
+            "": {
+              "property": [
+                "Communication port:USB or RS232 port",
+                "LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)",
+                "Battery Mode:Beeping twice every 8 second; Low Battery:Beeping five times every second; Overload:Beeping continuously; Fault:Beeping continuously.",
+                {
+                  "40": [
+                    "Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).",
+                    "305x98x170mm",
+                    "24 months, 12 months battery"
+                  ],
+                  "#text": "AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:"
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "product_7": {
+      "code": "CANON BCI-11BL",
+      "name": "CANON BCI-11BL",
+      "searchstring": "BJC-70 BJC-80",
+      "product_status": "Наличен",
+      "haspromo": 1,
+      "general_description": "",
+      "classname": "Ink Cartridge",
+      "classname_full": "All » Consumables » Ink Cartridge",
+      "class_id": 62,
+      "price": 5.75,
+      "currency": "EUR",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/11294.jpg",
+      "manufacturer": "CANON",
+      "category": "CARTRIDGE",
+      "subcategory": "Ink Cartridge",
+      "partnum": "Canon BCI-11BL / BEF47-0761500",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/11294.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/11294.jpg"
+        }
+      },
+      "vendor_url": "http://canon.bg",
+      "properties": {
+        "property": [
+          "CANON",
+          "BEF47-0761500",
+          "BJC-70 and BJC-80",
+          "60",
+          "BLACK",
+          "-",
+          "-"
+        ]
+      }
+    },
+    "product_8": {
+      "code": "RPT-1003DU 1000VA/AVR/USB",
+      "name": "RPT-1003DU 1000VA/AVR/USB",
+      "searchstring": "REPOTEC UPS LINE INTERACTIVE 1000VA SIMULATED SINE WAVE 3xSCHUKO USB 2xRJ-11",
+      "product_status": "Наличен",
+      "haspromo": 0,
+      "general_description": "",
+      "classname": "Line-interactive",
+      "classname_full": "All » UPS » Line-interactive",
+      "class_id": 84,
+      "price": 75.4,
+      "currency": "USD",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/4199.jpg",
+      "manufacturer": "REPOTEC",
+      "category": "UPS",
+      "subcategory": "Line-Interactive",
+      "partnum": "RPT-1003DU / RPT-1003DU",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/4199.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/4199.jpg"
+        }
+      },
+      "vendor_url": "http://www.repotec.com/products/UPS/LineinteractiveUPS/RPT_400DU/RPT_400DU_33.asp",
+      "properties": {
+        "property": [
+          "Repotec",
+          "RPT-1003DU",
+          "1KVA/600W",
+          "Line-interactive",
+          "Voltage:110/115/120VAC or 220/230/240VAC; Voltage Range:-30%+25%; Frequency:50Hz or 60Hz (Auto Sensing).",
+          {
+            "#text": "Voltage Regulation(Batt. Mode):110/115/120VAC or 220/230/240VAC +/-10%; Frequency:50Hz or 60Hz +/- 1Hz; Waveform:Simulated Sine wave; Transfer Time:",
+            "": {
+              "property": [
+                "Communication port:USB or RS232 port",
+                "LED status indicator:Normal (Green), Battery (Yellow), UPS cut off (Red)",
+                "Battery Mode:Beeping twice every 8 second; Low Battery:Beeping five times every second; Overload:Beeping continuously; Fault:Beeping continuously.",
+                "Voltage:24VDC; Recharge Time:5hr to 90% after complete discharge; Safety Protection:Over Charge & Discharge Protection; Advanced Battery Management:Yes; Battery Back-up Time:40 Minutes.",
+                {
+                  "#text": "AVR (Auto. Voltage Regulation):2 Boost + 1 Buck; DC Start Function:Yes; Auto. Restart UPS:Yes; Over/Under voltage protection:Yes; No load Cut-off (Green mode):Yes; Slience the Audible Alarm:Yes; Off Mode Charging:Yes; Short Circuit Protection:AC fuse and Electronics circuit(Line mode) . Electronics circuit(Back-up Mode); Lightning/ Surge Protection:99 Joules(110/115/120VAC) / 175 Joules (220/230/240VAC); Modem/Phone protection (Optional):RJ-11; Operating Temperature:0° C - 40° C (32℉~104℉); Humidity:0-95% (No condensing); Audible Noise:",
+                  "": [
+                    "Safety Standard:CE (EN62040-1-1, EN50091-1); EMC Standard:FCC Part 15 Class B, CE(EN50091-2, EN61000-3-2, EN61000-3-3).",
+                    "385x98x170mm",
+                    "24 months, 12 months battery"
+                  ]
+                }
+              ]
+            }
+          }
+        ]
+      }
+    },
+    "product_9": {
+      "code": "CANON BCI-11COLOR",
+      "name": "CANON BCI-11COLOR",
+      "searchstring": "BJC-70 NoteJet IIIcx",
+      "product_status": "Наличен",
+      "haspromo": 1,
+      "general_description": "",
+      "classname": "Ink Cartridge",
+      "classname_full": "All » Consumables » Ink Cartridge",
+      "class_id": 62,
+      "price": 5.75,
+      "currency": "EUR",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/3056.jpg",
+      "manufacturer": "CANON",
+      "category": "CARTRIDGE",
+      "subcategory": "Ink Cartridge",
+      "partnum": "BCI-11COLOR / BEF47-0771500",
+      "gallery": {
+        "picture": {
+          "picture_url": "http://www.mostcomputers.bg/upload/3056.jpg",
+          "thumbnail_url": "http://www.mostcomputers.bg/upload/3056.jpg"
+        }
+      },
+      "vendor_url": "http://canon.bg",
+      "properties": {
+        "property": [
+          "CANON",
+          "BEF47-0771500",
+          "BJC-70, NoteJet IIIcx",
+          "40",
+          "Cyan, Magenta, Yellow",
+          "-",
+          "-"
+        ]
+      }
+    },
+    "product_10": {
+      "code": "RPT-5720DU 2000VA /AVR/USB",
+      "name": "RPT-5720DU 2KVA/1200W W/USB",
+      "searchstring": "REPOTEC UPS LINE INTERACTIVE 2000VA SIMULATED SINE WAVE 4xSCHUKO 2xIEC-320 USB 2xRJ-45",
+      "product_status": "Наличен",
+      "haspromo": 0,
+      "general_description": "",
+      "classname": "Line-interactive",
+      "classname_full": "All » UPS » Line-interactive",
+      "class_id": 84,
+      "price": 125.5,
+      "currency": "USD",
+      "main_picture_url": "http://www.mostcomputers.bg/upload/36996.png",
+      "manufacturer": "REPOTEC",
+      "category": "UPS",
+      "subcategory": "Line-Interactive",
+      "partnum": "RPT-5720DU / RPT-5720DU",
+      "gallery": {
+        "picture": [
+          {
+            "picture_url": "http://www.mostcomputers.bg/upload/36996.png",
+            "thumbnail_url": "http://www.mostcomputers.bg/upload/36996.png"
+          },
+          {
+            "picture_url": "http://www.mostcomputers.bg/upload/36997.png",
+            "thumbnail_url": "http://www.mostcomputers.bg/upload/36997.png"
+          }
+        ]
+      },
+      "vendor_url": "https://www.repotec.com/index.php/ups/line-interactive-ups/rpt-5715du/",
+      "properties": {
+        "property": [
+          "2000VA/1200W",
+          "Voltage:220/230/240Vac; Voltage Range: -30%,+25%; Frequency:50/60Hz(auto-sensing); Type of Plug:German input power cable",
+          {
+            "#text": "Voltage (DC mode):220/230/240Vac +/-10%; Frequency:50/60Hz +/-1Hz; Waveform:Simulated Sinewave; Steps of Regulation:II Boost + I Buck; Transfer Time:",
+            "6ms": {
+              "property": [
+                "LED indicator",
+                "AC normal (Green), Batt. Backup (Yellow), UPS cut off / fault (Red)",
+                "Voltage:24VDC; Type:12V/9AH*2pcs; Recharge Time(to 90%):5H",
+                "Humidity: 0-95% non-condensing; Temperature:0-40°C; Overload Protection:Yes Short Circuit Protection:AC fuse and Electornics Circuit Auto-recharge:Yes Auto-restart:Yes Battery Door Design Casing:Yes",
+                "343 x 135 x 208mm",
+                "24 Months"
+              ]
+            }
+          }
+        ]
+      }
+    }
+  }
+]
