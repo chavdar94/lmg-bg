@@ -7,6 +7,11 @@ const nextConfig = {
         hostname: "www.mostcomputers.bg",
         pathname: "/upload/**",
       },
+      {
+        protocol: "http",
+        hostname: "www.mostcomputers.bg",
+        pathname: "/primotionupload/**",
+      },
     ],
   },
 };
