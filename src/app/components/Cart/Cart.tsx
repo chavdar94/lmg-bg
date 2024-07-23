@@ -70,7 +70,7 @@ const Cart = () => {
 
                 <div className="flex">
                   <span className="flex-1">Общо:</span>
-                  <span>{formatPrice(cartTotal)}</span>
+                  <span>{formatPrice(cartTotal + shipping)}</span>
                 </div>
               </div>
 

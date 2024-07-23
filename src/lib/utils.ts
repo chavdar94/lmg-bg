@@ -10,12 +10,13 @@ export function formatPrice(
   options: {
     currency?: "USD" | "EUR" | "BGN";
     notation?: Intl.NumberFormatOptions["notation"];
+    IntlFormat?: "en-US" | "bg-BG";
   } = {}
 ) {
   const { currency = "BGN", notation = "standard" } = options;
   const numericPrice = typeof price === "string" ? parseFloat(price) : price;
 
-  return new Intl.NumberFormat("en-US", {
+  return new Intl.NumberFormat(options.IntlFormat || "en-US", {
     style: "currency",
     currency,
     notation,

@@ -1,6 +1,7 @@
 import { Product } from "@/definitions/types";
 import Image from "next/image";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
+import { formatPrice } from "@/lib/utils";
 
 const ProductCard = ({ product }: { product: Product }) => {
   return (
@@ -17,7 +18,13 @@ const ProductCard = ({ product }: { product: Product }) => {
           <p className="px-2 text-xs mt-2">
             {product.name} - {product.category}
           </p>
-          <p className="px-2 font-bold">{product.price} лв.</p>
+          <p className="px-2 font-bold">
+            {formatPrice(product.price!, {
+              currency: "BGN",
+              notation: "standard",
+              IntlFormat: "bg-BG",
+            })}
+          </p>
         </div>
         <div className="px-4 mt-auto">
           {/* <button className="border border-slate-200 w-full text-sm cursor-pointer px-4 py-1 font-bold hover:bg-slate-600 hover:text-slate-100 transition-colors duration-300 ease-in-out">

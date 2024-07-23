@@ -1,10 +1,4 @@
-// type JsonValue = string | number | boolean | JsonObject | JsonValue[];
-
-import { JsonValue } from "@prisma/client/runtime/library";
-
-// interface JsonObject {
-//   [key: string]: JsonValue;
-// }
+import { JsonValue, JsonArray } from "@prisma/client/runtime/library";
 
 export type Product = {
   id: string;
@@ -19,7 +13,7 @@ export type Product = {
   subcategory: string | null;
   partnum: string | null;
   vendor_url: string | null;
-  properties: JsonValue;
+  properties: JsonArray | JsonValue;
   created_at: Date;
 };
 

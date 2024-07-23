@@ -13,11 +13,38 @@ async function ProductDetails({ params }: { params: { productId: string } }) {
     }
   );
   const product: Product = await response.json();
-  const properties = JSON.parse(product.properties);
+
+  const isValidProperty = (
+    property: any
+  ): property is { name: string; value: string } => {
+    return (
+      typeof property === "object" &&
+      property !== null &&
+      typeof property.name === "string" &&
+      typeof property.value === "string"
+    );
+  };
+
+  let properties: Array<{ name: string; value: string }> = [];
+  if (typeof product.properties === "string") {
+    try {
+      const parsed = JSON.parse(product.properties);
+      if (Array.isArray(parsed) && parsed.every(isValidProperty)) {
+        properties = parsed;
+      }
+    } catch (error) {
+      console.error("Failed to parse properties:", error);
+    }
+  } else if (
+    Array.isArray(product.properties) &&
+    product.properties.every(isValidProperty)
+  ) {
+    properties = product.properties;
+  }
 
   return (
     <div className="flex flex-row justify-center items-center gap-4">
-      {properties.map((property: any, index: number) => (
+      {properties.map((property, index) => (
         <div className="flex flex-row bg-red-200" key={index}>
           <p>
             <strong>{property.name}:</strong>
@@ -28,4 +55,5 @@ async function ProductDetails({ params }: { params: { productId: string } }) {
     </div>
   );
 }
+
 export default ProductDetails;
