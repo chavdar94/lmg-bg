@@ -45,12 +45,7 @@ const NewsCarousel = () => {
           {data.map((item) => (
             <CarouselItem key={item.id}>
               <div className="w-full h-96 relative">
-                <Image
-                  src={item.img}
-                  alt={item.description}
-                  layout="fill"
-                  objectFit="fill"
-                />
+                <Image src={item.img} alt={item.description} fill />
               </div>
             </CarouselItem>
           ))}

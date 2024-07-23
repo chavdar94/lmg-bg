@@ -4,7 +4,6 @@ import "./globals.css";
 import Header from "./components/Header/Header";
 import WidthContainer from "./components/WidthContainer";
 import SubNav from "./components/SubNav/SubNav";
-import LatestNews from "./components/LatestNews/LatestNews";
 import Footer from "./components/Footer/Footer";
 import MobileCategories from "./components/MobileCategories/MobileCategories";
 
@@ -22,12 +21,13 @@ export default function RootLayout({
 }>) {
   return (
     <html lang="en">
-      <body className={`${inter.className} max-w-screen`}>
+      <body
+        className={`${inter.className} max-w-[100dvw] min-h-[100dvh] grid grid-rows-[auto_1fr_auto]`}
+      >
         <Header />
         <WidthContainer className="px-4 md:px-24 lg:px-36 xl:px-96 flex flex-col">
           <SubNav />
           <MobileCategories />
-          <LatestNews />
           {children}
         </WidthContainer>
         <Footer />
