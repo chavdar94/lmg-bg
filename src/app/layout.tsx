@@ -1,11 +1,11 @@
 import type { Metadata } from "next";
 import { Inter } from "next/font/google";
 import "./globals.css";
-import Header from "./components/Header/Header";
-import WidthContainer from "./components/WidthContainer";
-import SubNav from "./components/SubNav/SubNav";
-import Footer from "./components/Footer/Footer";
-import MobileCategories from "./components/MobileCategories/MobileCategories";
+import Header from "../components/Header/Header";
+import WidthContainer from "../components/WidthContainer";
+import SubNav from "../components/SubNav/SubNav";
+import Footer from "../components/Footer/Footer";
+import MobileCategories from "../components/MobileCategories/MobileCategories";
 
 const inter = Inter({ subsets: ["latin"] });
 

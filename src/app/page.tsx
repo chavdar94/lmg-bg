@@ -1,5 +1,5 @@
-import ProductsSection from "./components/ProductsSection/ProductsSection";
-import LatestNews from "./components/LatestNews/LatestNews";
+import ProductsSection from "../components/ProductsSection/ProductsSection";
+import LatestNews from "../components/LatestNews/LatestNews";
 import { Products, CartProduct } from "@/definitions/types";
 import db from "@/lib/client";
 

@@ -7,11 +7,9 @@ import {
   SheetHeader,
   SheetTitle,
   SheetTrigger,
-} from "@/app/components/ui/sheet";
+} from "@/components/ui/sheet";
 import { formatPrice } from "@/lib/utils";
 import { ShoppingCart } from "lucide-react";
-import Link from "next/link";
-import { buttonVariants } from "../ui/button";
 import Image from "next/image";
 import { useCart } from "@/hooks/use-cart";
 import CartProduct from "./CartItem";
@@ -20,6 +18,8 @@ import { useState } from "react";
 import { useEffect } from "react";
 import { Separator } from "../ui/separator";
 import { X } from "lucide-react";
+import Link from "next/link";
+import { buttonVariants } from "../ui/button";
 
 const Cart = () => {
   const { items, clearCart } = useCart();
@@ -90,10 +90,10 @@ const Cart = () => {
               <SheetFooter>
                 <SheetTrigger asChild>
                   <Link
-                    href="/cart"
+                    href="/order"
                     className={buttonVariants({ className: "w-full" })}
                   >
-                    Поръчаи
+                    Продължи към поръчката
                   </Link>
                 </SheetTrigger>
               </SheetFooter>

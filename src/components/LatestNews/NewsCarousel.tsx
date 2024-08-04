@@ -7,9 +7,9 @@ import {
   CarouselItem,
   CarouselNext,
   CarouselPrevious,
-} from "@/app/components/ui/carousel";
+} from "@/components/ui/carousel";
 import data from "@/data/carousel.json";
-import { type CarouselApi } from "@/app/components/ui/carousel";
+import { type CarouselApi } from "@/components/ui/carousel";
 import Autoplay from "embla-carousel-autoplay";
 import Image from "next/image"; // Import Image from next/image
 
