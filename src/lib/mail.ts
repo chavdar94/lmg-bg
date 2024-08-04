@@ -7,7 +7,7 @@ export async function sendMail({
   items: CartProduct[];
   email: string;
 }) {
-  const response = await fetch("http://localhost:3000/api/emails", {
+  const response = await fetch("https://lmg-bg.vercel.app/api/emails", {
     method: "POST",
     headers: {
       "Content-Type": "application/json",
