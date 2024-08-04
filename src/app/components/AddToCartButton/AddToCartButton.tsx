@@ -4,9 +4,9 @@ import { useEffect } from "react";
 import { useState } from "react";
 import { Button } from "../ui/button";
 import { useCart } from "@/hooks/use-cart";
-import { Product } from "@/definitions/types";
+import { CartProduct } from "@/definitions/types";
 
-const AddToCartButton = ({ product }: { product: Product }) => {
+const AddToCartButton = ({ product }: { product: CartProduct }) => {
   const { addItem } = useCart();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
 
