@@ -4,6 +4,7 @@ import Image from "next/image";
 import { Separator } from "../ui/separator";
 import { useCart } from "@/hooks/use-cart";
 import { X } from "lucide-react";
+import { Plus, Minus } from "lucide-react";
 
 function CartProduct({ product }: { product: CartProductType }) {
   const { decreaseItem, addItem, removeItem } = useCart();
@@ -47,9 +48,16 @@ function CartProduct({ product }: { product: CartProductType }) {
               {formatPrice(product.price! * product.quantity!)}
             </span>
             <div className="flex items-center justify-center gap-3 text-sm pt-2">
-              <button onClick={() => decreaseItem(product.id)}>-</button>
+              <button
+                className="text-xl"
+                onClick={() => decreaseItem(product.id)}
+              >
+                <Minus size={14} />
+              </button>
               <p>{product.quantity}</p>
-              <button onClick={() => addItem(product)}>+</button>
+              <button className="text-md" onClick={() => addItem(product)}>
+                <Plus size={14} />
+              </button>
             </div>
           </div>
         </div>

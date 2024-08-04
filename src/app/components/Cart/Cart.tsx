@@ -23,7 +23,10 @@ import { X } from "lucide-react";
 
 const Cart = () => {
   const { items, clearCart } = useCart();
-  let itemCount = items.length;
+  let itemCount = items.reduce(
+    (total, product) => total + product.quantity!,
+    0
+  );
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
 
@@ -35,7 +38,7 @@ const Cart = () => {
     (total, product) => total + product.price! * product.quantity!,
     0
   );
-  const shipping = 5.99;
+  const shipping = cartTotal < 100 ? 5.99 : 0;
 
   return (
     <Sheet>
@@ -73,7 +76,9 @@ const Cart = () => {
               <div className="spce-y-1.5 text-sm">
                 <div className="flex">
                   <span className="flex-1">Доставка:</span>
-                  <span>{formatPrice(shipping)}</span>
+                  <span>
+                    {shipping === 0 ? "Безплатна" : formatPrice(shipping)}
+                  </span>
                 </div>
 
                 <div className="flex">
