@@ -19,7 +19,10 @@ type EmailOrderProps = {
 
 export default function EmailOrder({ items, email }: EmailOrderProps) {
   // Calculate the total sum of all items
-  const totalSum = items.reduce((sum, item) => sum + (item.price ?? 0), 0);
+  let totalSum = items.reduce(
+    (sum, item) => sum + (item.price! * item.quantity! ?? 0),
+    0
+  );
 
   return (
     <Html>
@@ -100,6 +103,7 @@ export default function EmailOrder({ items, email }: EmailOrderProps) {
                       marginTop: "5px",
                     }}
                   >
+                    {product.quantity} бр. x{" "}
                     {formatPrice(product.price!, {
                       currency: "BGN",
                       notation: "standard",
@@ -129,6 +133,15 @@ export default function EmailOrder({ items, email }: EmailOrderProps) {
                   notation: "standard",
                   IntlFormat: "bg-BG",
                 })}
+                <Text
+                  style={{
+                    fontSize: "14px",
+                    fontStyle: "italic",
+                    color: "#5a5858",
+                  }}
+                >
+                  Цената е без включена доставка!
+                </Text>
               </Text>
             </Section>
           </Section>

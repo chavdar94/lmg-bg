@@ -1,5 +1,4 @@
 import { CartProduct } from "@/definitions/types";
-import Image from "next/image";
 import OrderItem from "./OrderItem";
 
 function OrderPageItems({ items }: { items: CartProduct[] }) {
