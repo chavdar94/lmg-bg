@@ -1,12 +1,12 @@
-import { Product } from "@/definitions/types";
+import { CartProduct as CartProductType } from "@/definitions/types";
 import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import { useCart } from "@/hooks/use-cart";
 import { X } from "lucide-react";
 
-function CartProduct({ product }: { product: Product }) {
-  const { removeItem } = useCart();
+function CartProduct({ product }: { product: CartProductType }) {
+  const { decreaseItem, addItem, removeItem } = useCart();
 
   return (
     <>
@@ -44,8 +44,13 @@ function CartProduct({ product }: { product: Product }) {
 
           <div className="flex flex-col space-y-1 font-medium">
             <span className="ml-auto line-clamp-1 text-sm">
-              {formatPrice(product.price!)}
+              {formatPrice(product.price! * product.quantity)}
             </span>
+            <div className="flex items-center justify-center gap-3 text-sm pt-2">
+              <button onClick={() => decreaseItem(product.id)}>-</button>
+              <p>{product.quantity}</p>
+              <button onClick={() => addItem(product)}>+</button>
+            </div>
           </div>
         </div>
       </div>

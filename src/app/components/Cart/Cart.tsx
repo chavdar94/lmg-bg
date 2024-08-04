@@ -19,9 +19,10 @@ import { ScrollArea } from "../ui/scroll-area";
 import { useState } from "react";
 import { useEffect } from "react";
 import { Separator } from "../ui/separator";
+import { X } from "lucide-react";
 
 const Cart = () => {
-  const { items } = useCart();
+  const { items, clearCart } = useCart();
   let itemCount = items.length;
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -31,7 +32,7 @@ const Cart = () => {
   }, []);
 
   const cartTotal = items.reduce(
-    (total, { product }) => total + product.price!,
+    (total, product) => total + product.price! * product.quantity,
     0
   );
   const shipping = 5.99;
@@ -55,11 +56,18 @@ const Cart = () => {
           <>
             <ScrollArea>
               <div className="flex w-full flex-col pr-6">
-                {items.map(({ product }) => (
+                {items.map((product) => (
                   <CartProduct key={product.id} product={product} />
                 ))}
               </div>
             </ScrollArea>
+            <div
+              className="flex items-center text-muted-foreground text-xs cursor-pointer"
+              onClick={clearCart}
+            >
+              <X className="w-4 h-4" />
+              <p>Изчисти количката</p>
+            </div>
             <Separator />
             <div className="space-y-4 pr-6">
               <div className="spce-y-1.5 text-sm">
