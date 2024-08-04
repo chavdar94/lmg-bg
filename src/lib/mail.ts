@@ -1,4 +1,5 @@
 import { CartProduct } from "@/definitions/types";
+const baseUrl = process.env.NEXT_PUBLIC_EMAIL_URL;
 
 export async function sendMail({
   items,
@@ -7,7 +8,7 @@ export async function sendMail({
   items: CartProduct[];
   email: string;
 }) {
-  const response = await fetch("https://lmg-bg.vercel.app/api/emails", {
+  const response = await fetch(baseUrl as string, {
     method: "POST",
     headers: {
       "Content-Type": "application/json",

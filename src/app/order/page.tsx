@@ -5,15 +5,18 @@ import { buttonVariants } from "@/components/ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { sendMail } from "@/lib/mail";
 import { useState } from "react";
-import { PartyPopperIcon, RocketIcon } from "lucide-react";
+import { PartyPopperIcon } from "lucide-react";
+import { Spinner } from "@/components/ui/spinner";
 
 export default function OrderPage() {
   const [email, setEmail] = useState("");
   const [success, setSuccess] = useState(false);
   const [error, setError] = useState(false);
+  const [loading, setLoading] = useState(false);
   const { items, clearCart } = useCart();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
+    setLoading(true);
     e.preventDefault();
     if (!email) {
       setError(true);
@@ -25,6 +28,7 @@ export default function OrderPage() {
     }
     setEmail("");
     clearCart();
+    setLoading(false);
   };
 
   return (
@@ -50,8 +54,14 @@ export default function OrderPage() {
               className="w-full border-2 border-slate-300 p-2 rounded-md"
             />
           </div>
-          <button className={buttonVariants({ className: "m-auto w-1/2" })}>
+          <button
+            disabled={loading}
+            className={buttonVariants({ className: "m-auto w-1/2" })}
+          >
             Поръчаи
+            {loading && (
+              <Spinner className="text-slate-100 ml-4" size={"small"} />
+            )}
           </button>
         </form>
       )}
