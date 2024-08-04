@@ -32,7 +32,7 @@ const Cart = () => {
   }, []);
 
   const cartTotal = items.reduce(
-    (total, product) => total + product.price! * product.quantity,
+    (total, product) => total + product.price! * product.quantity!,
     0
   );
   const shipping = 5.99;

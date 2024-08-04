@@ -2,7 +2,6 @@
 
 import { useEffect } from "react";
 import { useState } from "react";
-import { Button } from "../ui/button";
 import { useCart } from "@/hooks/use-cart";
 import { CartProduct } from "@/definitions/types";
 

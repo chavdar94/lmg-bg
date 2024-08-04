@@ -1,6 +1,6 @@
 import ProductsSection from "./components/ProductsSection/ProductsSection";
 import LatestNews from "./components/LatestNews/LatestNews";
-import { Products } from "@/definitions/types";
+import { Products, CartProduct } from "@/definitions/types";
 import db from "@/lib/client";
 
 export default async function Home() {
@@ -9,10 +9,15 @@ export default async function Home() {
     take: 10,
   });
 
+  const productsWithQuantity: CartProduct[] = products.map((product) => ({
+    ...product,
+    quantity: undefined,
+  }));
+
   return (
     <>
       <LatestNews />
-      <ProductsSection products={products} />
+      <ProductsSection products={productsWithQuantity} />
     </>
   );
 }

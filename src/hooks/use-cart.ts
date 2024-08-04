@@ -30,7 +30,7 @@ export const useCart = create<CartState>()(
             const existingItem = state.items[existingItemIndex];
             const updateItem = {
               ...existingItem,
-              quantity: existingItem.quantity + 1,
+              quantity: existingItem.quantity! + 1,
             };
             updatedItems[existingItemIndex] = updateItem;
           } else {

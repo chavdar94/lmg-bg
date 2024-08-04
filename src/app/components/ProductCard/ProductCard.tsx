@@ -1,9 +1,9 @@
-import { Product } from "@/definitions/types";
+import { CartProduct } from "@/definitions/types";
 import Image from "next/image";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
 import { formatPrice } from "@/lib/utils";
 
-const ProductCard = ({ product }: { product: Product }) => {
+const ProductCard = ({ product }: { product: CartProduct }) => {
   return (
     <div className="border-2 flex flex-col justify-between text-center hover:border-3 hover:border-slate-300 hover:shadow-lg transition-all duration-300 ease-in-out w-full max-w-xs p-4">
       <div className="flex flex-col justify-between h-full">
