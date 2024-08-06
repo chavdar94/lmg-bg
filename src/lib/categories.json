@@ -1,0 +1,118 @@
+{
+  "UPS": {
+    "name": "UPS",
+    "img": "/categoriesImages/ups.jpg"
+  },
+  "CARTRIDGE": {
+    "name": "Касети",
+    "img": "/categoriesImages/cartridge.jpg"
+  },
+  "MOUSE": {
+    "name": "Мишки",
+    "img": "/categoriesImages/mouse.jpg"
+  },
+  "CONTR I/O": {
+    "name": "Контролен I/O",
+    "img": "/categoriesImages/io.jpg"
+  },
+  "GSM": {
+    "name": "GSM",
+    "img": "/categoriesImages/gsm.jpg"
+  },
+  "GAMES": {
+    "name": "Игри",
+    "img": "/categoriesImages/games.jpg"
+  },
+  "TEL - FAX": {
+    "name": "Тел - Факс",
+    "img": "/categoriesImages/tel-fax.jpg"
+  },
+  "SCANER": {
+    "name": "Скенери",
+    "img": "/categoriesImages/scanner.jpg"
+  },
+  "KEYBOARD": {
+    "name": "Клавиатури",
+    "img": "/categoriesImages/keyboard.jpg"
+  },
+  "LAN": {
+    "name": "ЛАН",
+    "img": "/categoriesImages/lan.jpg"
+  },
+  "FAN": {
+    "name": "Вентилатори",
+    "img": "/categoriesImages/fan.jpg"
+  },
+  "CD MEDIA": {
+    "name": "CD Медия",
+    "img": "/categoriesImages/cd-media.jpg"
+  },
+  "M - MEDIA": {
+    "name": "Мултимедия",
+    "img": "/categoriesImages/multimedia.jpg"
+  },
+  "NOTEBOOK": {
+    "name": "Лаптопи",
+    "img": "/categoriesImages/notebook.jpg"
+  },
+  "MAIN BOARD": {
+    "name": "Дънни платки",
+    "img": "/categoriesImages/main-board.jpg"
+  },
+  "WEB CAMERA": {
+    "name": "Уеб камери",
+    "img": "/categoriesImages/web-camera.jpg"
+  },
+  "COMPUTER": {
+    "name": "Компютри",
+    "img": "/categoriesImages/computer.jpg"
+  },
+  "HP CONSUMABLES": {
+    "name": "HP Консумативи",
+    "img": "/categoriesImages/hp-consums.jpg"
+  },
+  "PRINTER": {
+    "name": "Принтери",
+    "img": "/categoriesImages/printer.jpg"
+  },
+  "HP": {
+    "name": "HP",
+    "img": "/categoriesImages/hp.jpg"
+  },
+  "CASE": {
+    "name": "Кутии",
+    "img": "/categoriesImages/case.jpg"
+  },
+  "RAM": {
+    "name": "RAM",
+    "img": "/categoriesImages/ram.jpg"
+  },
+  "MONITOR": {
+    "name": "Монитори",
+    "img": "/categoriesImages/monitor.jpg"
+  },
+  "SOFTWARE": {
+    "name": "Софтуер",
+    "img": "/categoriesImages/software.jpg"
+  },
+  "VIDEO CARD": {
+    "name": "Видео карти",
+    "img": "/categoriesImages/video-card.jpg"
+  },
+  "FLASH": {
+    "name": "Флаш памет",
+    "img": "/categoriesImages/flash.jpg"
+  },
+  "CD": {
+    "name": "CD",
+    "img": "/categoriesImages/cd.jpg"
+  },
+  "CPU": {
+    "name": "Процесори",
+    "img": "/categoriesImages/cpu.jpg"
+  },
+  "HDD": {
+    "name": "Твърди дискове",
+    "img": "/categoriesImages/hdd.jpg"
+  }
+}

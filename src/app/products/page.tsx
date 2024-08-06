@@ -1,143 +1,48 @@
+import db from "@/lib/client";
 import Image from "next/image";
+import categoriesJson from "@/lib/categories.json";
+import Link from "next/link";
+import CategoryCard from "@/components/ProductCard/CategoryCard";
 
-function CategoryPage({ searchParams }: { searchParams: any }) {
-  console.log(searchParams);
+// Define the type for categories
+interface Category {
+  name: string;
+  img: string;
+}
+
+// Define the type for the categories JSON object
+const categoriesData: Record<string, Category> = categoriesJson;
+
+async function CategoryPage() {
+  const categories = await db.products.findMany({
+    distinct: ["category"],
+    select: {
+      category: true,
+    },
+  });
 
   return (
-    <div className="flex justify-center items-center flex-wrap gap-4">
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
-      <div className="border border-2-black text-center">
-        <Image
-          src="http://www.mostcomputers.bg/upload/19531.png"
-          width={100}
-          height={100}
-          alt="logo"
-          className="w-48 h-48 object-contain mx-auto"
-        />
-        Мишки
-      </div>
+    <div className="flex justify-center items-center flex-wrap gap-6 h-full mt-10">
+      {categories.map((cat) => {
+        if (cat.category && categoriesData[cat.category]) {
+          return (
+            <Link
+              href={`/products/${cat.category.toLocaleLowerCase()}`}
+              key={cat.category}
+              className="text-center rounded-xl hover:shadow-lg transition-all duration-300 ease-in-out"
+            >
+              <CategoryCard
+                name={categoriesData[cat.category].name}
+                img={categoriesData[cat.category].img}
+              />
+            </Link>
+          );
+        } else {
+          return null;
+        }
+      })}
     </div>
   );
 }
+
 export default CategoryPage;
