@@ -8,7 +8,7 @@ const ProductCard = ({ product }: { product: CartProduct }) => {
   return (
     <div className="border-2 flex flex-col justify-between text-center  hover:shadow-lg transition-all duration-300 ease-in-out w-full h-[400px] max-w-xs p-4">
       <div className="flex flex-col justify-between h-full">
-        <Link href={`/products/${product.category}/${product.id}`}>
+        <Link href={`/products/${product.slug}/${product.id}`}>
           <div className="flex flex-col justify-around mb-6">
             <Image
               src={

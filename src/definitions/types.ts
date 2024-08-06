@@ -15,6 +15,7 @@ export type Product = {
   vendor_url: string | null;
   properties: JsonArray | JsonValue;
   created_at: Date;
+  slug: string;
 };
 
 export type Products = Product[];

@@ -1,5 +1,4 @@
 import db from "@/lib/client";
-import Image from "next/image";
 import categoriesJson from "@/lib/categories.json";
 import Link from "next/link";
 import CategoryCard from "@/components/ProductCard/CategoryCard";
@@ -8,6 +7,7 @@ import CategoryCard from "@/components/ProductCard/CategoryCard";
 interface Category {
   name: string;
   img: string;
+  slug: string;
 }
 
 // Define the type for the categories JSON object
@@ -18,6 +18,10 @@ async function CategoryPage() {
     distinct: ["category"],
     select: {
       category: true,
+      slug: true,
+    },
+    orderBy: {
+      category: "asc",
     },
   });
 
@@ -27,7 +31,7 @@ async function CategoryPage() {
         if (cat.category && categoriesData[cat.category]) {
           return (
             <Link
-              href={`/products/${cat.category.toLocaleLowerCase()}`}
+              href={`/products/${cat.slug}`}
               key={cat.category}
               className="text-center rounded-xl hover:shadow-lg transition-all duration-300 ease-in-out"
             >

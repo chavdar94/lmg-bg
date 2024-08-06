@@ -13,7 +13,7 @@ type OrderBy = {
 
 interface Props {
   params: {
-    category: string;
+    slug: string;
   };
   searchParams: { [key: string]: string | string[] | undefined };
 }
@@ -40,10 +40,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
   const [products, productsCount] = await Promise.all([
     db.products.findMany({
       where: {
-        category: {
-          contains: params.category,
-          mode: "insensitive",
-        },
+        slug: params.slug,
       },
       orderBy,
       skip: page * PAGE_SIZE,
@@ -52,7 +49,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
     db.products.count({
       where: {
         category: {
-          contains: params.category,
+          contains: params.slug,
           mode: "insensitive",
         },
       },
@@ -81,7 +78,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
             <PaginationContainer
               totalPages={totalPages}
               currentPage={page}
-              route={`/products/${params.category}`}
+              route={`/products/${params.slug}`}
             />
           </div>
         </>

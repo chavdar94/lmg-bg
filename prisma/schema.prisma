@@ -35,4 +35,5 @@ model Products {
     vendor_url       String?
     properties       Json?
     created_at       DateTime @default(now())
+    slug             String
 }

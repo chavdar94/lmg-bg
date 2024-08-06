@@ -1,118 +1,147 @@
 {
   "UPS": {
     "name": "UPS",
-    "img": "/categoriesImages/ups.jpg"
+    "img": "/categoriesImages/ups.jpg",
+    "slug": "ups"
   },
   "CARTRIDGE": {
     "name": "Касети",
-    "img": "/categoriesImages/cartridge.jpg"
+    "img": "/categoriesImages/cartridge.jpg",
+    "slug": "cartridge"
   },
   "MOUSE": {
     "name": "Мишки",
-    "img": "/categoriesImages/mouse.jpg"
+    "img": "/categoriesImages/mouse.jpg",
+    "slug": "mouse"
   },
   "CONTR I/O": {
     "name": "Контролен I/O",
-    "img": "/categoriesImages/io.jpg"
+    "img": "/categoriesImages/io.jpg",
+    "slug": "contr-io"
   },
   "GSM": {
     "name": "GSM",
-    "img": "/categoriesImages/gsm.jpg"
+    "img": "/categoriesImages/gsm.jpg",
+    "slug": "gsm"
   },
   "GAMES": {
     "name": "Игри",
-    "img": "/categoriesImages/games.jpg"
+    "img": "/categoriesImages/games.jpg",
+    "slug": "games"
   },
   "TEL - FAX": {
     "name": "Тел - Факс",
-    "img": "/categoriesImages/tel-fax.jpg"
+    "img": "/categoriesImages/tel-fax.jpg",
+    "slug": "tel-fax"
   },
   "SCANER": {
     "name": "Скенери",
-    "img": "/categoriesImages/scanner.jpg"
+    "img": "/categoriesImages/scanner.jpg",
+    "slug": "scaner"
   },
   "KEYBOARD": {
     "name": "Клавиатури",
-    "img": "/categoriesImages/keyboard.jpg"
+    "img": "/categoriesImages/keyboard.jpg",
+    "slug": "keyboard"
   },
   "LAN": {
     "name": "ЛАН",
-    "img": "/categoriesImages/lan.jpg"
+    "img": "/categoriesImages/lan.jpg",
+    "slug": "lan"
   },
   "FAN": {
     "name": "Вентилатори",
-    "img": "/categoriesImages/fan.jpg"
+    "img": "/categoriesImages/fan.jpg",
+    "slug": "fan"
   },
   "CD MEDIA": {
     "name": "CD Медия",
-    "img": "/categoriesImages/cd-media.jpg"
+    "img": "/categoriesImages/cd-media.jpg",
+    "slug": "cd-media"
   },
   "M - MEDIA": {
     "name": "Мултимедия",
-    "img": "/categoriesImages/multimedia.jpg"
+    "img": "/categoriesImages/multimedia.jpg",
+    "slug": "m-media"
   },
   "NOTEBOOK": {
     "name": "Лаптопи",
-    "img": "/categoriesImages/notebook.jpg"
+    "img": "/categoriesImages/notebook.jpg",
+    "slug": "notebook"
   },
   "MAIN BOARD": {
     "name": "Дънни платки",
-    "img": "/categoriesImages/main-board.jpg"
+    "img": "/categoriesImages/main-board.jpg",
+    "slug": "main-board"
   },
   "WEB CAMERA": {
     "name": "Уеб камери",
-    "img": "/categoriesImages/web-camera.jpg"
+    "img": "/categoriesImages/web-camera.jpg",
+    "slug": "web-camera"
   },
   "COMPUTER": {
     "name": "Компютри",
-    "img": "/categoriesImages/computer.jpg"
+    "img": "/categoriesImages/computer.jpg",
+    "slug": "computer"
   },
   "HP CONSUMABLES": {
     "name": "HP Консумативи",
-    "img": "/categoriesImages/hp-consums.jpg"
+    "img": "/categoriesImages/hp-consums.jpg",
+    "slug": "hp-consumables"
   },
   "PRINTER": {
     "name": "Принтери",
-    "img": "/categoriesImages/printer.jpg"
+    "img": "/categoriesImages/printer.jpg",
+    "slug": "printer"
   },
   "HP": {
     "name": "HP",
-    "img": "/categoriesImages/hp.jpg"
+    "img": "/categoriesImages/hp.jpg",
+    "slug": "hp"
   },
   "CASE": {
     "name": "Кутии",
-    "img": "/categoriesImages/case.jpg"
+    "img": "/categoriesImages/case.jpg",
+    "slug": "case"
   },
   "RAM": {
     "name": "RAM",
-    "img": "/categoriesImages/ram.jpg"
+    "img": "/categoriesImages/ram.jpg",
+    "slug": "ram"
   },
   "MONITOR": {
     "name": "Монитори",
-    "img": "/categoriesImages/monitor.jpg"
+    "img": "/categoriesImages/monitor.jpg",
+    "slug": "monitor"
   },
   "SOFTWARE": {
     "name": "Софтуер",
-    "img": "/categoriesImages/software.jpg"
+    "img": "/categoriesImages/software.jpg",
+    "slug": "software"
   },
   "VIDEO CARD": {
     "name": "Видео карти",
-    "img": "/categoriesImages/video-card.jpg"
+    "img": "/categoriesImages/video-card.jpg",
+    "slug": "video-card"
   },
   "FLASH": {
     "name": "Флаш памет",
-    "img": "/categoriesImages/flash.jpg"
+    "img": "/categoriesImages/flash.jpg",
+    "slug": "flash"
   },
   "CD": {
     "name": "CD",
-    "img": "/categoriesImages/cd.jpg"
+    "img": "/categoriesImages/cd.jpg",
+    "slug": "cd"
   },
   "CPU": {
     "name": "Процесори",
-    "img": "/categoriesImages/cpu.jpg"
+    "img": "/categoriesImages/cpu.jpg",
+    "slug": "cpu"
   },
   "HDD": {
     "name": "Твърди дискове",
-    "img": "/categoriesImages/hdd.jpg"
+    "img": "/categoriesImages/hdd.jpg",
+    "slug": "hdd"
   }
 }

@@ -17,7 +17,7 @@ export default async function ProcutDetails({ params }: Props) {
       <section className="flex flex-col-reverse md:flex-row md:mt-10 gap-6">
         <div className="w-full md:w-1/2 h-80 flex justify-center items-center border-1-text-muted-foreground border">
           <Image
-            src={product?.main_picture_url!}
+            src={product?.main_picture_url ?? "/categoriesImages/no-image.jpg"}
             alt={product?.name!}
             width={200}
             height={200}
@@ -56,7 +56,7 @@ export default async function ProcutDetails({ params }: Props) {
               >
                 {product?.product_status === "Наличен"
                   ? "В наличност"
-                  : "Не e в наличност"}
+                  : "Обадете се"}
               </p>
             </div>
           </div>
