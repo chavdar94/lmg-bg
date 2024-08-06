@@ -56,7 +56,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
     }),
   ]);
 
-  const totalPages = Math.ceil(productsCount / PAGE_SIZE);
+  const totalPages = Math.floor(productsCount / PAGE_SIZE);
 
   return (
     <>
