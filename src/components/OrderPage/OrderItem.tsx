@@ -4,7 +4,7 @@ import Image from "next/image";
 
 function OrderItem({ item }: { item: CartProduct }) {
   return (
-    <div className="border-2 flex flex-col justify-between text-center hover:border-3 hover:border-slate-300 hover:shadow-lg transition-all duration-300 ease-in-out w-full max-w-xs p-4">
+    <div className="border-2 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ease-in-out w-full max-w-xs p-4">
       <div className="flex flex-col justify-between h-full">
         <div className="flex flex-col justify-around mb-6">
           <Image
