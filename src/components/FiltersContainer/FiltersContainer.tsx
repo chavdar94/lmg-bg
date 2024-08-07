@@ -25,6 +25,7 @@ export function FiltersContainer() {
         className="max-w-xs"
         value={selectedFilter}
         onChange={(e) => handleFilterChange(e.target.value)}
+        size="sm"
       >
         {productsFilter.map((filter) => (
           <SelectItem key={filter.key} value={filter.key}>

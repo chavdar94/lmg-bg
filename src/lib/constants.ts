@@ -1,4 +1,4 @@
-export const PAGE_SIZE: number = 10;
+export const PAGE_SIZE: number = 12;
 
 export const productsFilter = [
   { key: "priceAsc", label: "Цена (Ниска към Висока)" },

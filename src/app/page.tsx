@@ -6,7 +6,7 @@ import db from "@/lib/client";
 export default async function Home() {
   const products: Products = await db.products.findMany({
     orderBy: { created_at: "desc" },
-    take: 10,
+    take: 8,
   });
 
   const productsWithQuantity: CartProduct[] = products.map((product) => ({

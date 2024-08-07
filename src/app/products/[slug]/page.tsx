@@ -69,7 +69,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
           <div>
             <FiltersContainer />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 m-auto mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-auto mt-10">
             {products.map((product: CartProduct) => (
               <ProductCard product={product} key={product.id} />
             ))}

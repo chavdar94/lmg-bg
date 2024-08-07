@@ -26,7 +26,7 @@ export default function RootLayout({
       >
         <Providers>
           <Header />
-          <WidthContainer className="px-4 md:px-24 lg:px-36 xl:px-96 flex flex-col">
+          <WidthContainer className="px-4 md:px-24 lg:px-36 xl:px-36 2xl:px-96 flex flex-col">
             <SubNav />
             {children}
           </WidthContainer>
