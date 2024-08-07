@@ -1,10 +1,17 @@
 import { CartProduct } from "@/definitions/types";
 import Image from "next/image";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
-import { formatPrice } from "@/lib/utils";
+import { calculateCurrency, formatPrice } from "@/lib/utils";
 import Link from "next/link";
 
 const ProductCard = ({ product }: { product: CartProduct }) => {
+  if (product.quantity === 0) return null;
+  let priceInBgn = product.price!;
+  if (product.currency !== "BGN") {
+    priceInBgn = calculateCurrency(product.price!, product.currency as any);
+  }
+  const priceWithVat = priceInBgn * 1.2;
+
   return (
     <div className="border-2 flex flex-col justify-between text-center  hover:shadow-lg transition-all duration-300 ease-in-out w-full h-[400px] p-4">
       <div className="flex flex-col justify-between h-full">
@@ -25,7 +32,7 @@ const ProductCard = ({ product }: { product: CartProduct }) => {
               {product.name} - {product.category}
             </p>
             <p className="px-2 font-bold">
-              {formatPrice(product.price!, {
+              {formatPrice(priceWithVat!, {
                 currency: "BGN",
                 notation: "standard",
                 IntlFormat: "bg-BG",

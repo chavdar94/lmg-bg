@@ -6,3 +6,8 @@ export const productsFilter = [
   { key: "nameAsc", label: "Име (А-Я)" },
   { key: "nameDesc", label: "Име (Я-А)" },
 ];
+
+export const currencies = {
+  USD: "1.79187",
+  EUR: "1.95583",
+};
