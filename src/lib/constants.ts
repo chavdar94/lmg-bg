@@ -10,4 +10,5 @@ export const productsFilter = [
 export const currencies = {
   USD: "1.79187",
   EUR: "1.95583",
+  BGN: "1",
 };

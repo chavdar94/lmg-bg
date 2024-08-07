@@ -1,6 +1,8 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
 import { currencies } from "./constants";
+import { Currency } from "@/definitions/types";
+import { fetchBNBExchangeRates } from "./parseXmlToJSON";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -25,9 +27,13 @@ export function formatPrice(
   }).format(numericPrice);
 }
 
-type Currency = "USD" | "EUR";
-
-export function calculateCurrency(price: number, currency: Currency) {
+export async function calculateCurrency(price: number, currency: Currency) {
+  if (!currencies[currency]) {
+    await fetchBNBExchangeRates();
+  }
   const newPrice = price * Number(currencies[currency]);
-  return newPrice;
+
+  const priceWithVat = newPrice * 1.2;
+
+  return priceWithVat;
 }

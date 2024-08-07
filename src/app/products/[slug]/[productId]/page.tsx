@@ -1,5 +1,5 @@
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
-import { CartProduct } from "@/definitions/types";
+import { CartProduct, Currency } from "@/definitions/types";
 import db from "@/lib/client";
 import { calculateCurrency, formatPrice } from "@/lib/utils";
 import Image from "next/image";
@@ -12,11 +12,10 @@ export default async function ProcutDetails({ params }: Props) {
     where: { id: params.productId },
   });
 
-  let priceInBgn = product?.price!;
-  if (product?.currency !== "BGN") {
-    priceInBgn = calculateCurrency(product?.price!, product?.currency as any);
-  }
-  const priceWithVat = priceInBgn * 1.2;
+  const price = await calculateCurrency(
+    product?.price!,
+    product?.currency! as Currency
+  );
 
   return (
     <section className="flex flex-col gap-10">
@@ -47,7 +46,7 @@ export default async function ProcutDetails({ params }: Props) {
             </div>
             <div>
               <p className="text-4xl font-bold text-[#026b66]">
-                {formatPrice(priceWithVat, {
+                {formatPrice(price, {
                   currency: "BGN",
                   notation: "standard",
                   IntlFormat: "bg-BG",

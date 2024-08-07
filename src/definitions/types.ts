@@ -23,3 +23,5 @@ export type Products = Product[];
 export type CartProduct = Product & {
   quantity?: number;
 };
+
+export type Currency = "USD" | "EUR" | "BGN";
