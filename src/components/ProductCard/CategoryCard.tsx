@@ -8,7 +8,7 @@ type Props = {
 
 export default function CategoryCard({ name, img }: Props) {
   return (
-    <Card shadow="sm" key={name} isPressable>
+    <Card shadow="sm" key={name} isPressable className="rounded-none">
       <CardBody className="overflow-visible p-0">
         <Image
           src={img}

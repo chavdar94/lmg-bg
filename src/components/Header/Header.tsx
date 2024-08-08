@@ -5,7 +5,7 @@ import Cart from "../Cart/Cart";
 
 const Header = () => {
   return (
-    <nav className="flex justify-around md:justify-between flex-wrap px-4 md:px-24 lg:px-36 xl:px-96 py-4 items-center bg-slate-100">
+    <nav className="flex justify-around md:justify-between flex-wrap px-4 md:px-24 lg:px-36 xl:px-36 2xl:px-96 py-4 items-center bg-slate-100">
       <Link href={"/"}>
         <Image
           src="/LOGO.png"

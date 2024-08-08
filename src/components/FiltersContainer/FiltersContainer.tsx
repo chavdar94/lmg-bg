@@ -12,7 +12,6 @@ export function FiltersContainer() {
   const handleFilterChange = (value: string) => {
     setSelectedFilter(value);
 
-    // Update the URL with the selected filter
     const url = new URL(window.location.href);
     url.searchParams.set("filter", value);
     router.push(url.toString());
@@ -23,12 +22,20 @@ export function FiltersContainer() {
       <Select
         label="Сортирай по:"
         className="max-w-xs"
+        radius="none"
         value={selectedFilter}
         onChange={(e) => handleFilterChange(e.target.value)}
         size="sm"
+        classNames={{
+          popoverContent: "rounded-none",
+        }}
       >
         {productsFilter.map((filter) => (
-          <SelectItem key={filter.key} value={filter.key}>
+          <SelectItem
+            className="hover:rounded-none"
+            key={filter.key}
+            value={filter.key}
+          >
             {filter.label}
           </SelectItem>
         ))}

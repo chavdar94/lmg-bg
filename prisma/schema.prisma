@@ -21,19 +21,21 @@ model User {
 }
 
 model Products {
-    id               String   @id @default(uuid())
-    name             String?
-    product_status   String?
-    haspromo         Int?
-    price            Float?
-    currency         String?
-    main_picture_url String?
-    manufacturer     String?
-    category         String?
-    subcategory      String?
-    partnum          String?
-    vendor_url       String?
-    properties       Json?
-    created_at       DateTime @default(now())
-    slug             String
+    id                String   @id @default(uuid())
+    name              String?
+    product_status    String?
+    haspromo          Int?
+    price             Float?
+    price_with_vat    Float?
+    price_without_vat Float?
+    currency          String?
+    main_picture_url  String?
+    manufacturer      String?
+    category          String?
+    subcategory       String?
+    partnum           String?
+    vendor_url        String?
+    properties        Json?
+    created_at        DateTime @default(now())
+    slug              String
 }
