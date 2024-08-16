@@ -1,13 +1,11 @@
 import { PrismaAdapter } from "@lucia-auth/adapter-prisma";
-import { PrismaClient } from "@prisma/client";
 import { Lucia } from "lucia";
 import { cookies } from "next/headers";
 import { cache } from "react";
 import type { Session, User } from "lucia";
+import db from "./client";
 
-const client = new PrismaClient();
-
-const adapter = new PrismaAdapter(client.session, client.user);
+const adapter = new PrismaAdapter(db.session, db.user);
 
 export const lucia = new Lucia(adapter, {
   sessionCookie: {
@@ -36,7 +34,8 @@ interface DatabaseUserAttributes {
 
 export const validateRequest = cache(
   async (): Promise<
-    { user: User; session: Session } | { user: null; session: null }
+    | { user: User & { isAdmin: boolean }; session: Session }
+    | { user: null; session: null }
   > => {
     const sessionId = cookies().get(lucia.sessionCookieName)?.value ?? null;
     if (!sessionId) {
@@ -66,6 +65,24 @@ export const validateRequest = cache(
         );
       }
     } catch {}
-    return result;
+
+    // Update the user object with isAdmin field
+    const user = await db.user.findUnique({
+      select: {
+        id: true,
+        email: true,
+        isAdmin: true,
+      },
+      where: { id: result.user?.id },
+    });
+
+    if (!user || !result.session) {
+      return { user: null, session: null };
+    }
+
+    return {
+      user: { ...user, isAdmin: user.isAdmin },
+      session: result.session,
+    };
   }
 );

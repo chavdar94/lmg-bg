@@ -1,5 +1,6 @@
-import { Button, Card, Input } from "@nextui-org/react";
+import { Card, Input } from "@nextui-org/react";
 import { login } from "./actions";
+import LoginButton from "@/components/LoginButton";
 
 export default async function Page() {
   return (
@@ -10,9 +11,7 @@ export default async function Page() {
         <br />
         <Input label="Парола" type="password" name="password" id="password" />
         <br />
-        <Button className="w-full" type="submit" color="primary">
-          Влез
-        </Button>
+        <LoginButton btnText="Влез" />
       </form>
     </Card>
   );
