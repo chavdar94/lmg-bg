@@ -91,7 +91,9 @@ const Cart = () => {
                 <SheetTrigger asChild>
                   <Link
                     href="/order"
-                    className={buttonVariants({ className: "w-full" })}
+                    className={buttonVariants({
+                      className: "w-full rounded-none",
+                    })}
                   >
                     Продължи към поръчката
                   </Link>

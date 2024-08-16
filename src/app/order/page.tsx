@@ -94,13 +94,13 @@ export default function OrderPage() {
                 type="text"
                 name="email"
                 id="email"
-                className="w-full border-2 border-slate-300 p-2 rounded-md"
+                className="w-full border-2 border-slate-300 p-2"
               />
             </div>
             <button
               disabled={loading}
               className={buttonVariants({
-                className: "m-auto w-full md:w-1/2",
+                className: "m-auto w-full md:w-1/2 rounded-none",
               })}
             >
               Поръчай
