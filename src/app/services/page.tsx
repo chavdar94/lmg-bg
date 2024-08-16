@@ -2,8 +2,8 @@ import { Computer } from "lucide-react";
 
 function ServicesPage() {
   return (
-    <section className="flex flex-col justify-center items-center bg-[#fafafa]  ">
-      <h1 className="text-center text-4xl md:text-5xl my-6 font-extrabold">
+    <section className="flex flex-col justify-center items-center bg-[#fafafa] p-10">
+      <h1 className="text-center text-4xl md:text-5xl font-bold uppercase mb-2">
         Нашите услуги
       </h1>
       <section className="flex flex-col md:flex-row flex-wrap justify-center gap-4 mt-4">

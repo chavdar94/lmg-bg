@@ -3,7 +3,7 @@
 import { verify } from "@node-rs/argon2";
 import { cookies } from "next/headers";
 import { redirect } from "next/navigation";
-import { lucia } from "../../lib/auth";
+import { lucia, validateRequest } from "../../lib/auth";
 import db from "../../lib/client";
 
 export default async function Page() {}
@@ -75,3 +75,31 @@ export async function login(formData: FormData) {
   );
   return redirect("/");
 }
+
+export const signOut = async () => {
+  console.log("loggin out");
+
+  try {
+    const { session } = await validateRequest();
+
+    if (!session) {
+      return {
+        error: "Unauthorized",
+      };
+    }
+
+    await lucia.invalidateSession(session.id);
+
+    const sessionCookie = lucia.createBlankSessionCookie();
+
+    cookies().set(
+      sessionCookie.name,
+      sessionCookie.value,
+      sessionCookie.attributes
+    );
+  } catch (error: any) {
+    return {
+      error: error?.message,
+    };
+  }
+};

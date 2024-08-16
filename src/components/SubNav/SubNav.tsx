@@ -1,5 +1,6 @@
 import { validateRequest } from "@/lib/auth";
 import Link from "next/link";
+import LogoutForm from "../Logout/LogoutForm";
 
 export default async function SubNav() {
   const { user } = await validateRequest();
@@ -22,9 +23,12 @@ export default async function SubNav() {
           контакти
         </Link>
         {user?.isAdmin && (
-          <Link href="/admin" className="cursor-pointer">
-            админ
-          </Link>
+          <>
+            <Link href="/admin" className="cursor-pointer">
+              админ
+            </Link>
+            <LogoutForm />
+          </>
         )}
       </ul>
     </nav>
