@@ -26,7 +26,7 @@ async function CategoryPage() {
   });
 
   return (
-    <div className="flex justify-center items-center flex-wrap gap-6 h-full mt-10">
+    <div className="flex justify-center items-center flex-wrap gap-6 mt-10">
       {categories.map((cat) => {
         if (cat.category && categoriesData[cat.category]) {
           return (

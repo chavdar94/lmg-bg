@@ -10,7 +10,7 @@ export default function SubNav() {
         <Link href="#" className="cursor-pointer">
           новини
         </Link>
-        <Link href="#" className="cursor-pointer">
+        <Link href="/services " className="cursor-pointer">
           услуги
         </Link>
         <Link href="#" className="cursor-pointer">

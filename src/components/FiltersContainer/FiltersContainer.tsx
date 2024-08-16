@@ -18,7 +18,7 @@ export function FiltersContainer() {
   };
 
   return (
-    <div className="flex w-full flex-wrap md:flex-nowrap gap-4">
+    <div className="flex w-2/3 md:w-full flex-wrap md:flex-nowrap gap-4">
       <Select
         label="Сортирай по:"
         className="max-w-xs"

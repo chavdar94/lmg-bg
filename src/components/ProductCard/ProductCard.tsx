@@ -12,8 +12,8 @@ const ProductCard = async ({ product }: { product: CartProduct }) => {
   );
 
   return (
-    <div className="border-2 flex flex-col justify-between text-center  hover:shadow-lg transition-all duration-300 ease-in-out w-full h-[400px] p-4">
-      <div className="flex flex-col justify-between h-full">
+    <div className="w-[80%] md:w-full border-2 flex flex-col justify-between text-center  hover:shadow-lg transition-all duration-300 ease-in-out h-[400px] p-4">
+      <div className="flex flex-col justify-between">
         <Link href={`/products/${product.slug}/${product.id}`}>
           <div className="flex flex-col justify-around mb-6">
             <Image
