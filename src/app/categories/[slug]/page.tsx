@@ -78,7 +78,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
             <PaginationContainer
               totalPages={totalPages}
               currentPage={page}
-              route={`/products/${params.slug}`}
+              route={`/categories/${params.slug}`}
             />
           </div>
         </>

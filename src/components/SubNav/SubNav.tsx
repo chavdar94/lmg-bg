@@ -1,11 +1,13 @@
+import { validateRequest } from "@/lib/auth";
 import Link from "next/link";
 
-export default function SubNav() {
+export default async function SubNav() {
+  const { user } = await validateRequest();
   return (
     <nav className="m-auto py-6 relative">
       <ul className="flex flex-wrap justify-center gap-8 uppercase text-sm">
-        <Link href="/products" className="cursor-pointer">
-          продукти
+        <Link href="/categories" className="cursor-pointer">
+          категории
         </Link>
         <Link href="#" className="cursor-pointer">
           новини
@@ -19,6 +21,11 @@ export default function SubNav() {
         <Link href="#" className="cursor-pointer">
           контакти
         </Link>
+        {user?.isAdmin && (
+          <Link href="/admin" className="cursor-pointer">
+            админ
+          </Link>
+        )}
       </ul>
     </nav>
   );

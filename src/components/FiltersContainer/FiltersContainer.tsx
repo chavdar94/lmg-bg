@@ -3,7 +3,14 @@
 import { useState } from "react";
 import { useRouter } from "next/navigation";
 import { productsFilter } from "@/lib/constants";
-import { Select, SelectItem } from "@nextui-org/react";
+import {
+  Select,
+  SelectGroup,
+  SelectTrigger,
+  SelectValue,
+  SelectContent,
+  SelectItem,
+} from "../ui/select";
 
 export function FiltersContainer() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
@@ -20,25 +27,26 @@ export function FiltersContainer() {
   return (
     <div className="flex w-2/3 md:w-full flex-wrap md:flex-nowrap gap-4">
       <Select
-        label="Сортирай по:"
-        className="max-w-xs"
-        radius="none"
-        value={selectedFilter}
-        onChange={(e) => handleFilterChange(e.target.value)}
-        size="sm"
-        classNames={{
-          popoverContent: "rounded-none",
+        onValueChange={(value) => {
+          handleFilterChange(value);
         }}
       >
-        {productsFilter.map((filter) => (
-          <SelectItem
-            className="hover:rounded-none"
-            key={filter.key}
-            value={filter.key}
-          >
-            {filter.label}
-          </SelectItem>
-        ))}
+        <SelectTrigger className="w-full md:w-1/3 rounded-none">
+          <SelectValue placeholder="Избери категория" />
+        </SelectTrigger>
+        <SelectContent className="rounded-none">
+          <SelectGroup>
+            {productsFilter.map((filter) => (
+              <SelectItem
+                className="rounded-none cursor-pointer"
+                key={filter.key}
+                value={filter.key}
+              >
+                {filter.label}
+              </SelectItem>
+            ))}
+          </SelectGroup>
+        </SelectContent>
       </Select>
     </div>
   );

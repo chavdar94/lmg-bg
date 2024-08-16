@@ -71,13 +71,16 @@ export default function OrderPage() {
         </div>
       ) : null}
 
-      <div className="h-full flex flex-col gap-8 justify-center items-center">
+      <div className="flex flex-col gap-8 justify-center items-center">
         {success ? <SuccesfulOrder /> : <OrderPageItems items={items} />}
         {!success && items.length > 0 && (
-          <form onSubmit={handleSubmit} className="flex flex-col w-1/2 gap-4">
+          <form
+            onSubmit={handleSubmit}
+            className="flex flex-col w-full md:w-1/2 gap-4"
+          >
             <div className="w-full">
               <label className="pl-1 text-xl font-semibold" htmlFor="email">
-                Имейл:
+                Имейл за връзка:
               </label>
               {error && (
                 <p className="text-red-500">Моля, въведете валиден имейл</p>
@@ -96,7 +99,9 @@ export default function OrderPage() {
             </div>
             <button
               disabled={loading}
-              className={buttonVariants({ className: "m-auto w-1/2" })}
+              className={buttonVariants({
+                className: "m-auto w-full md:w-1/2",
+              })}
             >
               Поръчай
               {loading && (

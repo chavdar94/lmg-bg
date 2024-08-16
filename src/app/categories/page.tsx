@@ -2,6 +2,8 @@ import db from "@/lib/client";
 import categoriesJson from "@/lib/categories.json";
 import Link from "next/link";
 import CategoryCard from "@/components/ProductCard/CategoryCard";
+import { cache } from "react";
+import { getCategories } from "./actions";
 
 // Define the type for categories
 interface Category {
@@ -14,16 +16,7 @@ interface Category {
 const categoriesData: Record<string, Category> = categoriesJson;
 
 async function CategoryPage() {
-  const categories = await db.products.findMany({
-    distinct: ["category"],
-    select: {
-      category: true,
-      slug: true,
-    },
-    orderBy: {
-      category: "asc",
-    },
-  });
+  const categories = await getCategories();
 
   return (
     <div className="flex justify-center items-center flex-wrap gap-6 mt-10">
@@ -31,7 +24,7 @@ async function CategoryPage() {
         if (cat.category && categoriesData[cat.category]) {
           return (
             <Link
-              href={`/products/${cat.slug}`}
+              href={`/categories/${cat.slug}`}
               key={cat.category}
               className="text-center rounded-xl hover:shadow-lg transition-all duration-300 ease-in-out"
             >
@@ -49,4 +42,4 @@ async function CategoryPage() {
   );
 }
 
-export default CategoryPage;
+export default cache(CategoryPage);

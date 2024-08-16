@@ -1,5 +1,5 @@
-import { Card, CardBody, CardFooter } from "@nextui-org/react";
 import Image from "next/image";
+import { Card, CardContent, CardFooter } from "../ui/card";
 
 type Props = {
   name: string;
@@ -8,8 +8,8 @@ type Props = {
 
 export default function CategoryCard({ name, img }: Props) {
   return (
-    <Card shadow="sm" key={name} isPressable className="rounded-none">
-      <CardBody className="overflow-visible p-0">
+    <Card key={name} className="rounded-none flex flex-col gap-2">
+      <CardContent className="overflow-visible p-0">
         <Image
           src={img}
           width={192}
@@ -20,8 +20,8 @@ export default function CategoryCard({ name, img }: Props) {
                        (max-width: 1200px) 50vw, 
                        33vw"
         />
-      </CardBody>
-      <CardFooter className="text-small justify-between">
+      </CardContent>
+      <CardFooter className="text-small">
         <b>{name}</b>
       </CardFooter>
     </Card>

@@ -1,17 +1,11 @@
 import ProductsSection from "../components/ProductsSection/ProductsSection";
 import LatestNews from "../components/LatestNews/LatestNews";
 import { Products, CartProduct } from "@/definitions/types";
-import db from "@/lib/client";
-import { validateRequest } from "@/lib/auth";
+import { cache } from "react";
+import { getLatestProducts } from "./actions";
 
-export default async function Home() {
-  const { user } = await validateRequest();
-  // console.log(user);
-
-  const products: Products = await db.products.findMany({
-    orderBy: { created_at: "desc" },
-    take: 8,
-  });
+export default cache(async function Home() {
+  const products: Products = await getLatestProducts();
 
   const productsWithQuantity: CartProduct[] = products.map((product) => ({
     ...product,
@@ -24,4 +18,4 @@ export default async function Home() {
       <ProductsSection products={productsWithQuantity} />
     </>
   );
-}
+});
