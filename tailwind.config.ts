@@ -75,6 +75,9 @@ const config = {
       fontFamily: {
         raleway: ['"Raleway"', "sans-serif"],
       },
+      screens: {
+        xs: "450px",
+      },
     },
   },
   plugins: [require("tailwindcss-animate")],

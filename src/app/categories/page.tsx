@@ -19,14 +19,14 @@ async function CategoryPage() {
   const categories = await getCategories();
 
   return (
-    <div className="flex justify-center items-center flex-wrap gap-6 mt-10">
+    <div className="grid grid-cols-1 xs:grid-cols-2 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-6 mt-10 w-full">
       {categories.map((cat) => {
         if (cat.category && categoriesData[cat.category]) {
           return (
             <Link
               href={`/categories/${cat.slug}`}
               key={cat.category}
-              className="text-center rounded-xl hover:shadow-lg transition-all duration-300 ease-in-out"
+              className="text-center rounded-xl hover:shadow-lg transition-all duration-300 ease-in-out w-full"
             >
               <CategoryCard
                 name={categoriesData[cat.category].name}

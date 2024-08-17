@@ -8,18 +8,9 @@ type Props = {
 
 export default function CategoryCard({ name, img }: Props) {
   return (
-    <Card key={name} className="rounded-none flex flex-col gap-2">
-      <CardContent className="overflow-visible p-0">
-        <Image
-          src={img}
-          width={192}
-          height={192}
-          alt="logo"
-          className="w-48 h-48 object-fill mx-auto"
-          sizes="(max-width: 768px) 100vw, 
-                       (max-width: 1200px) 50vw, 
-                       33vw"
-        />
+    <Card key={name} className="rounded-none flex flex-col gap-2 w-full">
+      <CardContent className="overflow-visible p-0 w-full">
+        <img src={img} alt="logo" className="w-full h-48 object-fill mx-auto" />
       </CardContent>
       <CardFooter className="text-small">
         <b>{name}</b>
