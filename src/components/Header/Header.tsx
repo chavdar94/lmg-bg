@@ -23,7 +23,6 @@ const Header = () => {
             <p>+359 897 413 241</p>
           </div>
         </div>
-        {/* <ShoppingCart size={28} /> */}
         <Cart />
       </div>
     </nav>

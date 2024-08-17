@@ -6,6 +6,7 @@ import WidthContainer from "../components/WidthContainer";
 import Footer from "../components/Footer/Footer";
 import SubNav from "@/components/SubNav/SubNav";
 import { validateRequest } from "@/lib/auth";
+import "leaflet/dist/leaflet.css";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -27,7 +28,7 @@ export default async function RootLayout({
         className={`${inter.className} min-h-dvh grid grid-rows-[auto_1fr_auto]`}
       >
         <Header />
-        <WidthContainer className="px-4 md:px-24 lg:px-36 xl:px-36 2xl:px-96">
+        <WidthContainer className="px-4 md:px-24 lg:px-36 xl:px-36 2xl:px-96 h-full">
           <SubNav />
           {children}
         </WidthContainer>

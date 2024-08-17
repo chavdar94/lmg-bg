@@ -16,10 +16,7 @@ export default async function SubNav() {
         <Link href="/services " className="cursor-pointer">
           услуги
         </Link>
-        <Link href="#" className="cursor-pointer">
-          сервиз
-        </Link>
-        <Link href="#" className="cursor-pointer">
+        <Link href="/contact" className="cursor-pointer">
           контакти
         </Link>
         {user?.isAdmin && (
