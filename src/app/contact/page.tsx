@@ -6,7 +6,12 @@ import { Textarea } from "@/components/ui/textarea";
 import { sendContactMail } from "@/lib/mail";
 import { FormEventHandler, useState } from "react";
 import { Spinner } from "@/components/ui/spinner";
-import { Map } from "@/components/Map/Map";
+import dynamic from "next/dynamic";
+
+const Map = dynamic(
+  () => import("@/components/Map/Map").then((mod) => mod.Map), // Adjust this to match your named export
+  { ssr: false }
+);
 
 const Service = () => {
   const [formData, setFormData] = useState({
@@ -62,7 +67,7 @@ const Service = () => {
         </div>
       </div>
       <hr className="my-4" />
-      <h2 className="text-xl mb-1">Връзка с нас:</h2>
+      <h2 className="text-xl pl-2">Връзка с нас:</h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
         <Input
           name="name"

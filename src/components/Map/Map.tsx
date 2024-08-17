@@ -12,7 +12,7 @@ const icon = new Icon({
 
 export function Map() {
   return (
-    <MapContainer className="w-full h-[500px]" center={position} zoom={17}>
+    <MapContainer className="w-full h-[500px] z-1" center={position} zoom={17}>
       <TileLayer
         attribution="Google Maps"
         url="https://www.google.cn/maps/vt?lyrs=m@189&gl=cn&x={x}&y={y}&z={z}"
