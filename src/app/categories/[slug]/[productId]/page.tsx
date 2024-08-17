@@ -68,7 +68,7 @@ export default async function ProcutDetails({ params }: Props) {
           <div className="">
             <AddToCartButton
               product={product as CartProduct}
-              className="bg-[#026b66] uppercase text-white py-3"
+              className="bg-slate-800 hover:bg-slate-950 uppercase text-white py-3 px-10 w-full lg:w-full xl:w-2/3"
             />
           </div>
         </div>

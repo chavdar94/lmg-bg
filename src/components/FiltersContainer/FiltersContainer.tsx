@@ -25,7 +25,7 @@ export function FiltersContainer() {
   };
 
   return (
-    <div className="flex w-2/3 md:w-full flex-wrap md:flex-nowrap gap-4">
+    <div className="flex flex-wrap md:flex-nowrap gap-4">
       <Select
         onValueChange={(value) => {
           handleFilterChange(value);
@@ -34,7 +34,15 @@ export function FiltersContainer() {
         <SelectTrigger className="w-full md:w-1/3 rounded-none">
           <SelectValue placeholder="Избери категория" />
         </SelectTrigger>
-        <SelectContent className="rounded-none">
+        <SelectContent
+          className="rounded-none z-50"
+          ref={(ref) => {
+            if (!ref) return;
+            ref.ontouchstart = (e) => {
+              e.preventDefault();
+            };
+          }}
+        >
           <SelectGroup>
             {productsFilter.map((filter) => (
               <SelectItem

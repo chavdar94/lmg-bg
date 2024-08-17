@@ -66,15 +66,20 @@ export const validateRequest = cache(
       }
     } catch {}
 
+    let user;
     // Update the user object with isAdmin field
-    const user = await db.user.findUnique({
-      select: {
-        id: true,
-        email: true,
-        isAdmin: true,
-      },
-      where: { id: result.user?.id },
-    });
+    try {
+      user = await db.user.findUnique({
+        select: {
+          id: true,
+          email: true,
+          isAdmin: true,
+        },
+        where: { id: result.user?.id },
+      });
+    } catch (error) {
+      user = undefined;
+    }
 
     if (!user || !result.session) {
       return { user: null, session: null };

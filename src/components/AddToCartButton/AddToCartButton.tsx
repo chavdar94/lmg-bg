@@ -31,13 +31,10 @@ const AddToCartButton = ({
         addItem(product);
         setIsSuccess(true);
       }}
-      className={buttonVariants({
-        size: "lg",
-        className: cn(
-          "text-sm cursor-pointer font-bold rounded-none",
-          className
-        ),
-      })}
+      className={cn(
+        "border border-slate-200 text-sm cursor-pointer px-4 py-1 font-bold hover:bg-slate-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
+        className
+      )}
     >
       {isSuccess ? "Добавено!" : "Добави в количката"}
     </button>

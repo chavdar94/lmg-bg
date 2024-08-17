@@ -5,7 +5,7 @@ import LogoutForm from "../Logout/LogoutForm";
 export default async function SubNav() {
   const { user } = await validateRequest();
   return (
-    <nav className="m-auto py-6 relative">
+    <nav className="m-auto py-6">
       <ul className="flex flex-wrap justify-center gap-8 uppercase text-sm">
         <Link href="/categories" className="cursor-pointer">
           категории

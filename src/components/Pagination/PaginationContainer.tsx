@@ -102,12 +102,12 @@ const PaginationContainer = ({
   };
 
   return (
-    <Pagination className="text-slate-900 dark:text-slate-100 mb-4 mt-12 flex items-center gap-4 w-full sm:w-4/5 mx-auto">
-      <PaginationContent>
+    <Pagination className="text-slate-900 dark:text-slate-100 mb-4 mt-12 flex items-center gap-4 w-full">
+      <PaginationContent className="flex flex-wrap justify-center">
         {currentPage > 1 && (
           <PaginationItem className="cursor-pointer">
             <PaginationPrevious
-              className="bg-slate-800 hover:bg-slate-950 text-white hover:text-white transition-colors duration-300 "
+              className="bg-slate-800 hover:bg-slate-950 text-white hover:text-white transition-colors duration-300"
               onClick={handlePreviousPage}
             />
           </PaginationItem>
@@ -117,7 +117,7 @@ const PaginationContainer = ({
           <PaginationContent>
             <PaginationItem className="cursor-pointer">
               <PaginationLink
-                className="bg-slate-200 hover:bg-slate-300 text-black transition-colors duration-300 "
+                className="bg-slate-200 hover:bg-slate-300 text-black transition-colors duration-300"
                 onClick={() => handlePageChange(1)}
               >
                 1
@@ -132,7 +132,7 @@ const PaginationContainer = ({
           <PaginationContent>
             <PaginationItem className="cursor-pointer">
               <PaginationLink
-                className="bg-slate-200 hover:bg-slate-300 text-black transition-colors duration-300 "
+                className="bg-slate-200 hover:bg-slate-300 text-black transition-colors duration-300"
                 onClick={() => handlePageChange(totalPages)}
               >
                 {totalPages}
@@ -142,9 +142,9 @@ const PaginationContainer = ({
         )}
 
         {currentPage < totalPages && (
-          <PaginationItem className="cursor-pointer ">
+          <PaginationItem className="cursor-pointer">
             <PaginationNext
-              className="bg-slate-800 hover:bg-slate-950 text-white hover:text-white transition-colors duration-300 "
+              className="bg-slate-800 hover:bg-slate-950 text-white hover:text-white transition-colors duration-300"
               onClick={handleNextPage}
             />
           </PaginationItem>

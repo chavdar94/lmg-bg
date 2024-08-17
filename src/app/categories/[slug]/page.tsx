@@ -65,23 +65,23 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
           <h1 className="text-4xl font-bold">Няма намерени продукти</h1>
         </div>
       ) : (
-        <>
-          <div>
+        <div className="flex flex-col w-full items-center">
+          <div className="w-full">
             <FiltersContainer />
           </div>
-          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-auto mt-10">
+          <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-auto mt-10 w-full">
             {products.map((product: CartProduct) => (
               <ProductCard product={product} key={product.id} />
             ))}
           </div>
-          <div className="m-auto mt-10">
+          <div className="m-auto mt-10 w-full">
             <PaginationContainer
               totalPages={totalPages}
               currentPage={page}
               route={`/categories/${params.slug}`}
             />
           </div>
-        </>
+        </div>
       )}
     </>
   );
