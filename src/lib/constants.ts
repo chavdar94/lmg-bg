@@ -6,7 +6,7 @@ export const productsFilter = [
   { key: "priceDesc", label: "Цена (Висока към Ниска)" },
   { key: "nameAsc", label: "Име (А-Я)" },
   { key: "nameDesc", label: "Име (Я-А)" },
-  { key: "statusAsc", label: "Налични" },
+  { key: "statusAsc", label: "В Наличност" },
 ];
 
 export const currencies = {
