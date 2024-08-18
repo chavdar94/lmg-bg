@@ -59,3 +59,21 @@ model Category {
 
     @@map("categories")
 }
+
+model ServiceCategory {
+    id      String    @id @default(uuid())
+    title   String
+    Service Service[]
+
+    @@map("service_categories")
+}
+
+model Service {
+    id         String          @id @default(uuid())
+    title      String
+    price      Int
+    category   ServiceCategory @relation(fields: [categoryId], references: [id])
+    categoryId String
+
+    @@map("services")
+}
