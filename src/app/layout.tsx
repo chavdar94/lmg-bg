@@ -5,7 +5,6 @@ import Header from "../components/Header/Header";
 import WidthContainer from "../components/WidthContainer";
 import Footer from "../components/Footer/Footer";
 import SubNav from "@/components/SubNav/SubNav";
-import { validateRequest } from "@/lib/auth";
 import "leaflet/dist/leaflet.css";
 
 const inter = Inter({ subsets: ["latin"] });
@@ -20,8 +19,6 @@ export default async function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-  const { user } = await validateRequest();
-
   return (
     <html lang="en">
       <body

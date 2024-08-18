@@ -4,12 +4,21 @@ import db from "@/lib/client";
 import { convertBufferToDataUrl } from "@/lib/utils";
 import { redirect } from "next/navigation";
 
-export const getAllPosts = async () => {
+type PostsProps = {
+  skip: number;
+  take: number;
+};
+
+export const getAllPosts = async ({ skip, take }: PostsProps) => {
   const posts = await db.post.findMany({
     orderBy: {
       createdAt: "desc",
     },
+    skip,
+    take,
   });
+
+  const postsCount = await db.post.count();
 
   const transformedPosts = posts.map((post) => {
     const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
@@ -19,7 +28,7 @@ export const getAllPosts = async () => {
     };
   });
 
-  return transformedPosts;
+  return { transformedPosts, postsCount };
 };
 
 export const getSinglePost = async (id: string) => {
