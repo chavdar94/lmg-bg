@@ -1,6 +1,8 @@
 import Image from "next/image";
 import Link from "next/link";
 
+export const revalidate = 86400;
+
 const About = () => {
   return (
     <div className="flex flex-col justify-center items-center w-full gap-4">

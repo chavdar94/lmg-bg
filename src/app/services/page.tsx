@@ -5,13 +5,15 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Service, ServiceCategory } from "@prisma/client";
-import db from "@/lib/client";
 import { ChevronRightIcon } from "lucide-react";
+import { getCategories, getServices } from "./actions";
+
+export const revalidate = 86400;
 
 async function ServicesPage() {
   const [serviceCategories, services] = await Promise.all([
-    db.serviceCategory.findMany(),
-    db.service.findMany(),
+    getCategories(),
+    getServices(),
   ]);
 
   return (

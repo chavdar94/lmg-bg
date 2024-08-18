@@ -1,4 +1,3 @@
-import db from "@/lib/client";
 import categoriesJson from "@/lib/categories.json";
 import Link from "next/link";
 import CategoryCard from "@/components/ProductCard/CategoryCard";
@@ -11,6 +10,8 @@ interface Category {
   img: string;
   slug: string;
 }
+
+export const revalidate = 86400;
 
 // Define the type for the categories JSON object
 const categoriesData: Record<string, Category> = categoriesJson;
