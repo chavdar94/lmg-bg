@@ -1,4 +1,5 @@
 import { ChevronRight } from "lucide-react";
+import Link from "next/link";
 
 const Footer = () => {
   return (
@@ -11,8 +12,10 @@ const Footer = () => {
             <p>За нас</p>
           </li>
           <li className="flex items-center cursor-pointer">
-            <ChevronRight size={16} />
-            <p>Блог</p>
+            <Link href={"/news"} className="flex items-center cursor-pointer">
+              <ChevronRight size={16} />
+              <p>Блог</p>
+            </Link>
           </li>
         </ul>
       </div>
