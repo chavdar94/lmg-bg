@@ -10,7 +10,7 @@ export default async function SubNav() {
         <Link href="/categories" className="cursor-pointer">
           категории
         </Link>
-        <Link href="#" className="cursor-pointer">
+        <Link href="/news" className="cursor-pointer">
           новини
         </Link>
         <Link href="/services " className="cursor-pointer">
