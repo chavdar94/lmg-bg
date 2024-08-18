@@ -8,8 +8,10 @@ const Footer = () => {
         <h2 className="uppercase font-bold text-md mb-2">LMG Computers</h2>
         <ul>
           <li className="flex items-center cursor-pointer">
-            <ChevronRight size={16} />
-            <p>За нас</p>
+            <Link href={"/about"} className="flex items-center cursor-pointer">
+              <ChevronRight size={16} />
+              <p>За нас</p>
+            </Link>
           </li>
           <li className="flex items-center cursor-pointer">
             <Link href={"/news"} className="flex items-center cursor-pointer">
