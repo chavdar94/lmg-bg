@@ -8,7 +8,7 @@ export default async function SubNav() {
     <nav className="m-auto py-6">
       <ul className="flex flex-wrap justify-center gap-8 uppercase text-sm">
         <Link href="/categories" className="cursor-pointer">
-          категории
+          продукти
         </Link>
         <Link href="/news" className="cursor-pointer">
           новини
