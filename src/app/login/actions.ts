@@ -77,8 +77,6 @@ export async function login(formData: FormData) {
 }
 
 export const signOut = async () => {
-  console.log("loggin out");
-
   try {
     const { session } = await validateRequest();
 
@@ -97,6 +95,8 @@ export const signOut = async () => {
       sessionCookie.value,
       sessionCookie.attributes
     );
+
+    return redirect("/");
   } catch (error: any) {
     return {
       error: error?.message,

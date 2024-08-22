@@ -1,28 +1,53 @@
+import { getUsedProduct } from "@/app/used/actions";
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 import { CartProduct, Currency } from "@/definitions/types";
 import db from "@/lib/client";
-import { calculateCurrency, formatPrice } from "@/lib/utils";
+import {
+  calculateCurrency,
+  convertBufferToDataUrl,
+  formatPrice,
+} from "@/lib/utils";
 import Image from "next/image";
+import { type } from "os";
 
 type Props = {
   params: { productId: string };
 };
 export default async function ProcutDetails({ params }: Props) {
-  const product = await db.products.findUnique({
-    where: { id: params.productId },
-  });
+  let product;
+  let price;
 
-  const price = await calculateCurrency(
-    product?.price!,
-    product?.currency! as Currency
-  );
+  try {
+    product = await db.products.findUnique({
+      where: { id: params.productId },
+    });
+    if (!product) {
+      throw new Error("Product not found");
+    }
+
+    price = await calculateCurrency(
+      product?.price!,
+      product?.currency! as Currency
+    );
+  } catch (error) {
+    product = await getUsedProduct(params.productId);
+
+    if (!product) {
+      return null;
+    }
+
+    price = product?.price;
+  }
 
   return (
     <section className="flex flex-col gap-10">
       <section className="flex flex-col-reverse md:flex-row md:mt-10 gap-6">
         <div className="w-full md:w-1/2 h-80 flex justify-center items-center border-1-text-muted-foreground border">
           <Image
-            src={product?.main_picture_url ?? "/categoriesImages/no-image.jpg"}
+            src={
+              (product?.main_picture_url as string) ??
+              "/categoriesImages/no-image.jpg"
+            }
             alt={product?.name!}
             width={200}
             height={200}
@@ -46,7 +71,7 @@ export default async function ProcutDetails({ params }: Props) {
             </div>
             <div>
               <p className="text-4xl font-bold text-[#026b66]">
-                {formatPrice(price, {
+                {formatPrice(price!, {
                   currency: "BGN",
                   notation: "standard",
                   IntlFormat: "bg-BG",
@@ -78,6 +103,7 @@ export default async function ProcutDetails({ params }: Props) {
           <h2 className="font-bold uppercase pl-4 pb-2">Описание</h2>
           <div className="border-b-2 border-black w-[35%] md:w-[20%] lg:w-[9%] ml-3" />
           <div className="border-1-text-muted-foreground border p-3">
+            {typeof product?.properties === "string" && product?.properties}
             {(Array.isArray(product?.properties) ? product?.properties : [])
               .filter(
                 (property: any) => property.value && property.value !== "-"

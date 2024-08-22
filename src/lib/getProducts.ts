@@ -1,7 +1,7 @@
 "use server";
 
 import db from "./client";
-import { CartProduct } from "@/definitions/types";
+import { BriefProduct, CartProduct } from "@/definitions/types";
 
 type ProductsParams = {
   category: string;
@@ -34,5 +34,5 @@ export async function getProducts({
       },
     }),
   ]);
-  return [fetchedProducts, fetchedTotalProducts];
+  return [fetchedProducts as BriefProduct[], fetchedTotalProducts];
 }

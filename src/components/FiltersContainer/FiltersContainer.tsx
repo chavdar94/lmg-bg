@@ -1,7 +1,7 @@
 "use client";
 
-import { useState } from "react";
-import { useRouter } from "next/navigation";
+import { useState, useEffect } from "react";
+import { useRouter, useSearchParams } from "next/navigation";
 import { productsFilter } from "@/lib/constants";
 import {
   Select,
@@ -11,22 +11,29 @@ import {
   SelectContent,
   SelectItem,
 } from "../ui/select";
+import { updateQuery } from "@/lib/utils";
 
 export function FiltersContainer() {
   const [selectedFilter, setSelectedFilter] = useState<string>("");
   const router = useRouter();
+  const searchParams = useSearchParams();
+
+  useEffect(() => {
+    const currentFilter = searchParams.get("filter");
+    if (currentFilter) {
+      setSelectedFilter(currentFilter);
+    }
+  }, [searchParams]);
 
   const handleFilterChange = (value: string) => {
     setSelectedFilter(value);
-
-    const url = new URL(window.location.href);
-    url.searchParams.set("filter", value);
-    router.push(url.toString());
+    updateQuery("filter", value, router);
   };
 
   return (
     <div className="flex flex-wrap md:flex-nowrap gap-4">
       <Select
+        value={selectedFilter}
         onValueChange={(value) => {
           handleFilterChange(value);
         }}

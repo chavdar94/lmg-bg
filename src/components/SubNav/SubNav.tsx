@@ -7,6 +7,9 @@ export default async function SubNav() {
   return (
     <nav className="m-auto py-6">
       <ul className="flex flex-wrap justify-center gap-8 uppercase text-sm">
+        <Link href="/used" className="cursor-pointer">
+          втора употреба
+        </Link>
         <Link href="/categories" className="cursor-pointer">
           продукти
         </Link>
@@ -20,13 +23,11 @@ export default async function SubNav() {
           контакти
         </Link>
         {user?.isAdmin && (
-          <>
-            <Link href="/admin" className="cursor-pointer">
-              админ
-            </Link>
-            <LogoutForm />
-          </>
+          <Link href="/admin" className="cursor-pointer">
+            админ
+          </Link>
         )}
+        {user && <LogoutForm />}
       </ul>
     </nav>
   );

@@ -1,6 +1,5 @@
 import { FC } from "react";
 import ProductCard from "@/components/ProductCard/ProductCard";
-import { CartProduct } from "@/definitions/types";
 import db from "@/lib/client";
 import { PAGE_SIZE } from "@/lib/constants";
 import PaginationContainer from "@/components/Pagination/PaginationContainer";
@@ -74,7 +73,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
             <FiltersContainer />
           </div>
           <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-6 m-auto mt-10 w-full">
-            {products.map((product: CartProduct) => (
+            {products.map((product) => (
               <ProductCard product={product} key={product.id} />
             ))}
           </div>

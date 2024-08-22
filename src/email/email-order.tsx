@@ -65,53 +65,55 @@ export default function EmailOrder({ items, email }: EmailOrderProps) {
               Поръчка за <span style={{ fontStyle: "italic" }}>{email}</span>
             </h1>
             <Row style={{ marginTop: "20px" }}>
-              {items.map((product: CartProduct) => (
-                <Column
-                  key={product.id}
-                  style={{
-                    padding: "10px",
-                    border: "1px solid #ddd",
-                    borderRadius: "8px",
-                    marginBottom: "10px",
-                  }}
-                >
-                  <Img
-                    src={product.main_picture_url!}
-                    alt={product.name!}
-                    width={200}
-                    height={200}
+              {items.map((product: CartProduct) => {
+                return (
+                  <Column
+                    key={product.id}
                     style={{
-                      display: "block",
-                      margin: "0 auto",
-                      objectFit: "contain",
-                    }}
-                  />
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      fontSize: "14px",
-                      marginTop: "10px",
+                      padding: "10px",
+                      border: "1px solid #ddd",
+                      borderRadius: "8px",
+                      marginBottom: "10px",
                     }}
                   >
-                    {product.name} - {product.category}
-                  </Text>
-                  <Text
-                    style={{
-                      textAlign: "center",
-                      fontSize: "16px",
-                      fontWeight: "bold",
-                      marginTop: "5px",
-                    }}
-                  >
-                    {product.quantity} бр. x{" "}
-                    {formatPrice(product.price!, {
-                      currency: "BGN",
-                      notation: "standard",
-                      IntlFormat: "bg-BG",
-                    })}
-                  </Text>
-                </Column>
-              ))}
+                    <Img
+                      src={product.main_picture_url as string}
+                      alt={product.name!}
+                      width={200}
+                      height={200}
+                      style={{
+                        display: "block",
+                        margin: "0 auto",
+                        objectFit: "contain",
+                      }}
+                    />
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        fontSize: "14px",
+                        marginTop: "10px",
+                      }}
+                    >
+                      {product.name} - {product.category}
+                    </Text>
+                    <Text
+                      style={{
+                        textAlign: "center",
+                        fontSize: "16px",
+                        fontWeight: "bold",
+                        marginTop: "5px",
+                      }}
+                    >
+                      {product.quantity} бр. x{" "}
+                      {formatPrice(product.price!, {
+                        currency: "BGN",
+                        notation: "standard",
+                        IntlFormat: "bg-BG",
+                      })}
+                    </Text>
+                  </Column>
+                );
+              })}
             </Row>
             <Section
               style={{

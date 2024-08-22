@@ -10,6 +10,7 @@ import {
   PaginationNext,
   PaginationPrevious,
 } from "@/components/ui/pagination";
+import { updateQuery } from "@/lib/utils";
 
 interface Props {
   totalPages: number;
@@ -29,18 +30,18 @@ const PaginationContainer = ({
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
-      router.push(`${route}?page=${currentPage + 1}`);
+      updateQuery("page", `${currentPage + 1}`, router);
     }
   };
 
   const handlePreviousPage = () => {
     if (currentPage > 1) {
-      router.push(`${route}?page=${currentPage - 1}`);
+      updateQuery("page", `${currentPage - 1}`, router);
     }
   };
 
   const handlePageChange = (page: number) => {
-    router.push(`${route}?page=${page}`);
+    updateQuery("page", `${page}`, router);
   };
 
   const getActivePages = () => {

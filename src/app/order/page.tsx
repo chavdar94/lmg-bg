@@ -82,6 +82,7 @@ export default function OrderPage() {
               <label className="pl-1 text-xl font-semibold" htmlFor="email">
                 Имейл за връзка:
               </label>
+
               {error && (
                 <p className="text-red-500">Моля, въведете валиден имейл</p>
               )}
@@ -96,6 +97,9 @@ export default function OrderPage() {
                 id="email"
                 className="w-full border-2 border-slate-300 p-2"
               />
+              <p className="text-xs text-slate-500 text-center mt-2">
+                Отдел продажби ще се свърже с вас на посочния имейл.
+              </p>
             </div>
             <button
               disabled={loading}

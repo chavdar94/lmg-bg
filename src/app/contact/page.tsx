@@ -67,7 +67,9 @@ const Service = () => {
         </div>
       </div>
       <hr className="my-4" />
-      <h2 className="text-xl pl-2">Връзка с нас:</h2>
+      <h2 className="text-xl pl-2 mb-1">
+        Имата въпрос? Изпратете ни имейл и ние ще се свържем с вас!
+      </h2>
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
         <Input
           name="name"

@@ -3,15 +3,14 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useCart } from "@/hooks/use-cart";
-import { CartProduct } from "@/definitions/types";
+import { CartProduct, UsedCartProduct } from "@/definitions/types";
 import { cn } from "@/lib/utils";
-import { buttonVariants } from "../ui/button";
 
 const AddToCartButton = ({
   product,
   className,
 }: {
-  product: CartProduct;
+  product: CartProduct | UsedCartProduct;
   className?: string;
 }) => {
   const { addItem } = useCart();
@@ -28,7 +27,7 @@ const AddToCartButton = ({
   return (
     <button
       onClick={() => {
-        addItem(product);
+        addItem(product as CartProduct);
         setIsSuccess(true);
       }}
       className={cn(

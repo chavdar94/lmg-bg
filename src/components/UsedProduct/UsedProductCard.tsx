@@ -1,14 +1,14 @@
-import { CartProduct, Currency, ProductCardType } from "@/definitions/types";
+import { convertBufferToDataUrl, formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import AddToCartButton from "../AddToCartButton/AddToCartButton";
-import { calculateCurrency, formatPrice } from "@/lib/utils";
+import { UsedCartProduct } from "@/definitions/types";
 import Link from "next/link";
 
-const ProductCard = async ({ product }: { product: ProductCardType }) => {
-  const price = await calculateCurrency(
-    product.price!,
-    product.currency! as Currency
-  );
+type Props = { product: UsedCartProduct };
+const UsedProductCard = ({ product }: Props) => {
+  // const imageBuffer = product.main_picture_url;
+
+  // const image = convertBufferToDataUrl(imageBuffer as Buffer, "image/jpeg");
 
   return (
     <div className="md:w-full border-2 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ease-in-out h-[400px] p-4">
@@ -16,11 +16,7 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
         <Link href={`/categories/${product.slug}/${product.id}`}>
           <div className="flex flex-col justify-center items-center">
             <Image
-              src={
-                product.main_picture_url !== "http://www.mostcomputers.bg"
-                  ? product.main_picture_url!
-                  : "/categoriesImages/no-image.jpg"
-              }
+              src={product.main_picture_url as string}
               width={200}
               height={200}
               alt={product.name!}
@@ -30,7 +26,7 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
               {product.name} - {product.category}
             </p>
             <p className="px-2 font-bold">
-              {formatPrice(price, {
+              {formatPrice(product.price!, {
                 currency: "BGN",
                 notation: "standard",
                 IntlFormat: "bg-BG",
@@ -39,14 +35,10 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
           </div>
         </Link>
         <div className="px-4 mt-auto">
-          <AddToCartButton
-            className="p-2 w-full"
-            product={product as CartProduct}
-          />
+          <AddToCartButton className="p-2 w-full" product={product} />
         </div>
       </div>
     </div>
   );
 };
-
-export default ProductCard;
+export default UsedProductCard;

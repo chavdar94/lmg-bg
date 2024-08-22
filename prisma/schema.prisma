@@ -71,9 +71,10 @@ model ServiceCategory {
 model Service {
     id         String          @id @default(uuid())
     title      String
-    price      Int
+    price      Float
     category   ServiceCategory @relation(fields: [categoryId], references: [id])
     categoryId String
+    isDeleted  Boolean         @default(false)
 
     @@map("services")
 }
@@ -94,4 +95,19 @@ model Image {
     content Bytes
     post    Post   @relation(fields: [postId], references: [id])
     postId  String
+}
+
+model UsedProduct {
+    id               String   @id @default(uuid())
+    name             String?
+    product_status   String?
+    price            Float?
+    main_picture_url Bytes?
+    manufacturer     String?
+    category         String?
+    subcategory      String?
+    vendor_url       String?
+    properties       String?
+    created_at       DateTime @default(now())
+    slug             String
 }

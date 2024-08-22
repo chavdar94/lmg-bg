@@ -11,7 +11,6 @@ const CreatePostForm = () => {
   const [loading, setLoading] = useState(false);
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-    console.log("Creating post...");
 
     setLoading(true);
     const formData = new FormData(e.currentTarget);

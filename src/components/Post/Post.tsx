@@ -40,7 +40,11 @@ const Post = (props: PostType) => {
               ""
             )}
             <span className="text-slate-500 text-sm">
-              {props.createdAt.toLocaleDateString()}
+              {props.createdAt.toLocaleDateString("en-GB", {
+                day: "2-digit",
+                month: "2-digit",
+                year: "numeric",
+              })}
             </span>
           </section>
           <p className="text-sm text-slate-500">

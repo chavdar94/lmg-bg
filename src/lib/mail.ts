@@ -25,7 +25,6 @@ export async function sendMail({
 
   return await response.json();
 }
-console.log("baseContactUrl", baseContactUrl);
 
 export async function sendContactMail(
   name: string,

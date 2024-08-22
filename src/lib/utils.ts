@@ -3,6 +3,7 @@ import { twMerge } from "tailwind-merge";
 import { currencies } from "./constants";
 import { Currency } from "@/definitions/types";
 import { fetchBNBExchangeRates } from "./parseXmlToJSON";
+import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -44,4 +45,32 @@ export const convertBufferToDataUrl = (
 ): string => {
   const base64 = buffer.toString("base64");
   return `data:${mimeType};base64,${base64}`;
+};
+
+export const slugify = (text: string) => {
+  return text
+    .toString()
+    .toLowerCase()
+    .replace(/\s+/g, "-") // Replace spaces with -
+    .replace(/[^\w-]+/g, "") // Remove all non-word chars
+    .replace(/--+/g, "-") // Replace multiple - with single -
+    .replace(/^-+/, "") // Trim - from start of text
+    .replace(/-+$/, ""); // Trim - from end of text
+};
+
+export const updateQuery = (
+  key: string,
+  value: string,
+  router: AppRouterInstance,
+  categoryChange?: boolean
+) => {
+  const params = new URLSearchParams(
+    categoryChange ? "" : window.location.search
+  );
+  if (value) {
+    params.set(key, value);
+  } else {
+    params.delete(key);
+  }
+  router.push(`${window.location.pathname}?${params.toString()}`);
 };

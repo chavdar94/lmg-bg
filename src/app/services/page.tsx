@@ -5,8 +5,11 @@ import {
   AccordionTrigger,
 } from "@/components/ui/accordion";
 import { Service, ServiceCategory } from "@prisma/client";
-import { ChevronRightIcon } from "lucide-react";
+import { ChevronRightIcon, PencilLine, Trash2Icon } from "lucide-react";
 import { getCategories, getServices } from "./actions";
+import { validateRequest } from "@/lib/auth";
+import Link from "next/link";
+import DeleteService from "../admin/services/_components/DeleteService";
 
 export const revalidate = 86400;
 
@@ -15,6 +18,7 @@ async function ServicesPage() {
     getCategories(),
     getServices(),
   ]);
+  const { user } = await validateRequest();
 
   return (
     <>
@@ -40,11 +44,21 @@ async function ServicesPage() {
                         <ChevronRightIcon className="w-4 h-4" />
                         <span>{service.title}</span>
                       </div>
-                      <span>
-                        {service.price > 0
-                          ? `${service.price} лв.`
-                          : "Безплатно"}
-                      </span>
+                      <div className="flex gap-2">
+                        <span>
+                          {service.price > 0
+                            ? `${service.price} лв.`
+                            : "Безплатно"}
+                        </span>
+                        {user?.isAdmin && (
+                          <div className="flex gap-1 justify-center items-center">
+                            <Link href={`/admin/services/${service.id}/edit`}>
+                              <PencilLine className="w-4 h-4 text-blue-500" />
+                            </Link>
+                            <DeleteService id={service.id} />
+                          </div>
+                        )}
+                      </div>
                     </li>
                   ))}
               </ul>

@@ -1,13 +1,27 @@
 import { CartProduct as CartProductType } from "@/definitions/types";
-import { formatPrice } from "@/lib/utils";
+import { convertBufferToDataUrl, formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import { useCart } from "@/hooks/use-cart";
-import { X } from "lucide-react";
-import { Plus, Minus } from "lucide-react";
+import { Plus, Minus, X } from "lucide-react";
 
 function CartProduct({ product }: { product: CartProductType }) {
   const { decreaseItem, addItem, removeItem } = useCart();
+
+  let image;
+  if (typeof product.main_picture_url !== "string") {
+    const byteBuffer = product.main_picture_url.data;
+    const binaryString = byteBuffer.reduce(
+      (acc, byte) => acc + String.fromCharCode(byte),
+      ""
+    );
+
+    const base64String = btoa(binaryString);
+
+    image = `data:image/jpeg;base64,${base64String}`;
+  } else {
+    image = product.main_picture_url;
+  }
 
   return (
     <>
@@ -16,7 +30,7 @@ function CartProduct({ product }: { product: CartProductType }) {
           <div className="flex items-center space-x-4">
             <div className="relative aspect-square h-16 w-16 min-w-fit overflow-hidden rounded">
               <Image
-                src={product?.main_picture_url!}
+                src={image}
                 alt={product?.name!}
                 fill
                 className="absolute object-cover"
