@@ -74,3 +74,9 @@ export const updateQuery = (
   }
   router.push(`${window.location.pathname}?${params.toString()}`);
 };
+
+export const title = (str: string) => {
+  return str.replace(/\b\w/g, function (match) {
+    return match.toUpperCase();
+  });
+};

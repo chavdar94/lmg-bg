@@ -6,6 +6,7 @@ import WidthContainer from "../components/WidthContainer";
 import Footer from "../components/Footer/Footer";
 import SubNav from "@/components/SubNav/SubNav";
 import "leaflet/dist/leaflet.css";
+import Developer from "@/components/Developer/Developer";
 
 const inter = Inter({ subsets: ["latin"] });
 
@@ -30,6 +31,7 @@ export default async function RootLayout({
           {children}
         </WidthContainer>
         <Footer />
+        <Developer />
       </body>
     </html>
   );

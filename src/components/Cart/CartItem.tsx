@@ -33,7 +33,7 @@ function CartProduct({ product }: { product: CartProductType }) {
                 src={image}
                 alt={product?.name!}
                 fill
-                className="absolute object-cover"
+                className="absolute object-contain"
               />
             </div>
             <div className="flex flex-col self-start">
