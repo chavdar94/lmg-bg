@@ -17,6 +17,7 @@ export type Product = {
   properties: JsonArray | JsonValue;
   created_at: Date;
   slug: string;
+  price_with_vat: number | null;
 };
 
 export type Products = Product[];
@@ -28,6 +29,7 @@ export type BriefProduct = {
   main_picture_url: string | { data: Buffer };
   slug: string;
   category: string;
+  price_with_vat: number | null;
 };
 
 export type CartProduct = BriefProduct & {
@@ -38,12 +40,12 @@ export type CartProduct = BriefProduct & {
 export type UsedProduct = {
   id: string;
   name: string | null;
-  price: number | null;
   main_picture_url: string | Buffer;
   category: string | null;
   subcategory: string | null;
   created_at: Date;
   slug: string;
+  price_with_vat: number | null;
 };
 
 export type UsedCartProduct = UsedProduct & { quantity?: number };

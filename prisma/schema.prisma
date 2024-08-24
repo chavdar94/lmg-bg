@@ -101,7 +101,7 @@ model UsedProduct {
     id               String   @id @default(uuid())
     name             String?
     product_status   String?
-    price            Float?
+    price_with_vat   Float?
     main_picture_url Bytes?
     manufacturer     String?
     category         String?

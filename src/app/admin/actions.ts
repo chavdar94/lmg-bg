@@ -42,7 +42,7 @@ export const createUsedProduct = async (formData: FormData) => {
   const product = await db.usedProduct.create({
     data: {
       name: formData.get("name") as string,
-      price: parseFloat(formData.get("price") as string),
+      price_with_vat: parseFloat(formData.get("price") as string),
       manufacturer: formData.get("manufacturer") as string,
       category: formData.get("category") as string,
       subcategory: formData.get("subcategory") as string,

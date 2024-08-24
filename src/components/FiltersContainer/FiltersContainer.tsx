@@ -27,7 +27,7 @@ export function FiltersContainer() {
 
   const handleFilterChange = (value: string) => {
     setSelectedFilter(value);
-    updateQuery("filter", value, router);
+    updateQuery("filter", value, router, false);
   };
 
   return (

@@ -1,5 +1,5 @@
 import { CartProduct as CartProductType } from "@/definitions/types";
-import { convertBufferToDataUrl, formatPrice } from "@/lib/utils";
+import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 import { Separator } from "../ui/separator";
 import { useCart } from "@/hooks/use-cart";
@@ -59,7 +59,7 @@ function CartProduct({ product }: { product: CartProductType }) {
 
           <div className="flex flex-col space-y-1 font-medium">
             <span className="ml-auto line-clamp-1 text-sm">
-              {formatPrice(product.price! * product.quantity!)}
+              {formatPrice(product.price_with_vat! * product.quantity!)}
             </span>
             <div className="flex items-center justify-center gap-3 text-sm pt-2">
               <button

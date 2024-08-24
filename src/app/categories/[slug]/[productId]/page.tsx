@@ -1,13 +1,12 @@
 import { getUsedProduct } from "@/app/used/actions";
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
-import { CartProduct, Currency } from "@/definitions/types";
+import { CartProduct } from "@/definitions/types";
 import db from "@/lib/client";
-import { calculateCurrency, formatPrice, title } from "@/lib/utils";
+import { formatPrice, title } from "@/lib/utils";
 import Image from "next/image";
 import {
   Breadcrumb,
   BreadcrumbItem,
-  BreadcrumbLink,
   BreadcrumbList,
   BreadcrumbPage,
   BreadcrumbSeparator,
@@ -19,7 +18,6 @@ type Props = {
 };
 export default async function ProcutDetails({ params }: Props) {
   let product;
-  let price;
 
   try {
     product = await db.products.findUnique({
@@ -28,19 +26,12 @@ export default async function ProcutDetails({ params }: Props) {
     if (!product) {
       throw new Error("Product not found");
     }
-
-    price = await calculateCurrency(
-      product?.price!,
-      product?.currency! as Currency
-    );
   } catch (error) {
     product = await getUsedProduct(params.productId);
 
     if (!product) {
       return null;
     }
-
-    price = product?.price;
   }
 
   return (
@@ -95,7 +86,7 @@ export default async function ProcutDetails({ params }: Props) {
               </div>
               <div>
                 <p className="text-4xl font-bold text-[#026b66]">
-                  {formatPrice(price!, {
+                  {formatPrice(product.price_with_vat!, {
                     currency: "BGN",
                     notation: "standard",
                     IntlFormat: "bg-BG",

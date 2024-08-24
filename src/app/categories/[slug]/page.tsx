@@ -31,8 +31,6 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
         return { name: "desc" };
       case "nameAsc":
         return { name: "asc" };
-      // case "statusDesc":
-      //   return { product_status: "desc" };
       case "statusAsc":
         return { product_status: "asc" };
       default:
@@ -51,10 +49,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
     }),
     db.products.count({
       where: {
-        category: {
-          contains: params.slug,
-          mode: "insensitive",
-        },
+        slug: params.slug,
       },
     }),
   ]);
