@@ -30,14 +30,14 @@ export const getProductsByCategory = async (
   page: number
 ) => {
   return getOrSetCache(
-    `products-${slug}`,
+    `products-${slug}?page=${page}?filter=${JSON.stringify(orderBy)}`,
     async () =>
       await db.products.findMany({
         where: {
           slug: slug,
         },
         orderBy,
-        skip: page * PAGE_SIZE,
+        skip: page * PAGE_SIZE - 1,
         take: PAGE_SIZE,
       })
   );

@@ -18,7 +18,7 @@ interface Props {
 }
 
 const Category: FC<Props> = async ({ params, searchParams }: Props) => {
-  const page = Number(searchParams?.page) || 0;
+  const page = Number(searchParams?.page) || 1;
   const filter = searchParams?.filter || "";
 
   const orderBy: OrderBy = (() => {

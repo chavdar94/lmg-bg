@@ -18,15 +18,10 @@ interface Props {
   route?: string;
 }
 
-const PaginationContainer = ({
-  totalPages,
-  currentPage,
-  route = "/",
-}: Props) => {
+const PaginationContainer = ({ totalPages, currentPage }: Props) => {
   const router = useRouter();
 
   // Initialize currentPage to 1 if it is 0
-  currentPage = currentPage === 0 ? 1 : currentPage;
 
   const handleNextPage = () => {
     if (currentPage < totalPages) {
