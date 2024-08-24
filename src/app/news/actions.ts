@@ -8,10 +8,11 @@ import { redirect } from "next/navigation";
 type PostsProps = {
   skip: number;
   take: number;
+  page: number;
 };
 
-export const getAllPosts = async ({ skip, take }: PostsProps) => {
-  return getOrSetCache("posts", async () => {
+export const getAllPosts = async ({ skip, take, page }: PostsProps) => {
+  return getOrSetCache(`posts?page=${page}`, async () => {
     const posts = await db.post.findMany({
       orderBy: {
         createdAt: "desc",
@@ -19,8 +20,6 @@ export const getAllPosts = async ({ skip, take }: PostsProps) => {
       skip,
       take,
     });
-
-    const postsCount = await db.post.count();
 
     const transformedPosts = posts.map((post) => {
       const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
@@ -30,7 +29,7 @@ export const getAllPosts = async ({ skip, take }: PostsProps) => {
       };
     });
 
-    return { transformedPosts, postsCount };
+    return transformedPosts;
   });
 };
 

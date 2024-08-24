@@ -5,6 +5,7 @@ import Link from "next/link";
 import { buttonVariants } from "@/components/ui/button";
 import PaginationContainer from "@/components/Pagination/PaginationContainer";
 import { PAGE_SIZE_NEWS } from "@/lib/constants";
+import db from "@/lib/client";
 
 type Props = {
   searchParams: { [key: string]: string | string[] | undefined };
@@ -14,7 +15,13 @@ const News = async ({ searchParams }: Props) => {
   const page = Number(searchParams?.page) || 1;
   const skip = (page - 1) * PAGE_SIZE_NEWS;
   const take = PAGE_SIZE_NEWS;
-  const { transformedPosts, postsCount } = await getAllPosts({ skip, take });
+  const transformedPosts = await getAllPosts({
+    skip,
+    take,
+    page,
+  });
+
+  const postsCount = await db.post.count();
 
   const truncateText = (text: string, wordLimit: number) => {
     const words = text.split(" ");
@@ -24,7 +31,7 @@ const News = async ({ searchParams }: Props) => {
     return text;
   };
 
-  const totalPages = Math.ceil(postsCount / 3);
+  const totalPages = Math.ceil(postsCount / PAGE_SIZE_NEWS);
 
   return (
     <>

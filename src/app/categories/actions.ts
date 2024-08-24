@@ -37,7 +37,7 @@ export const getProductsByCategory = async (
           slug: slug,
         },
         orderBy,
-        skip: page * PAGE_SIZE - 1,
+        skip: (page - 1) * PAGE_SIZE,
         take: PAGE_SIZE,
       })
   );

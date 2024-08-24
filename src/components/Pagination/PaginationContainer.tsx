@@ -21,8 +21,6 @@ interface Props {
 const PaginationContainer = ({ totalPages, currentPage }: Props) => {
   const router = useRouter();
 
-  // Initialize currentPage to 1 if it is 0
-
   const handleNextPage = () => {
     if (currentPage < totalPages) {
       updateQuery("page", `${currentPage + 1}`, router);
