@@ -1,9 +1,10 @@
 import { type ClassValue, clsx } from "clsx";
 import { twMerge } from "tailwind-merge";
-import { currencies } from "./constants";
+import { currencies, redisExpire } from "./constants";
 import { Currency } from "@/definitions/types";
 import { fetchBNBExchangeRates } from "./parseXmlToJSON";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
+import { redis } from "./redis";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));

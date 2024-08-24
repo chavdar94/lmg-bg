@@ -1,15 +1,17 @@
 import db from "@/lib/client";
-import { revalidatePath } from "next/cache";
+import { getOrSetCache } from "@/lib/serverUtils";
 import { cache } from "react";
 
 export const getCategories = cache(async () => {
-  return db.serviceCategory.findMany();
+  return getOrSetCache("categories", async () => db.serviceCategory.findMany());
 });
 
 export const getServices = cache(async () => {
-  return db.service.findMany({
-    where: {
-      isDeleted: false,
-    },
-  });
+  return getOrSetCache("services", async () =>
+    db.service.findMany({
+      where: {
+        isDeleted: false,
+      },
+    })
+  );
 });

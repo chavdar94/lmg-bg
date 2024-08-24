@@ -14,3 +14,8 @@ export const currencies = {
   EUR: "1.95583",
   BGN: "1",
 };
+
+const hours = 23;
+const expires = hours * 60 * 60; // 23 hours in seconds
+
+export const redisExpire = expires;

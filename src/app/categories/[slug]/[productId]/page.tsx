@@ -1,7 +1,6 @@
 import { getUsedProduct } from "@/app/used/actions";
 import AddToCartButton from "@/components/AddToCartButton/AddToCartButton";
 import { CartProduct } from "@/definitions/types";
-import db from "@/lib/client";
 import { formatPrice, title } from "@/lib/utils";
 import Image from "next/image";
 import {
@@ -12,6 +11,7 @@ import {
   BreadcrumbSeparator,
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
+import { getProduct } from "../../actions";
 
 type Props = {
   params: { productId: string };
@@ -20,12 +20,8 @@ export default async function ProcutDetails({ params }: Props) {
   let product;
 
   try {
-    product = await db.products.findUnique({
-      where: { id: params.productId },
-    });
-    if (!product) {
-      throw new Error("Product not found");
-    }
+    product = await getProduct(params.productId);
+    if (!product) throw new Error("Product not found");
   } catch (error) {
     product = await getUsedProduct(params.productId);
 

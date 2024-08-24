@@ -1,6 +1,7 @@
 "use server";
 
 import db from "@/lib/client";
+import { getOrSetCache } from "@/lib/serverUtils";
 import { convertBufferToDataUrl } from "@/lib/utils";
 import { redirect } from "next/navigation";
 
@@ -10,45 +11,49 @@ type PostsProps = {
 };
 
 export const getAllPosts = async ({ skip, take }: PostsProps) => {
-  const posts = await db.post.findMany({
-    orderBy: {
-      createdAt: "desc",
-    },
-    skip,
-    take,
+  return getOrSetCache("posts", async () => {
+    const posts = await db.post.findMany({
+      orderBy: {
+        createdAt: "desc",
+      },
+      skip,
+      take,
+    });
+
+    const postsCount = await db.post.count();
+
+    const transformedPosts = posts.map((post) => {
+      const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
+      return {
+        ...post,
+        mainImage: image,
+      };
+    });
+
+    return { transformedPosts, postsCount };
   });
-
-  const postsCount = await db.post.count();
-
-  const transformedPosts = posts.map((post) => {
-    const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
-    return {
-      ...post,
-      mainImage: image,
-    };
-  });
-
-  return { transformedPosts, postsCount };
 };
 
 export const getSinglePost = async (id: string) => {
-  const post = await db.post.findUnique({
-    where: {
-      id: id,
-    },
+  return getOrSetCache(`post-${id}`, async () => {
+    const post = await db.post.findUnique({
+      where: {
+        id: id,
+      },
+    });
+
+    if (!post) {
+      redirect("/news");
+    }
+
+    const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
+    const transforemdPost = {
+      ...post,
+      mainImage: image,
+    };
+
+    return transforemdPost;
   });
-
-  if (!post) {
-    redirect("/news");
-  }
-
-  const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
-  const transforemdPost = {
-    ...post,
-    mainImage: image,
-  };
-
-  return transforemdPost;
 };
 
 export const deletePost = async (id: string) => {

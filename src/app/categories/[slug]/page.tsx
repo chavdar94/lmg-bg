@@ -1,9 +1,9 @@
 import { FC } from "react";
 import ProductCard from "@/components/ProductCard/ProductCard";
-import db from "@/lib/client";
 import { PAGE_SIZE } from "@/lib/constants";
 import PaginationContainer from "@/components/Pagination/PaginationContainer";
 import { FiltersContainer } from "@/components/FiltersContainer/FiltersContainer";
+import { getProductsByCategory, getProductsCount } from "../actions";
 
 type OrderBy = {
   price?: "asc" | "desc";
@@ -39,19 +39,8 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
   })();
 
   const [products, productsCount] = await Promise.all([
-    db.products.findMany({
-      where: {
-        slug: params.slug,
-      },
-      orderBy,
-      skip: page * PAGE_SIZE,
-      take: PAGE_SIZE,
-    }),
-    db.products.count({
-      where: {
-        slug: params.slug,
-      },
-    }),
+    await getProductsByCategory(params.slug, orderBy, page),
+    await getProductsCount(params.slug),
   ]);
 
   const totalPages = Math.floor(productsCount / PAGE_SIZE);
