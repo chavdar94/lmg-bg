@@ -1,7 +1,7 @@
 "use client";
 
 import { useEffect, useState } from "react";
-import { createService, getService } from "../actions";
+import { createService, getService, updateService } from "../actions";
 import { Label } from "@/components/ui/label";
 import { Input } from "@/components/ui/input";
 import { Button } from "@/components/ui/button";
@@ -29,6 +29,10 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
     title: "",
     price: 0,
     categoryId: "",
+    id: "",
+    category: {
+      title: "",
+    },
   });
 
   useEffect(() => {
@@ -49,7 +53,12 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
     setLoading(true);
 
     try {
-      await createService(formData);
+      const formDataObj = new FormData();
+      formDataObj.append("title", formData.title);
+      formDataObj.append("price", formData.price.toString());
+      formDataObj.append("categoryId", formData.categoryId);
+
+      await updateService(formData.id, formDataObj);
     } catch (error) {
       console.error("Error creating post:", error);
     } finally {
@@ -61,6 +70,19 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
     setFormData({
       ...formData,
       [e.target.name]: e.target.value,
+    });
+  };
+
+  const handleCategoryChange = (value: string) => {
+    const selectedCategory = categories.find(
+      (category) => category.id === value
+    );
+    setFormData({
+      ...formData,
+      categoryId: value,
+      category: {
+        title: selectedCategory ? selectedCategory.title : "",
+      },
     });
   };
 
@@ -88,9 +110,15 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
         />
 
         <Label htmlFor="category">Категория:</Label>
-        <Select name="category">
+        <Select
+          name="category"
+          value={formData.categoryId}
+          onValueChange={handleCategoryChange}
+        >
           <SelectTrigger className="w-full rounded-none">
-            <SelectValue placeholder="Избери категория" />
+            <SelectValue placeholder="Избери категория">
+              {formData.category.title || "Избери категория"}
+            </SelectValue>
           </SelectTrigger>
           <SelectContent
             className="rounded-none z-50"
@@ -125,4 +153,5 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
     </>
   );
 };
+
 export default ServiceUpdateForm;

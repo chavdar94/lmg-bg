@@ -2,6 +2,7 @@
 
 import db from "@/lib/client";
 import { revalidatePath } from "next/cache";
+import { redirect } from "next/navigation";
 
 export const getServiceCategories = async () => {
   return await db.serviceCategory.findMany();
@@ -71,6 +72,8 @@ export const updateService = async (id: string, formData: FormData) => {
       },
     },
   });
+  revalidatePath("/services");
+  redirect("/services");
 };
 
 export const updateServiceCategory = async (id: string, formData: FormData) => {
@@ -88,6 +91,13 @@ export const getService = async (id: string) => {
   return await db.service.findUnique({
     where: {
       id,
+    },
+    include: {
+      category: {
+        select: {
+          title: true,
+        },
+      },
     },
   });
 };
