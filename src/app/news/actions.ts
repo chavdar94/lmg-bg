@@ -3,6 +3,7 @@
 import db from "@/lib/client";
 import { getOrSetCache } from "@/lib/serverUtils";
 import { convertBufferToDataUrl } from "@/lib/utils";
+import { revalidatePath } from "next/cache";
 import { redirect } from "next/navigation";
 
 type PostsProps = {
@@ -12,25 +13,23 @@ type PostsProps = {
 };
 
 export const getAllPosts = async ({ skip, take, page }: PostsProps) => {
-  return getOrSetCache(`posts?page=${page}`, async () => {
-    const posts = await db.post.findMany({
-      orderBy: {
-        createdAt: "desc",
-      },
-      skip,
-      take,
-    });
-
-    const transformedPosts = posts.map((post) => {
-      const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
-      return {
-        ...post,
-        mainImage: image,
-      };
-    });
-
-    return transformedPosts;
+  const posts = await db.post.findMany({
+    orderBy: {
+      createdAt: "desc",
+    },
+    skip,
+    take,
   });
+
+  const transformedPosts = posts.map((post) => {
+    const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
+    return {
+      ...post,
+      mainImage: image,
+    };
+  });
+
+  return transformedPosts;
 };
 
 export const getSinglePost = async (id: string) => {
@@ -56,11 +55,12 @@ export const getSinglePost = async (id: string) => {
 };
 
 export const deletePost = async (id: string) => {
-  const post = await db.post.delete({
+  await db.post.delete({
     where: {
       id: id,
     },
   });
+  revalidatePath("/news");
   redirect("/news");
 };
 
@@ -84,6 +84,6 @@ export const editPost = async (id: string, formData: FormData) => {
       mainImage: Buffer.from(imageBytes),
     },
   });
-
+  revalidatePath(`/news/${post.id}`);
   redirect(`/news/${post.id}`);
 };
