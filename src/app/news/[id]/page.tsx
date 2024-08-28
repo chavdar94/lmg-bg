@@ -14,6 +14,7 @@ type Props = {
 const PostDetails = async ({ params }: Props) => {
   const post = await getSinglePost(params.id);
   const { user } = await validateRequest();
+  console.log(post);
 
   return (
     <div className="flex flex-col gap-4">
@@ -21,7 +22,11 @@ const PostDetails = async ({ params }: Props) => {
         <h1 className="text-3xl font-semibold">{post?.title}</h1>
         <p className="text-xs">
           от <span className="text-sm font-bold">{post?.author}</span> -{" "}
-          {post?.createdAt.toLocaleDateString()}
+          {post?.createdAt.toLocaleString("en-GB", {
+            day: "2-digit",
+            month: "2-digit",
+            year: "numeric",
+          })}
         </p>
       </div>
       <Image
