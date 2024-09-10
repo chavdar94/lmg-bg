@@ -15,9 +15,16 @@ import {
 type EmailOrderProps = {
   items: CartProduct[];
   email: string;
+  fullName?: string;
+  phone: string;
 };
 
-export default function EmailOrder({ items, email }: EmailOrderProps) {
+export default function EmailOrder({
+  items,
+  email,
+  fullName,
+  phone,
+}: EmailOrderProps) {
   // Calculate the total sum of all items
   let totalSum = items.reduce(
     (sum, item) => sum + (item.price_with_vat! * item.quantity! ?? 0),
@@ -64,6 +71,16 @@ export default function EmailOrder({ items, email }: EmailOrderProps) {
             >
               Поръчка за <span style={{ fontStyle: "italic" }}>{email}</span>
             </h1>
+            <div
+              style={{
+                fontSize: "16px",
+                marginTop: "20px",
+                padding: "10px",
+              }}
+            >
+              <p>Име: {fullName}</p>
+              <p>Телефон: {phone}</p>
+            </div>
             <Row style={{ marginTop: "20px" }}>
               {items.map((product: CartProduct) => {
                 return (

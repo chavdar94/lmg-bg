@@ -11,22 +11,37 @@ import { formatPrice } from "@/lib/utils";
 import Link from "next/link";
 
 export default function OrderPage() {
-  const [email, setEmail] = useState("");
+  const [formData, setFormData] = useState({
+    fullName: "",
+    email: "",
+    phone: "",
+  });
   const [success, setSuccess] = useState(false);
-  const [error, setError] = useState(false);
+  const [error, setError] = useState({
+    email: false,
+    fullName: false,
+    phone: false,
+  });
   const [loading, setLoading] = useState(false);
   const { items, clearCart } = useCart();
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
-    if (!email || !validateEmail(email)) {
-      setError(true);
+    if (!formData.email || !validateEmail(formData.email)) {
+      setError({ ...error, email: true });
       setLoading(false);
       return;
     }
+
+    if (!formData.phone || !validatePhoneNumber(formData.phone)) {
+      setError({ ...error, phone: true });
+      setLoading(false);
+      return;
+    }
+
     try {
-      const res = await sendMail({ items, email });
+      const res = await sendMail({ items, ...formData });
       if (res.id) {
         setSuccess(true);
       }
@@ -34,7 +49,7 @@ export default function OrderPage() {
       // Handle the error
       console.error("Failed to send email", err);
     } finally {
-      setEmail("");
+      setFormData({ fullName: "", email: "", phone: "" });
       clearCart();
       setLoading(false);
     }
@@ -44,6 +59,16 @@ export default function OrderPage() {
     // Simple regex for email validation
     const re = /^[^\s@]+@[^\s@]+\.[^\s@]+$/;
     return re.test(email);
+  };
+
+  const validatePhoneNumber = (phone: string) => {
+    // Simple regex for phone number validation
+    const re = /^\d{10}$/;
+    return re.test(phone);
+  };
+
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
 
   return (
@@ -81,25 +106,67 @@ export default function OrderPage() {
             onSubmit={handleSubmit}
             className="flex flex-col w-full md:w-1/2 gap-4"
           >
-            <div className="w-full">
-              <label className="pl-1 text-xl font-semibold" htmlFor="email">
-                Имейл за връзка:
-              </label>
+            <div className="w-full space-y-4">
+              <div>
+                <label className="pl-1 text-xl font-semibold" htmlFor="email">
+                  *Имейл за връзка:
+                </label>
 
-              {error && (
-                <p className="text-red-500">Моля, въведете валиден имейл</p>
-              )}
-              <input
-                value={email}
-                onChange={(e) => {
-                  setEmail(e.target.value);
-                  setError(false);
-                }}
-                type="text"
-                name="email"
-                id="email"
-                className="w-full border-2 border-slate-300 p-2"
-              />
+                {error.email && (
+                  <p className="text-red-500">Моля, въведете валиден имейл</p>
+                )}
+                <input
+                  value={formData.email}
+                  onChange={(e) => {
+                    handleChange(e);
+                    setError({ ...error, email: false });
+                  }}
+                  type="text"
+                  name="email"
+                  id="email"
+                  className="w-full border-2 border-slate-300 p-2"
+                />
+              </div>
+
+              <div>
+                <label className="pl-1 text-xl font-semibold" htmlFor="email">
+                  Име:
+                </label>
+
+                <input
+                  value={formData.fullName}
+                  onChange={(e) => {
+                    handleChange(e);
+                  }}
+                  type="text"
+                  name="fullName"
+                  id="name"
+                  className="w-full border-2 border-slate-300 p-2"
+                />
+              </div>
+
+              <div>
+                <label className="pl-1 text-xl font-semibold" htmlFor="email">
+                  *Телефон за връзка:
+                </label>
+
+                {error.phone && (
+                  <p className="text-red-500">
+                    Моля, въведете валиден телефонен номер
+                  </p>
+                )}
+                <input
+                  value={formData.phone}
+                  onChange={(e) => {
+                    handleChange(e);
+                    setError({ ...error, phone: false });
+                  }}
+                  type="text"
+                  name="phone"
+                  id="phone"
+                  className="w-full border-2 border-slate-300 p-2"
+                />
+              </div>
               <p className="text-xs text-slate-500 text-center mt-2">
                 Отдел продажби ще се свърже с вас на посочния имейл.
               </p>

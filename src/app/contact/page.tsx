@@ -15,7 +15,7 @@ const Map = dynamic(
 
 const Service = () => {
   const [formData, setFormData] = useState({
-    name: "",
+    fullName: "",
     email: "",
     message: "",
   });
@@ -31,7 +31,7 @@ const Service = () => {
       const res = await sendContactMail(name, email, message);
       if (res.id) {
         setFormData({
-          name: "",
+          fullName: "",
           email: "",
           message: "",
         });

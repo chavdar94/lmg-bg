@@ -27,32 +27,36 @@ type OrderBy = {
 export const getProductsByCategory = async (
   slug: string,
   orderBy: OrderBy,
-  page: number
+  page: number,
+  filterStatus?: string
 ) => {
-  return getOrSetCache(
-    `products-${slug}?page=${page}?filter=${JSON.stringify(orderBy)}`,
-    async () =>
-      await db.products.findMany({
-        where: {
-          slug: slug,
-        },
-        orderBy,
-        skip: (page - 1) * PAGE_SIZE,
-        take: PAGE_SIZE,
-      })
-  );
+  const filterCondition =
+    filterStatus === "Наличен" ? { product_status: "Наличен" } : {};
+
+  const products = await db.products.findMany({
+    where: {
+      slug: slug,
+      ...filterCondition,
+    },
+    orderBy,
+    skip: (page - 1) * PAGE_SIZE,
+    take: PAGE_SIZE,
+  });
+
+  return products;
 };
 
-export const getProductsCount = async (slug: string) => {
-  return getOrSetCache(
-    "productsCount",
-    async () =>
-      await db.products.count({
-        where: {
-          slug: slug,
-        },
-      })
-  );
+export const getProductsCount = async (slug: string, filterStatus?: string) => {
+  const filterCondition =
+    filterStatus === "Наличен" ? { product_status: "Наличен" } : {};
+
+  const count = await db.products.count({
+    where: {
+      slug: slug,
+      ...filterCondition,
+    },
+  });
+  return count;
 };
 
 export const getProduct = async (productId: string) => {

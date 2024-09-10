@@ -4,6 +4,7 @@ import { PAGE_SIZE } from "@/lib/constants";
 import PaginationContainer from "@/components/Pagination/PaginationContainer";
 import { FiltersContainer } from "@/components/FiltersContainer/FiltersContainer";
 import { getProductsByCategory, getProductsCount } from "../actions";
+import { redirect } from "next/navigation";
 
 type OrderBy = {
   price?: "asc" | "desc";
@@ -31,19 +32,24 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
         return { name: "desc" };
       case "nameAsc":
         return { name: "asc" };
-      case "statusAsc":
-        return { product_status: "asc" };
+      // case "statusAsc":
+      //   return { product_status: "asc" };
       default:
         return { name: "asc" }; // Default ordering
     }
   })();
 
+  const filterStatus = filter === "statusAsc" ? "Наличен" : undefined;
+
   const [products, productsCount] = await Promise.all([
-    await getProductsByCategory(params.slug, orderBy, page),
-    await getProductsCount(params.slug),
+    await getProductsByCategory(params.slug, orderBy, page, filterStatus),
+    await getProductsCount(params.slug, filterStatus),
   ]);
 
-  const totalPages = Math.floor(productsCount / PAGE_SIZE);
+  const totalPages = Math.ceil(productsCount / PAGE_SIZE);
+  if (filterStatus && page > totalPages) {
+    redirect(`/categories/${params.slug}?page=1&filter=${filter}`);
+  }
 
   return (
     <>
