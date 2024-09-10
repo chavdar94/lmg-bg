@@ -33,25 +33,23 @@ export const getAllPosts = async ({ skip, take, page }: PostsProps) => {
 };
 
 export const getSinglePost = async (id: string) => {
-  return getOrSetCache(`post-${id}`, async () => {
-    const post = await db.post.findUnique({
-      where: {
-        id: id,
-      },
-    });
-
-    if (!post) {
-      redirect("/news");
-    }
-
-    const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
-    const transforemdPost = {
-      ...post,
-      mainImage: image,
-    };
-
-    return transforemdPost;
+  const post = await db.post.findUnique({
+    where: {
+      id: id,
+    },
   });
+
+  if (!post) {
+    redirect("/news");
+  }
+
+  const image = convertBufferToDataUrl(post.mainImage, "image/jpeg");
+  const transforemdPost = {
+    ...post,
+    mainImage: image,
+  };
+
+  return transforemdPost;
 };
 
 export const deletePost = async (id: string) => {

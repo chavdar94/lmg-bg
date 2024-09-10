@@ -32,9 +32,9 @@ const ServiceCreateForm = ({ categories }: Props) => {
     const formData = new FormData(e.currentTarget);
 
     const mutadetFormData = {
-      title: e.currentTarget.title,
-      price: Number(e.currentTarget.price),
-      categoryId: e.currentTarget.category,
+      title: formData.get("title") as string,
+      price: Number(formData.get("price")),
+      categoryId: formData.get("category") as string,
     };
 
     try {
@@ -50,7 +50,7 @@ const ServiceCreateForm = ({ categories }: Props) => {
     <>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Label htmlFor="name">Име:</Label>
-        <Input id="title" title="title" placeholder="Име" />
+        <Input id="title" title="title" name="title" placeholder="Име" />
 
         <Label htmlFor="price">Цена:</Label>
         <Input id="price" name="price" type="number" placeholder="Цена" />
