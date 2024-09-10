@@ -20,7 +20,7 @@ type EmailOrderProps = {
 export default function EmailOrder({ items, email }: EmailOrderProps) {
   // Calculate the total sum of all items
   let totalSum = items.reduce(
-    (sum, item) => sum + (item.price! * item.quantity! ?? 0),
+    (sum, item) => sum + (item.price_with_vat! * item.quantity! ?? 0),
     0
   );
 
@@ -105,7 +105,7 @@ export default function EmailOrder({ items, email }: EmailOrderProps) {
                       }}
                     >
                       {product.quantity} бр. x{" "}
-                      {formatPrice(product.price!, {
+                      {formatPrice(product.price_with_vat!, {
                         currency: "BGN",
                         notation: "standard",
                         IntlFormat: "bg-BG",

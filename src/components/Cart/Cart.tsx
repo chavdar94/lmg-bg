@@ -35,7 +35,7 @@ const Cart = () => {
   }, []);
 
   const cartTotal = items.reduce(
-    (total, product) => total + product.price! * product.quantity!,
+    (total, product) => total + product.price_with_vat! * product.quantity!,
     0
   );
   const shipping = cartTotal < 100 ? 5.99 : 0;
