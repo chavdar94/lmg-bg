@@ -1,6 +1,10 @@
 import { NextRequest, NextResponse } from "next/server";
+import { createUploadthing, type FileRouter } from "uploadthing/next";
 
-export async function middleware(req: NextRequest) {
+const f = createUploadthing();
+
+// Define your custom authentication middleware function
+export default async function middleware(req: NextRequest) {
   const authCookie = req.cookies.get("auth_session");
 
   // If there is no authentication cookie, redirect to the home page
@@ -31,8 +35,8 @@ export async function middleware(req: NextRequest) {
       return NextResponse.redirect(process.env.NEXT_URL!);
     }
 
-    // If everything is okay, allow the request to proceed
-    return NextResponse.next();
+    // If everything is okay, return null to indicate no redirection
+    return null;
   } catch (error) {
     console.error("Failed to validate token:", error);
 
@@ -41,6 +45,21 @@ export async function middleware(req: NextRequest) {
   }
 }
 
+// Integrate the auth middleware with the uploadthing middleware
+export const uploadRouter = f({}).middleware(async ({ req }) => {
+  const nextRequest = req as NextRequest; // Cast to NextRequest to use in authMiddleware
+  const authResponse = await middleware(nextRequest);
+
+  // If authResponse is not null, it means we need to redirect
+  if (authResponse) {
+    return { error: "Unauthorized" };
+  }
+
+  // If authorized, return a valid object that uploadthing expects
+  return { status: 200 };
+});
+
+// Config for route matching
 export const config = {
   matcher: "/admin/:path*",
 };
