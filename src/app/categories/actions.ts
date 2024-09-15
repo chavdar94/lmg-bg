@@ -1,3 +1,4 @@
+import { OrderBy } from "@/definitions/types";
 import db from "@/lib/client";
 import { PAGE_SIZE } from "@/lib/constants";
 import { getOrSetCache } from "@/lib/serverUtils";
@@ -17,11 +18,6 @@ export const getCategories = async () => {
 
     return categories;
   });
-};
-
-type OrderBy = {
-  price?: "asc" | "desc";
-  name?: "asc" | "desc";
 };
 
 export const getProductsByCategory = async (

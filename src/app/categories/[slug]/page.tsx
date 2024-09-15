@@ -5,11 +5,7 @@ import PaginationContainer from "@/components/Pagination/PaginationContainer";
 import { FiltersContainer } from "@/components/FiltersContainer/FiltersContainer";
 import { getProductsByCategory, getProductsCount } from "../actions";
 import { redirect } from "next/navigation";
-
-type OrderBy = {
-  price?: "asc" | "desc";
-  name?: "asc" | "desc";
-};
+import { OrderBy } from "@/definitions/types";
 
 interface Props {
   params: {
@@ -32,10 +28,8 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
         return { name: "desc" };
       case "nameAsc":
         return { name: "asc" };
-      // case "statusAsc":
-      //   return { product_status: "asc" };
       default:
-        return { name: "asc" }; // Default ordering
+        return { product_status: "asc" }; // Default ordering
     }
   })();
 

@@ -53,3 +53,8 @@ export type UsedCartProduct = UsedProduct & { quantity?: number };
 export type Currency = "USD" | "EUR" | "BGN";
 
 export type ProductCardType = Product & { quantity?: number };
+
+export type OrderBy = {
+  price?: "asc" | "desc";
+  name?: "asc" | "desc";
+};
