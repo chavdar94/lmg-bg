@@ -1,4 +1,5 @@
 // import { UsedProduct } from "@prisma/client";
+import { UsedProduct } from "@prisma/client";
 import { JsonValue, JsonArray } from "@prisma/client/runtime/library";
 
 export type Product = {
@@ -15,7 +16,7 @@ export type Product = {
   partnum: string | null;
   vendor_url: string | null;
   properties: JsonArray | JsonValue;
-  created_at: Date;
+  created_at: Date | null;
   slug: string;
   price_with_vat: number | null;
 };
@@ -37,16 +38,17 @@ export type CartProduct = BriefProduct & {
   quantity?: number;
 };
 
-export type UsedProduct = {
-  id: string;
-  name: string | null;
-  main_picture_url: string | Buffer;
-  category: string | null;
-  subcategory: string | null;
-  created_at: Date;
-  slug: string;
-  price_with_vat: number | null;
-};
+// export type UsedProduct = {
+//   id: string;
+//   name: string | null;
+//   main_picture_url: string | null;
+//   category: string | null;
+//   subcategory: string | null;
+//   created_at: Date;
+//   slug: string;
+//   price_with_vat: number | null;
+//   gallery_urls: string[] | null;
+// };
 
 export type UsedCartProduct = UsedProduct & { quantity?: number };
 
@@ -58,3 +60,5 @@ export type OrderBy = {
   price?: "asc" | "desc";
   name?: "asc" | "desc";
 };
+
+export type ProductWithGallery = Product & { gallery: JsonValue | null };

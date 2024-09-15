@@ -14,7 +14,6 @@ type Props = {
 const PostDetails = async ({ params }: Props) => {
   const post = await getSinglePost(params.id);
   const { user } = await validateRequest();
-  console.log(post);
 
   return (
     <div className="flex flex-col gap-4">

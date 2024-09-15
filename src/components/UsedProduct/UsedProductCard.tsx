@@ -12,7 +12,7 @@ const UsedProductCard = ({ product }: Props) => {
         <Link href={`/categories/${product.slug}/${product.id}`}>
           <div className="flex flex-col justify-center items-center">
             <Image
-              src={product.main_picture_url as string}
+              src={product.main_picture_url ?? ""}
               width={200}
               height={200}
               alt={product.name!}

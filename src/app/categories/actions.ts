@@ -56,11 +56,12 @@ export const getProductsCount = async (slug: string, filterStatus?: string) => {
 };
 
 export const getProduct = async (productId: string) => {
-  return getOrSetCache(`product-${productId}`, async () => {
-    const product = await db.products.findUnique({
-      where: { id: productId },
-    });
+  // return getOrSetCache(`product-${productId}`, async () => {
+  //   const product = await db.products.findUnique({
+  //     where: { id: productId },
+  //   });
 
-    return product;
-  });
+  //   return product;
+  // });
+  return db.products.findUnique({ where: { id: productId } });
 };

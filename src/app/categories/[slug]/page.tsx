@@ -5,7 +5,7 @@ import PaginationContainer from "@/components/Pagination/PaginationContainer";
 import { FiltersContainer } from "@/components/FiltersContainer/FiltersContainer";
 import { getProductsByCategory, getProductsCount } from "../actions";
 import { redirect } from "next/navigation";
-import { OrderBy } from "@/definitions/types";
+import { OrderBy, ProductCardType } from "@/definitions/types";
 
 interface Props {
   params: {

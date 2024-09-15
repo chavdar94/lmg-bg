@@ -20,6 +20,11 @@ const nextConfig = {
         hostname: "www.mostcomputers.bg",
         pathname: "**",
       },
+      {
+        protocol: "https",
+        hostname: "utfs.io",
+        pathname: "/f/**",
+      },
     ],
     minimumCacheTTL: 60 * 60 * 24, // 24 hours
   },

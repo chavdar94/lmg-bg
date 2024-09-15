@@ -5,7 +5,7 @@ import { Button } from "../ui/button";
 import { Label } from "../ui/label";
 import { Input } from "../ui/input";
 import { Textarea } from "../ui/textarea";
-import { createUsedProduct } from "@/app/admin/actions";
+import { updateUsedProduct } from "@/app/admin/actions";
 import { Spinner } from "../ui/spinner";
 import {
   Select,
@@ -19,25 +19,30 @@ import { Checkbox } from "../ui/checkbox";
 import { UploadButton } from "@/lib/uploadthing";
 import Image from "next/image";
 import { X } from "lucide-react";
+import { UsedProduct } from "@prisma/client";
 
 type Props = {
+  product: UsedProduct;
   categories: { category: string | null; slug: string }[];
 };
 
-const UsedProductForm = ({ categories }: Props) => {
+const UsedProductUpdateForm = ({ product, categories }: Props) => {
   const [loading, setLoading] = useState(false);
 
-  const [isOnFocus, setIsOnFocus] = useState(false); // State for "on-focus" product
-  const [mainPictureUrl, setMainPictureUrl] = useState<string | null>(null);
-  const [galleryImageUrls, setGalleryImageUrls] = useState<string[]>([]);
+  const [isOnFocus, setIsOnFocus] = useState(product.on_focus); // State for "on-focus" product
+  const [mainPictureUrl, setMainPictureUrl] = useState<string | null>(
+    product.main_picture_url
+  );
+  const [galleryImageUrls, setGalleryImageUrls] = useState<string[]>(
+    (product.gallery_urls as string[]) || []
+  );
+  const [formData, setFormData] = useState(product);
 
   const handleSubmit = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
     setLoading(true);
     const formData = new FormData(e.currentTarget);
-
     formData.append("main_picture_url", mainPictureUrl!);
-
     // Append gallery images
     const urlArray = galleryImageUrls.map((file) => file);
     const urlArrayJson = JSON.stringify(urlArray);
@@ -47,7 +52,7 @@ const UsedProductForm = ({ categories }: Props) => {
     formData.append("on_focus", isOnFocus.toString());
 
     try {
-      await createUsedProduct(formData);
+      await updateUsedProduct(product.id, formData);
     } catch (error) {
       console.error("Error creating product:", error);
     } finally {
@@ -61,20 +66,45 @@ const UsedProductForm = ({ categories }: Props) => {
     setGalleryImageUrls(newGalleryImageUrls);
   };
 
+  const handleChange = (
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+  ) => {
+    setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
+  };
+
+  const handleSelectChange = (value: string) => {
+    setFormData((prev) => ({ ...prev, category: value }));
+  };
+
   return (
     <>
       <form onSubmit={handleSubmit} className="flex flex-col gap-4">
         <Label htmlFor="name">Име:</Label>
-        <Input id="name" name="name" placeholder="Име" />
+        <Input
+          id="name"
+          name="name"
+          placeholder="Име"
+          value={formData.name!}
+          onChange={handleChange}
+        />
 
-        <Label htmlFor="price">Цена:</Label>
-        <Input id="price" name="price" type="number" placeholder="Цена" />
+        <Label htmlFor="price_with_vat">Цена:</Label>
+        <Input
+          id="price_with_vat"
+          name="price_with_vat"
+          type="number"
+          placeholder="Цена"
+          value={formData.price_with_vat!}
+          onChange={handleChange}
+        />
 
         <Label htmlFor="product_status">Статус:</Label>
         <Input
           id="product_status"
           name="product_status"
           placeholder="Статус на продукта"
+          value={formData.product_status!}
+          onChange={handleChange}
         />
 
         <Label htmlFor="manufacturer">Производител:</Label>
@@ -82,10 +112,16 @@ const UsedProductForm = ({ categories }: Props) => {
           id="manufacturer"
           name="manufacturer"
           placeholder="Производител"
+          value={formData.manufacturer!}
+          onChange={handleChange}
         />
 
         <Label htmlFor="category">Категория:</Label>
-        <Select name="category">
+        <Select
+          name="category"
+          onValueChange={handleSelectChange}
+          value={formData.category!}
+        >
           <SelectTrigger className="w-full rounded-none">
             <SelectValue placeholder="Избери категория" />
           </SelectTrigger>
@@ -117,6 +153,8 @@ const UsedProductForm = ({ categories }: Props) => {
           id="subcategory"
           name="subcategory"
           placeholder="Под категория"
+          value={formData.subcategory!}
+          onChange={handleChange}
         />
 
         <Label htmlFor="vendor_url">Линк към производител:</Label>
@@ -124,6 +162,8 @@ const UsedProductForm = ({ categories }: Props) => {
           id="vendor_url"
           name="vendor_url"
           placeholder="Линк към прозводител"
+          value={formData.vendor_url!}
+          onChange={handleChange}
         />
 
         <Label htmlFor="properties">Описание:</Label>
@@ -131,6 +171,8 @@ const UsedProductForm = ({ categories }: Props) => {
           id="properties"
           name="properties"
           placeholder="Описание на продукта"
+          value={formData.properties!}
+          onChange={handleChange}
         />
 
         {/* Main picture input */}
@@ -192,11 +234,15 @@ const UsedProductForm = ({ categories }: Props) => {
         {/* Checkbox for On-Focus Product */}
         <div className="flex items-center gap-2 w-full">
           <Label htmlFor="on_focus">На фокус:</Label>
-          <Checkbox id="on_focus" onClick={() => setIsOnFocus(!isOnFocus)} />
+          <Checkbox
+            id="on_focus"
+            checked={isOnFocus}
+            onClick={() => setIsOnFocus(!isOnFocus)}
+          />
         </div>
 
         <Button disabled={loading} type="submit">
-          Създай{" "}
+          Редактирай{" "}
           {loading && (
             <Spinner className="text-slate-100 ml-4" size={"small"} />
           )}
@@ -206,4 +252,4 @@ const UsedProductForm = ({ categories }: Props) => {
   );
 };
 
-export default UsedProductForm;
+export default UsedProductUpdateForm;

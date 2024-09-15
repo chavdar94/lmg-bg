@@ -12,6 +12,7 @@ import {
 } from "@/components/ui/breadcrumb";
 import Link from "next/link";
 import { getProduct } from "../../actions";
+import ProductImages from "@/components/ProductImages/ProductImages";
 
 type Props = {
   params: { productId: string };
@@ -31,6 +32,18 @@ export default async function ProcutDetails({ params }: Props) {
   }
 
   const disabled = product.product_status === "Наличен" ? false : true;
+  const galleryArray =
+    typeof product.gallery_urls === "string"
+      ? JSON.parse(product.gallery_urls) // Parse JSON string to array
+      : Array.isArray(product.gallery_urls)
+      ? product.gallery_urls.filter(
+          (url): url is string => typeof url === "string"
+        )
+      : [];
+  const images = {
+    main_pic: product.main_picture_url ?? "",
+    gallery: [product.main_picture_url, ...galleryArray],
+  };
 
   return (
     <div className="flex flex-col gap-4">
@@ -53,18 +66,7 @@ export default async function ProcutDetails({ params }: Props) {
       </Breadcrumb>
       <section className="flex flex-col gap-10">
         <section className="flex flex-col-reverse md:flex-row md:mt-10 gap-6">
-          <div className="w-full md:w-1/2 h-80 flex justify-center items-center border-1-text-muted-foreground border">
-            <Image
-              src={
-                (product?.main_picture_url as string) ??
-                "/categoriesImages/no-image.jpg"
-              }
-              alt={product?.name!}
-              width={200}
-              height={200}
-              className="w-72 h-72 object-contain"
-            />
-          </div>
+          <ProductImages images={images} />
           <div className="flex flex-col md:flex-col gap-4 mt-10 md:mt-0 w-full md:w-1/2 h-80 justify-between">
             <div className="flex flex-col gap-4">
               <h1 className="text-xl font-bold">{product?.name}</h1>
@@ -101,13 +103,16 @@ export default async function ProcutDetails({ params }: Props) {
                     ? "В наличност"
                     : "Обадете се"}
                 </p>
-                <p className="mt-4">
-                  Продукта в момента не е наличен. Моля обадете се или напишете{" "}
-                  <Link href={`/contact`} className="underline">
-                    имейл
-                  </Link>{" "}
-                  за повече информация.
-                </p>
+                {product.product_status !== "Наличен" && (
+                  <p className="mt-4">
+                    Продукта в момента не е наличен. Моля обадете се или
+                    напишете{" "}
+                    <Link href={`/contact`} className="underline">
+                      имейл
+                    </Link>{" "}
+                    за повече информация.
+                  </p>
+                )}
               </div>
             </div>
             <div className="">

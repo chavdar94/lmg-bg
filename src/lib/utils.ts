@@ -81,3 +81,27 @@ export const title = (str: string) => {
     return match.toUpperCase();
   });
 };
+
+export const formatError = (error: any) => {
+  if (error.name === "ZodError") {
+    const fieldErrors = Object.keys(error.errors).map((field) => {
+      const errorMessage = error.errors[field].message;
+      return `${error.errors[field].path}: ${errorMessage}`;
+    });
+    return fieldErrors.join(". ");
+  } else if (error.name === "ValidationError") {
+    const fieldErrors = Object.keys(error.errors).map((field) => {
+      const errorMessage = error.errors[field].message;
+      return errorMessage;
+    });
+    return fieldErrors.join(". ");
+  } else {
+    return typeof error.message === "string"
+      ? error.message
+      : JSON.stringify(error.message);
+  }
+};
+
+export function formatId(id: string) {
+  return `..${id.substring(id.length - 6)}`;
+}

@@ -20,3 +20,15 @@ const hours = 23;
 const expires = hours * 60 * 60; // 23 hours in seconds
 
 export const redisExpire = expires;
+export const USED_PRODUCTS_ADMIN_PER_PAGE = 10;
+
+export const UsedFormDefaultValues = {
+  name: "",
+  price: "",
+  product_status: "",
+  manufacturer: "",
+  category: "",
+  subcategory: "",
+  vendor_url: "",
+  properties: "",
+};
