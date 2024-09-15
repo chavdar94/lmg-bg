@@ -43,7 +43,9 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
         <div className="px-4 mt-auto">
           <AddToCartButton
             disabled={disabled}
-            className="p-2 w-full"
+            className={`p-2 w-full ${
+              disabled ? "hover:text-slate-900" : "hover:text-slate-100"
+            }`}
             product={product as CartProduct}
           />
         </div>

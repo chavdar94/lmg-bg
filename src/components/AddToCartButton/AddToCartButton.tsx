@@ -34,10 +34,9 @@ const AddToCartButton = ({
       }}
       disabled={disabled}
       className={cn(
-        "border border-slate-200 text-sm cursor-pointer px-4 py-1 font-bold hover:bg-slate-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
+        "border border-slate-200 text-sm cursor-pointer px-4 py-1 font-bold hover:bg-slate-600 transition-colors duration-300 ease-in-out",
         className,
-        disabled &&
-          "cursor-not-allowed hover:bg-transperant hover:text-slate-900"
+        disabled && "cursor-not-allowed hover:bg-transperant"
       )}
     >
       {isSuccess

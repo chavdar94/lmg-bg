@@ -40,3 +40,4 @@ yarn.lock
 
 # prisma
 /prisma/migrations
+hash_passwords.js
