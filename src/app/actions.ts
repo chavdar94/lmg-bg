@@ -7,6 +7,7 @@ export const getLatestProducts = async () => {
     async () =>
       await db.products.findMany({
         orderBy: { created_at: "desc" },
+        where: { product_status: "Наличен" },
         take: 8,
       })
   );
