@@ -18,7 +18,7 @@ export async function POST(request: Request) {
     const { items, email, fullName, phone } = body;
 
     const { data, error } = await resend.emails.send({
-      from: "Sales <lmg-bg@chavdart.eu>",
+      from: "LMG-BG <store@lmg-bg.com>",
       to: process.env.TO_EMAIL as string,
       reply_to: email as string,
       subject: "Нова поръчка",

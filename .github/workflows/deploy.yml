@@ -28,10 +28,10 @@ jobs:
 
       - name: Deploy to Server
         env:
-          HOST: 172.245.119.137
+          HOST: 192.3.160.183
           USERNAME: root
           TARGET_DIR: /var/www/lmg-bg
-          APP_NAME: lmg #should match the name of the server block
+          APP_NAME: lmg-bg #should match the name of the server block
           PORT: 3000
           #if multiple deploys are needed from different branches
           #TARGET_DIR: ${{ github.ref == 'refs/heads/deploytest' && '/var/www/folder_name' || github.ref == 'refs/heads/deployprod' && '/var/www/another-location' }}

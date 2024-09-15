@@ -27,7 +27,7 @@ export default function EmailOrder({
 }: EmailOrderProps) {
   // Calculate the total sum of all items
   let totalSum = items.reduce(
-    (sum, item) => sum + (item.price_with_vat! * item.quantity! ?? 0),
+    (sum, item) => sum + (item.price_with_vat ?? 0) * (item.quantity ?? 0),
     0
   );
 

@@ -23,12 +23,12 @@ const Service = () => {
 
   const handleSubmit: FormEventHandler<HTMLFormElement> = async (e) => {
     e.preventDefault();
-    const { name, email, message } = formData;
+    const { fullName, email, message } = formData;
 
     setPending(true);
 
     try {
-      const res = await sendContactMail(name, email, message);
+      const res = await sendContactMail(fullName, email, message);
       if (res.id) {
         setFormData({
           fullName: "",
@@ -73,7 +73,7 @@ const Service = () => {
       <form onSubmit={handleSubmit} className="flex flex-col gap-2 w-full">
         <Input
           name="name"
-          value={formData.name}
+          value={formData.fullName}
           onChange={handleChange}
           className="rounded-none"
           placeholder="Име:"
