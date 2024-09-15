@@ -10,6 +10,8 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
     product.currency! as Currency
   );
 
+  const disabled = product.product_status === "Наличен" ? false : true;
+
   return (
     <div className="md:w-full border-2 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ease-in-out h-[400px] p-4">
       <div className="flex flex-col justify-between h-full">
@@ -40,6 +42,7 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
         </Link>
         <div className="px-4 mt-auto">
           <AddToCartButton
+            disabled={disabled}
             className="p-2 w-full"
             product={product as CartProduct}
           />

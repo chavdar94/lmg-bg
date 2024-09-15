@@ -9,9 +9,11 @@ import { cn } from "@/lib/utils";
 const AddToCartButton = ({
   product,
   className,
+  disabled = false,
 }: {
   product: CartProduct | UsedCartProduct;
   className?: string;
+  disabled?: boolean;
 }) => {
   const { addItem } = useCart();
   const [isSuccess, setIsSuccess] = useState<boolean>(false);
@@ -30,12 +32,19 @@ const AddToCartButton = ({
         addItem(product as CartProduct);
         setIsSuccess(true);
       }}
+      disabled={disabled}
       className={cn(
         "border border-slate-200 text-sm cursor-pointer px-4 py-1 font-bold hover:bg-slate-600 hover:text-slate-100 transition-colors duration-300 ease-in-out",
-        className
+        className,
+        disabled &&
+          "cursor-not-allowed hover:bg-transperant hover:text-slate-900"
       )}
     >
-      {isSuccess ? "Добавено!" : "Добави в количката"}
+      {isSuccess
+        ? "Добавено!"
+        : disabled
+        ? "Няма в наличност"
+        : "Добави в количката"}
     </button>
   );
 };

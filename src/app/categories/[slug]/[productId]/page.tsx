@@ -30,6 +30,8 @@ export default async function ProcutDetails({ params }: Props) {
     }
   }
 
+  const disabled = product.product_status === "Наличен" ? false : true;
+
   return (
     <div className="flex flex-col gap-4">
       <Breadcrumb>
@@ -99,10 +101,18 @@ export default async function ProcutDetails({ params }: Props) {
                     ? "В наличност"
                     : "Обадете се"}
                 </p>
+                <p className="mt-4">
+                  Продукта в момента не е наличен. Моля обадете се или напишете{" "}
+                  <Link href={`/contact`} className="underline">
+                    имейл
+                  </Link>{" "}
+                  за повече информация.
+                </p>
               </div>
             </div>
             <div className="">
               <AddToCartButton
+                disabled={disabled}
                 product={product as CartProduct}
                 className="bg-slate-800 hover:bg-slate-950 uppercase text-white py-3 px-10 w-full lg:w-full xl:w-2/3"
               />
