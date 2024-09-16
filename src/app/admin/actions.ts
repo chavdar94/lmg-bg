@@ -5,6 +5,35 @@ import { slugify } from "@/lib/utils";
 import { redirect } from "next/navigation";
 import fs from "node:fs/promises";
 
+export const transformImage = async (data: File | File[], url: string) => {
+  if (!Array.isArray(data)) {
+    const main_pic = data;
+    const arrayBuffer = await main_pic.arrayBuffer();
+    const buffer = new Uint8Array(arrayBuffer);
+    const main_pic_path = `./public/${url}/${main_pic.name}`;
+
+    await fs.writeFile(main_pic_path, buffer);
+    const main_pic_url = `/${url}/${main_pic.name}`;
+
+    return main_pic_url;
+  }
+
+  if (Array.isArray(data)) {
+    const galleryFiles = data;
+    const gallery_urls: string[] = [];
+
+    for (const file of galleryFiles) {
+      const arrayBuffer = await file.arrayBuffer();
+      const buffer = new Uint8Array(arrayBuffer);
+      const filePath = `./public/${url}/${file.name}`;
+
+      await fs.writeFile(filePath, buffer);
+      gallery_urls.push(`/${url}/${file.name}`); // Add URL to the array
+    }
+    return gallery_urls;
+  }
+};
+
 export const createPost = async (formData: FormData) => {
   const title = formData.get("title") as string;
   const content = formData.get("content") as string;
@@ -37,24 +66,10 @@ export const createPost = async (formData: FormData) => {
 export const createUsedProduct = async (formData: FormData) => {
   const slug = slugify(formData.get("category") as string);
   const main_pic = formData.get("main_picture_url") as File;
-  const arrayBuffer = await main_pic.arrayBuffer();
-  const buffer = new Uint8Array(arrayBuffer);
-  const main_pic_path = `./public/uploads/${main_pic.name}`;
-
-  await fs.writeFile(main_pic_path, buffer);
-  const main_pic_url = `/uploads/${main_pic.name}`;
+  const main_pic_url = await transformImage(main_pic, "uploads");
 
   const galleryFiles = formData.getAll("gallery_urls") as File[];
-  const gallery_urls: string[] = [];
-
-  for (const file of galleryFiles) {
-    const arrayBuffer = await file.arrayBuffer();
-    const buffer = new Uint8Array(arrayBuffer);
-    const filePath = `./public/uploads/${file.name}`;
-
-    await fs.writeFile(filePath, buffer);
-    gallery_urls.push(`/uploads/${file.name}`); // Add URL to the array
-  }
+  const gallery_urls = await transformImage(galleryFiles, "uploads");
 
   const product = await db.usedProduct.create({
     data: {
@@ -65,10 +80,10 @@ export const createUsedProduct = async (formData: FormData) => {
       subcategory: formData.get("subcategory") as string,
       vendor_url: formData.get("vendor_url") as string,
       properties: formData.get("properties") as string,
-      main_picture_url: main_pic_url!,
+      main_picture_url: main_pic_url as string,
       product_status: formData.get("product_status") as string,
       slug,
-      gallery_urls: gallery_urls,
+      gallery_urls: gallery_urls as string[],
       on_focus: formData.get("on_focus") === "on",
     },
   });
