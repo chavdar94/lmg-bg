@@ -3,6 +3,7 @@
 import db from "@/lib/client";
 import { slugify } from "@/lib/utils";
 import { redirect } from "next/navigation";
+import fs from "node:fs/promises";
 
 export const createPost = async (formData: FormData) => {
   const title = formData.get("title") as string;
@@ -35,6 +36,25 @@ export const createPost = async (formData: FormData) => {
 
 export const createUsedProduct = async (formData: FormData) => {
   const slug = slugify(formData.get("category") as string);
+  const main_pic = formData.get("main_picture_url") as File;
+  const arrayBuffer = await main_pic.arrayBuffer();
+  const buffer = new Uint8Array(arrayBuffer);
+  const main_pic_path = `./public/uploads/${main_pic.name}`;
+
+  await fs.writeFile(main_pic_path, buffer);
+  const main_pic_url = `/uploads/${main_pic.name}`;
+
+  const galleryFiles = formData.getAll("gallery_urls") as File[];
+  const gallery_urls: string[] = [];
+
+  for (const file of galleryFiles) {
+    const arrayBuffer = await file.arrayBuffer();
+    const buffer = new Uint8Array(arrayBuffer);
+    const filePath = `./public/uploads/${file.name}`;
+
+    await fs.writeFile(filePath, buffer);
+    gallery_urls.push(`/uploads/${file.name}`); // Add URL to the array
+  }
 
   const product = await db.usedProduct.create({
     data: {
@@ -45,10 +65,10 @@ export const createUsedProduct = async (formData: FormData) => {
       subcategory: formData.get("subcategory") as string,
       vendor_url: formData.get("vendor_url") as string,
       properties: formData.get("properties") as string,
-      main_picture_url: formData.get("main_picture_url") as string,
+      main_picture_url: main_pic_url!,
       product_status: formData.get("product_status") as string,
       slug,
-      gallery_urls: formData.get("gallery_urls") as string,
+      gallery_urls: gallery_urls,
       on_focus: formData.get("on_focus") === "on",
     },
   });
