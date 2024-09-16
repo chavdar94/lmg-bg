@@ -20,7 +20,7 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
             <Image
               src={
                 product.main_picture_url !== "http://www.mostcomputers.bg"
-                  ? product.main_picture_url!
+                  ? `${process.env.NEXT_URL}${product.main_picture_url}!`
                   : "/categoriesImages/no-image.jpg"
               }
               width={200}
