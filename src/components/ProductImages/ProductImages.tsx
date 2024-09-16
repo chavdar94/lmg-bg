@@ -13,6 +13,8 @@ export default function ProductImages({
     `${process.env.NEXT_URL}${images.gallery[current]}` ||
     `${process.env.NEXT_URL}${images.main_pic}`;
 
+  console.log(displayedImage);
+
   return (
     <div className="w-full md:w-1/2 flex flex-col justify-center items-start">
       {/* Main Image */}
