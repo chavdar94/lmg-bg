@@ -9,14 +9,16 @@ export default function ProductImages({
   images: { main_pic: string; gallery: string[] };
 }) {
   const [current, setCurrent] = React.useState(0);
-  const displayedImage = images.gallery[current] || images.main_pic;
+  const displayedImage =
+    `${process.env.NEXT_URL}${images.gallery[current]}` ||
+    `${process.env.NEXT_URL}${images.main_pic}`;
 
   return (
     <div className="w-full md:w-1/2 flex flex-col justify-center items-start">
       {/* Main Image */}
       <div className="w-full h-80 flex justify-center items-center border border-text-muted-foreground mb-4">
         <Image
-          src={`${process.env.NEXT_URL}/${displayedImage}`}
+          src={displayedImage}
           alt="product image"
           width={1000}
           height={1000}
