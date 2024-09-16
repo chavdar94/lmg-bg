@@ -13,7 +13,7 @@ export const transformImage = async (data: File | File[], url: string) => {
     const main_pic_path = `./public/${url}/${main_pic.name}`;
 
     await fs.writeFile(main_pic_path, buffer);
-    const main_pic_url = `/${url}/${main_pic.name}`;
+    const main_pic_url = `${url}/${main_pic.name}`;
 
     return main_pic_url;
   }
@@ -28,7 +28,7 @@ export const transformImage = async (data: File | File[], url: string) => {
       const filePath = `./public/${url}/${file.name}`;
 
       await fs.writeFile(filePath, buffer);
-      gallery_urls.push(`/${url}/${file.name}`); // Add URL to the array
+      gallery_urls.push(`${url}/${file.name}`); // Add URL to the array
     }
     return gallery_urls;
   }
