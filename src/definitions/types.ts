@@ -27,7 +27,7 @@ export type BriefProduct = {
   id: string;
   name: string | null;
   price: number | null;
-  main_picture_url: string | { data: Buffer };
+  main_picture_url: string;
   slug: string;
   category: string;
   price_with_vat: number | null;

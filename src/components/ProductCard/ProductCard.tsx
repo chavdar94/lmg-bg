@@ -11,6 +11,11 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
   );
 
   const disabled = product.product_status === "Наличен" ? false : true;
+  const imageUrl = product.main_picture_url?.startsWith(
+    "http://www.mostcomputers.bg"
+  )
+    ? product.main_picture_url
+    : `${process.env.NEXT_URL}${product.main_picture_url}`;
 
   return (
     <div className="md:w-full border-2 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ease-in-out h-[400px] p-4">
@@ -18,11 +23,7 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
         <Link href={`/categories/${product.slug}/${product.id}`}>
           <div className="flex flex-col justify-center items-center">
             <Image
-              src={
-                product.main_picture_url !== "http://www.mostcomputers.bg"
-                  ? `${process.env.NEXT_URL}${product.main_picture_url}!`
-                  : "/categoriesImages/no-image.jpg"
-              }
+              src={imageUrl}
               width={200}
               height={200}
               alt={product.name!}

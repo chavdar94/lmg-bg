@@ -9,9 +9,11 @@ export default function ProductImages({
   images: { main_pic: string; gallery: string[] };
 }) {
   const [current, setCurrent] = React.useState(0);
-  const displayedImage =
-    `${process.env.NEXT_URL}${images.gallery[current]}` ||
-    `${process.env.NEXT_URL}${images.main_pic}`;
+  let displayedImage = images.gallery[current] || images.main_pic;
+
+  if (displayedImage.startsWith("uploads/")) {
+    displayedImage = `/${displayedImage}`;
+  }
 
   console.log(displayedImage);
 
@@ -31,6 +33,9 @@ export default function ProductImages({
       {/* Gallery Images */}
       <div className="flex justify-center space-x-2">
         {images.gallery.map((image, index) => {
+          if (image.startsWith("uploads/")) {
+            image = `/${image}`;
+          }
           return (
             <div
               key={image}
@@ -40,7 +45,13 @@ export default function ProductImages({
               )}
               onClick={() => setCurrent(index)}
             >
-              <Image src={image} alt="gallery image" width={100} height={100} />
+              <Image
+                src={image}
+                alt="gallery image"
+                width={100}
+                height={100}
+                className="w-full h-full aspect-square object-contain"
+              />
             </div>
           );
         })}

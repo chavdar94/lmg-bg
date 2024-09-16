@@ -3,20 +3,9 @@ import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 
 function OrderItem({ item }: { item: CartProduct }) {
-  let image;
-  if (typeof item.main_picture_url !== "string") {
-    const byteBuffer = item.main_picture_url.data;
-    const binaryString = byteBuffer.reduce(
-      (acc, byte) => acc + String.fromCharCode(byte),
-      ""
-    );
-
-    const base64String = btoa(binaryString);
-
-    image = `data:image/jpeg;base64,${base64String}`;
-  } else {
-    image = item.main_picture_url;
-  }
+  const image = item.main_picture_url?.startsWith("http://www.mostcomputers.bg")
+    ? item.main_picture_url
+    : `${process.env.NEXT_PUBLIC_URL}/${item.main_picture_url}`;
 
   return (
     <div className="border-2 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ease-in-out w-full max-w-xs p-4">

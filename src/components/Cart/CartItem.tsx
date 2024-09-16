@@ -8,20 +8,11 @@ import { Plus, Minus, X } from "lucide-react";
 function CartProduct({ product }: { product: CartProductType }) {
   const { decreaseItem, addItem, removeItem } = useCart();
 
-  let image;
-  if (typeof product.main_picture_url !== "string") {
-    const byteBuffer = product.main_picture_url.data;
-    const binaryString = byteBuffer.reduce(
-      (acc, byte) => acc + String.fromCharCode(byte),
-      ""
-    );
-
-    const base64String = btoa(binaryString);
-
-    image = `data:image/jpeg;base64,${base64String}`;
-  } else {
-    image = product.main_picture_url;
-  }
+  const image = product.main_picture_url?.startsWith(
+    "http://www.mostcomputers.bg"
+  )
+    ? product.main_picture_url
+    : `/${product.main_picture_url}`;
 
   return (
     <>

@@ -7,6 +7,16 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "http",
+        hostname: "localhost",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "https",
+        hostname: "lmg-bg.com",
+        pathname: "/uploads/**",
+      },
+      {
+        protocol: "http",
         hostname: "www.mostcomputers.bg",
         pathname: "/upload/**",
       },
