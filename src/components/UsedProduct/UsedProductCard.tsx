@@ -22,8 +22,8 @@ const UsedProductCard = ({ product }: Props) => {
               {product.name} - {product.category}
             </p>
             <p className="px-2 font-bold">
-              {formatPrice(product.price_with_vat!, {
-                currency: "BGN",
+              {formatPrice(product.price_eur!, {
+                currency: "EUR",
                 notation: "standard",
                 IntlFormat: "bg-BG",
               })}

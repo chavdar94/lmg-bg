@@ -36,10 +36,10 @@ export default async function ProcutDetails({ params }: Props) {
     typeof product.gallery_urls === "string"
       ? JSON.parse(product.gallery_urls) // Parse JSON string to array
       : Array.isArray(product.gallery_urls)
-      ? product.gallery_urls.filter(
-          (url): url is string => typeof url === "string"
-        )
-      : [];
+        ? product.gallery_urls.filter(
+            (url): url is string => typeof url === "string",
+          )
+        : [];
   const images = {
     main_pic: product.main_picture_url ?? "",
     gallery: [product.main_picture_url, ...galleryArray],
@@ -85,13 +85,23 @@ export default async function ProcutDetails({ params }: Props) {
                 </p>
               </div>
               <div>
-                <p className="text-4xl font-bold text-[#026b66]">
-                  {formatPrice(product.price_with_vat!, {
-                    currency: "BGN",
-                    notation: "standard",
-                    IntlFormat: "bg-BG",
-                  })}
-                </p>
+                <div className="flex gap-4 items-center">
+                  <p className="text-4xl font-bold text-[#026b66]">
+                    {formatPrice(product.price_eur!, {
+                      currency: "EUR",
+                      notation: "standard",
+                      IntlFormat: "bg-BG",
+                    })}
+                  </p>
+
+                  <p className="text-lg text-gray-600">
+                    {`(${formatPrice(product.price_bgn!, {
+                      currency: "BGN",
+                      notation: "standard",
+                      IntlFormat: "bg-BG",
+                    })})`}
+                  </p>
+                </div>
                 <p
                   className={`text-sm inline-block px-3 py-1 mt-2 text-white ${
                     product?.product_status === "Наличен"
@@ -132,7 +142,7 @@ export default async function ProcutDetails({ params }: Props) {
               {typeof product?.properties === "string" && product?.properties}
               {(Array.isArray(product?.properties) ? product?.properties : [])
                 .filter(
-                  (property: any) => property.value && property.value !== "-"
+                  (property: any) => property.value && property.value !== "-",
                 )
                 .map((property: any, index: number) => (
                   <div

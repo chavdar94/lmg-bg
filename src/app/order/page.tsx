@@ -83,10 +83,10 @@ export default function OrderPage() {
             <span className="font-bold italic">
               {formatPrice(
                 items.reduce(
-                  (sum, item) => sum + item.price_with_vat! * item.quantity!,
-                  0
+                  (sum, item) => sum + item.price_eur! * item.quantity!,
+                  0,
                 ),
-                { currency: "BGN", notation: "standard", IntlFormat: "bg-BG" }
+                { currency: "EUR", notation: "standard", IntlFormat: "bg-BG" },
               )}
             </span>
           </h2>

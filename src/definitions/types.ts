@@ -18,7 +18,8 @@ export type Product = {
   properties: JsonArray | JsonValue;
   created_at: Date | null;
   slug: string;
-  price_with_vat: number | null;
+  price_eur: number | null;
+  price_bgn?: number | null;
 };
 
 export type Products = Product[];
@@ -30,7 +31,8 @@ export type BriefProduct = {
   main_picture_url: string;
   slug: string;
   category: string;
-  price_with_vat: number | null;
+  price_eur: number | null;
+  price_bgn?: number | null;
 };
 
 export type CartProduct = BriefProduct & {

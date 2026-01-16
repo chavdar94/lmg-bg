@@ -25,7 +25,7 @@ const Cart = () => {
   const { items, clearCart } = useCart();
   let itemCount = items.reduce(
     (total, product) => total + product.quantity!,
-    0
+    0,
   );
 
   const [isMounted, setIsMounted] = useState<boolean>(false);
@@ -35,8 +35,8 @@ const Cart = () => {
   }, []);
 
   const cartTotal = items.reduce(
-    (total, product) => total + product.price_with_vat! * product.quantity!,
-    0
+    (total, product) => total + product.price_eur! * product.quantity!,
+    0,
   );
   const shipping = cartTotal < 100 ? 5.99 : 0;
 

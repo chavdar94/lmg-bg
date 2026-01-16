@@ -15,8 +15,6 @@ export default function ProductImages({
     displayedImage = `/${displayedImage}`;
   }
 
-  console.log(displayedImage);
-
   return (
     <div className="w-full md:w-1/2 flex flex-col justify-center items-start">
       {/* Main Image */}
@@ -41,7 +39,7 @@ export default function ProductImages({
               key={image}
               className={cn(
                 "border p-1 cursor-pointer hover:border-orange-600",
-                current === index && "border-orange-500"
+                current === index && "border-orange-500",
               )}
               onClick={() => setCurrent(index)}
             >

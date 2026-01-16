@@ -60,6 +60,7 @@ export async function login(formData: FormData) {
     outputLen: 32,
     parallelism: 1,
   });
+
   if (!validPassword) {
     return {
       error: "Incorrect email or password",
@@ -71,7 +72,7 @@ export async function login(formData: FormData) {
   cookies().set(
     sessionCookie.name,
     sessionCookie.value,
-    sessionCookie.attributes
+    sessionCookie.attributes,
   );
   return redirect("/admin");
 }
@@ -93,7 +94,7 @@ export const signOut = async () => {
     cookies().set(
       sessionCookie.name,
       sessionCookie.value,
-      sessionCookie.attributes
+      sessionCookie.attributes,
     );
 
     return redirect("/");

@@ -12,7 +12,6 @@ export const ourFileRouter = {
     .middleware(async () => {
       // This code runs on your server before upload
       const { user } = await validateRequest();
-      console.log(user);
 
       // If you throw, the user will not be able to upload
       if (!user?.isAdmin) throw new UploadThingError("Unauthorized");

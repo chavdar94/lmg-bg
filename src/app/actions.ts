@@ -9,6 +9,13 @@ export const getLatestProducts = async () => {
         orderBy: { created_at: "desc" },
         where: { product_status: "Наличен" },
         take: 8,
-      })
+      }),
   );
+
+  // const products = db.products.findMany({
+  //   orderBy: { created_at: "desc" },
+  //   where: { product_status: "Наличен" },
+  //   take: 8,
+  // });
+  // return products;
 };

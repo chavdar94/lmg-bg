@@ -75,7 +75,7 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
 
   const handleCategoryChange = (value: string) => {
     const selectedCategory = categories.find(
-      (category) => category.id === value
+      (category) => category.id === value,
     );
     setFormData({
       ...formData,
@@ -105,7 +105,7 @@ const ServiceUpdateForm = ({ categories, id }: Props) => {
           id="price"
           name="price"
           type="number"
-          placeholder="Цена"
+          placeholder="Цена EUR"
           onChange={handleChange}
         />
 

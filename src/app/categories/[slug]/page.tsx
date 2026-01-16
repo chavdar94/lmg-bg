@@ -21,9 +21,9 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
   const orderBy: OrderBy = (() => {
     switch (filter) {
       case "priceDesc":
-        return { price_with_vat: "desc" };
+        return { price_eur: "desc" };
       case "priceAsc":
-        return { price_with_vat: "asc" };
+        return { price_eur: "asc" };
       case "nameDesc":
         return { name: "desc" };
       case "nameAsc":

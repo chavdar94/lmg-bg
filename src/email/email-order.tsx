@@ -27,8 +27,8 @@ export default function EmailOrder({
 }: EmailOrderProps) {
   // Calculate the total sum of all items
   let totalSum = items.reduce(
-    (sum, item) => sum + (item.price_with_vat ?? 0) * (item.quantity ?? 0),
-    0
+    (sum, item) => sum + (item.price_eur ?? 0) * (item.quantity ?? 0),
+    0,
   );
 
   return (
@@ -122,8 +122,8 @@ export default function EmailOrder({
                       }}
                     >
                       {product.quantity} бр. x{" "}
-                      {formatPrice(product.price_with_vat!, {
-                        currency: "BGN",
+                      {formatPrice(product.price_eur!, {
+                        currency: "EUR",
                         notation: "standard",
                         IntlFormat: "bg-BG",
                       })}
@@ -148,7 +148,7 @@ export default function EmailOrder({
               >
                 Общо:{" "}
                 {formatPrice(totalSum, {
-                  currency: "BGN",
+                  currency: "EUR",
                   notation: "standard",
                   IntlFormat: "bg-BG",
                 })}

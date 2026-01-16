@@ -5,14 +5,9 @@ import { calculateCurrency, formatPrice } from "@/lib/utils";
 import Link from "next/link";
 
 const ProductCard = async ({ product }: { product: ProductCardType }) => {
-  const price = await calculateCurrency(
-    product.price!,
-    product.currency! as Currency
-  );
-
   const disabled = product.product_status === "Наличен" ? false : true;
   const imageUrl = product.main_picture_url?.startsWith(
-    "http://www.mostcomputers.bg"
+    "http://www.mostcomputers.bg",
   )
     ? product.main_picture_url
     : `${process.env.NEXT_URL}${product.main_picture_url}`;
@@ -32,13 +27,23 @@ const ProductCard = async ({ product }: { product: ProductCardType }) => {
             <p className="px-2 text-xs mt-2">
               {product.name} - {product.category}
             </p>
-            <p className="px-2 font-bold">
-              {formatPrice(price, {
-                currency: "BGN",
-                notation: "standard",
-                IntlFormat: "bg-BG",
-              })}
-            </p>
+            <div className="flex justify-center items-center">
+              <p className="px-2 font-bold">
+                {formatPrice(product.price_eur!, {
+                  currency: "EUR",
+                  notation: "standard",
+                  IntlFormat: "bg-BG",
+                })}
+              </p>
+
+              <p className="text-sm text-gray-600">
+                {`(${formatPrice(product.price_bgn!, {
+                  currency: "BGN",
+                  notation: "standard",
+                  IntlFormat: "bg-BG",
+                })})`}
+              </p>
+            </div>
           </div>
         </Link>
         <div className="px-4 mt-auto">

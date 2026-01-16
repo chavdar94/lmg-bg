@@ -16,9 +16,9 @@ export function formatPrice(
     currency?: "USD" | "EUR" | "BGN";
     notation?: Intl.NumberFormatOptions["notation"];
     IntlFormat?: "en-US" | "bg-BG";
-  } = {}
+  } = {},
 ) {
-  const { currency = "BGN", notation = "standard" } = options;
+  const { currency = "EUR", notation = "standard" } = options;
   const numericPrice = typeof price === "string" ? parseFloat(price) : price;
 
   return new Intl.NumberFormat(options.IntlFormat || "en-US", {
@@ -42,7 +42,7 @@ export async function calculateCurrency(price: number, currency: Currency) {
 
 export const convertBufferToDataUrl = (
   buffer: Buffer,
-  mimeType: string
+  mimeType: string,
 ): string => {
   const base64 = buffer.toString("base64");
   return `data:${mimeType};base64,${base64}`;
@@ -63,10 +63,10 @@ export const updateQuery = (
   key: string,
   value: string,
   router: AppRouterInstance,
-  categoryChange?: boolean
+  categoryChange?: boolean,
 ) => {
   const params = new URLSearchParams(
-    categoryChange ? "" : window.location.search
+    categoryChange ? "" : window.location.search,
   );
   if (value) {
     params.set(key, value);

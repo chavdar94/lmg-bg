@@ -31,10 +31,10 @@ const UsedProductUpdateForm = ({ product, categories }: Props) => {
 
   const [isOnFocus, setIsOnFocus] = useState(product.on_focus); // State for "on-focus" product
   const [mainPictureUrl, setMainPictureUrl] = useState<string | null>(
-    product.main_picture_url
+    product.main_picture_url,
   );
   const [galleryImageUrls, setGalleryImageUrls] = useState<string[]>(
-    (product.gallery_urls as string[]) || []
+    (product.gallery_urls as string[]) || [],
   );
   const [formData, setFormData] = useState(product);
 
@@ -67,7 +67,7 @@ const UsedProductUpdateForm = ({ product, categories }: Props) => {
   };
 
   const handleChange = (
-    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>
+    e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement>,
   ) => {
     setFormData((prev) => ({ ...prev, [e.target.name]: e.target.value }));
   };
@@ -88,13 +88,13 @@ const UsedProductUpdateForm = ({ product, categories }: Props) => {
           onChange={handleChange}
         />
 
-        <Label htmlFor="price_with_vat">Цена:</Label>
+        <Label htmlFor="price_eur">Цена:</Label>
         <Input
-          id="price_with_vat"
-          name="price_with_vat"
+          id="price_eur"
+          name="price_eur"
           type="number"
           placeholder="Цена"
-          value={formData.price_with_vat!}
+          value={formData.price_eur!}
           onChange={handleChange}
         />
 

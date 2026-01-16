@@ -23,15 +23,15 @@ function OrderItem({ item }: { item: CartProduct }) {
           </p>
           <p className="px-2 text-sm mt-2">
             {item.quantity} бр. x{" "}
-            {formatPrice(item.price_with_vat!, {
-              currency: "BGN",
+            {formatPrice(item.price_eur!, {
+              currency: "EUR",
               notation: "standard",
               IntlFormat: "bg-BG",
             })}
           </p>
           <p className="px-2 font-bold">
-            {formatPrice(item.price_with_vat! * item.quantity!, {
-              currency: "BGN",
+            {formatPrice(item.price_eur! * item.quantity!, {
+              currency: "EUR",
               notation: "standard",
               IntlFormat: "bg-BG",
             })}

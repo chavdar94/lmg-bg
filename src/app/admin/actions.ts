@@ -74,7 +74,8 @@ export const createUsedProduct = async (formData: FormData) => {
   const product = await db.usedProduct.create({
     data: {
       name: formData.get("name") as string,
-      price_with_vat: parseFloat(formData.get("price") as string),
+      price_eur: parseFloat(formData.get("price") as string),
+      price_bgn: parseFloat(formData.get("price") as string),
       manufacturer: formData.get("manufacturer") as string,
       category: formData.get("category") as string,
       subcategory: formData.get("subcategory") as string,
@@ -100,7 +101,8 @@ export const updateUsedProduct = async (id: string, formData: FormData) => {
     },
     data: {
       name: formData.get("name") as string,
-      price_with_vat: parseFloat(formData.get("price_with_vat") as string),
+      price_eur: parseFloat(formData.get("price_eur") as string),
+      price_bgn: parseFloat(formData.get("price_bgn") as string),
       manufacturer: formData.get("manufacturer") as string,
       category: formData.get("category") as string,
       subcategory: formData.get("subcategory") as string,

@@ -57,8 +57,14 @@ const UsedProductsAdminPage = async ({
                 <TableCell>{formatId(product.id)}</TableCell>
                 <TableCell>{product.name}</TableCell>
                 <TableCell>
-                  {formatPrice(Number(product.price_with_vat), {
-                    currency: "BGN",
+                  {formatPrice(Number(product.price_bgn), {
+                    currency: "EUR",
+                    IntlFormat: "bg-BG",
+                  })}
+                </TableCell>
+                <TableCell>
+                  {formatPrice(Number(product.price_eur), {
+                    currency: "EUR",
                     IntlFormat: "bg-BG",
                   })}
                 </TableCell>

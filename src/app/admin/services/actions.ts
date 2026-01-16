@@ -15,10 +15,14 @@ export type CreateServiceData = {
 };
 
 export const createService = async (formData: CreateServiceData) => {
-  await db.service.create({
+  const price = parseFloat(formData.price as any);
+  const price_bgn = price * 1.95583;
+
+  const createdService = await db.service.create({
     data: {
       title: formData.title,
-      price: parseFloat(formData.price as any),
+      price: price,
+      price_bgn: price_bgn,
       category: {
         connect: {
           id: formData.categoryId,
@@ -26,6 +30,10 @@ export const createService = async (formData: CreateServiceData) => {
       },
     },
   });
+
+  revalidatePath("/services");
+  redirect("/services");
+  // return createdService; // <--- return it
 };
 
 export const createServiceCategory = async (formData: FormData) => {
@@ -37,12 +45,9 @@ export const createServiceCategory = async (formData: FormData) => {
 };
 
 export const deleteService = async (id: string) => {
-  await db.service.update({
+  await db.service.delete({
     where: {
       id,
-    },
-    data: {
-      isDeleted: true,
     },
   });
 
@@ -58,20 +63,21 @@ export const deleteServiceCategory = async (id: string) => {
 };
 
 export const updateService = async (id: string, formData: FormData) => {
+  const price = parseFloat(formData.get("price") as string);
+  const priceBgn = price * 1.95583;
+
   await db.service.update({
-    where: {
-      id,
-    },
+    where: { id },
     data: {
       title: formData.get("title") as string,
-      price: parseFloat(formData.get("price") as string),
+      price: price,
+      price_bgn: priceBgn,
       category: {
-        connect: {
-          id: formData.get("categoryId") as string,
-        },
+        connect: { id: formData.get("categoryId") as string },
       },
     },
   });
+
   revalidatePath("/services");
   redirect("/services");
 };

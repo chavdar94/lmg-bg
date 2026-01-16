@@ -52,7 +52,7 @@ const ServiceCreateForm = ({ categories }: Props) => {
         <Label htmlFor="name">Име:</Label>
         <Input id="title" title="title" name="title" placeholder="Име" />
 
-        <Label htmlFor="price">Цена:</Label>
+        <Label htmlFor="price">Цена EUR:</Label>
         <Input id="price" name="price" type="number" placeholder="Цена" />
 
         <Label htmlFor="category">Категория:</Label>

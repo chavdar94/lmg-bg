@@ -33,7 +33,7 @@ async function ServicesPage() {
               <ul className="w-full">
                 {services
                   .filter(
-                    (service: Service) => service.categoryId === category.id
+                    (service: Service) => service.categoryId === category.id,
                   )
                   .map((service) => (
                     <li
@@ -46,9 +46,17 @@ async function ServicesPage() {
                       </div>
                       <div className="flex gap-2">
                         <span>
-                          {service.price > 0
-                            ? `${service.price} лв.`
-                            : "Безплатно"}
+                          {service.price > 0 ? (
+                            // ? `${service.price} € / ${service.price_bgn} лв.`
+                            <>
+                              <span>{service.price}€ / </span>
+                              <span className="text-xs">
+                                {service.price_bgn.toFixed(2)} лв.
+                              </span>
+                            </>
+                          ) : (
+                            "Безплатно"
+                          )}
                         </span>
                         {user?.isAdmin && (
                           <div className="flex gap-1 justify-center items-center">

@@ -9,7 +9,7 @@ function CartProduct({ product }: { product: CartProductType }) {
   const { decreaseItem, addItem, removeItem } = useCart();
 
   const image = product.main_picture_url?.startsWith(
-    "http://www.mostcomputers.bg"
+    "http://www.mostcomputers.bg",
   )
     ? product.main_picture_url
     : `/${product.main_picture_url}`;
@@ -50,7 +50,7 @@ function CartProduct({ product }: { product: CartProductType }) {
 
           <div className="flex flex-col space-y-1 font-medium">
             <span className="ml-auto line-clamp-1 text-sm">
-              {formatPrice(product.price_with_vat! * product.quantity!)}
+              {formatPrice(product.price_eur! * product.quantity!)}
             </span>
             <div className="flex items-center justify-center gap-3 text-sm pt-2">
               <button

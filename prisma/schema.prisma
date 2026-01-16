@@ -1,11 +1,10 @@
 generator client {
     provider        = "prisma-client-js"
-    previewFeatures = ["driverAdapters"]
 }
 
 datasource db {
     provider = "postgresql"
-    url      = env("DATABASE_URL")
+    url = env("DATABASE_URL")
 }
 
 model User {
@@ -29,8 +28,8 @@ model Products {
     product_status    String?
     haspromo          Int?
     price             Float?    @db.Real
-    price_with_vat    Float?    @db.Real
-    price_without_vat Float?    @db.Real
+    price_eur    Float?    @db.Real
+    price_bgn Float?    @db.Real
     currency          String?
     main_picture_url  String?
     manufacturer      String?
@@ -67,6 +66,7 @@ model Service {
     id         String          @id @default(uuid())
     title      String
     price      Float
+    price_bgn  Float
     categoryId String
     isDeleted  Boolean         @default(false)
     category   ServiceCategory @relation(fields: [categoryId], references: [id])
@@ -96,7 +96,8 @@ model UsedProduct {
     id               String   @id @default(uuid())
     name             String?
     product_status   String?
-    price_with_vat   Float?
+    price_eur   Float?
+    price_bgn   Float?
     main_picture_url String?
     manufacturer     String?
     category         String?
