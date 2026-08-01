@@ -94,7 +94,7 @@ export default function EmailOrder({
                     }}
                   >
                     <Img
-                      src={product.main_picture_url as string}
+                      src={product.gallery?.[0] as string}
                       alt={product.name!}
                       width={200}
                       height={200}

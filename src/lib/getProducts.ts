@@ -2,6 +2,7 @@
 
 import db from "./client";
 import { BriefProduct, CartProduct, OrderBy } from "@/definitions/types";
+import { toProperties } from "./utils";
 
 type ProductsParams = {
   category: string;
@@ -60,7 +61,7 @@ export const getAllProducts = async ({
   if (query && query !== "all") {
     filters.name = {
       contains: query,
-      mode: "insensitive", // Case-insensitive search
+      mode: "insensitive",
     };
   }
 
@@ -70,12 +71,17 @@ export const getAllProducts = async ({
     slug,
   };
 
-  const data = await db.products.findMany({
+  const rawData = await db.products.findMany({
     where: combinedFilters,
     skip: (page - 1) * limit,
     take: limit,
     orderBy: orderBy,
   });
+
+  const data = rawData.map((product) => ({
+    ...product,
+    properties: toProperties(product.properties),
+  }));
 
   const productsCount = await db.products.count({
     where: combinedFilters,
@@ -90,14 +96,12 @@ export const getAllProducts = async ({
     },
   });
 
-  const uniqueCategories = new Set<string>(); // Assuming category ID is a number
-  allProducts.forEach((product, id) => {
+  const uniqueCategories = new Set<string>();
+  allProducts.forEach((product) => {
     if (product.category && !uniqueCategories.has(product.category)) {
       uniqueCategories.add(product.category);
     }
   });
-
-  // Fetch unique category details based on the collected IDs
 
   return {
     data,
