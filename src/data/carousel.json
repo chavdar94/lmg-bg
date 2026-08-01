@@ -1,17 +1,17 @@
 [
   {
     "id": 1,
-    "img": "http://www.mostcomputers.bg/primotionupload/534.jpg",
+    "img": "/no-image.png",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   },
   {
     "id": 2,
-    "img": "http://www.mostcomputers.bg/primotionupload/512.jpg",
+    "img": "/no-image.png",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   },
   {
     "id": 3,
-    "img": "http://www.mostcomputers.bg/primotionupload/535.jpg",
+    "img": "/no-image.png",
     "description": "Lorem Ipsum is simply dummy text of the printing and typesetting industry."
   }
 ]
