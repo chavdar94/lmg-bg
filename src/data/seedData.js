@@ -394,12 +394,15 @@ function main() {
         case 3:
           if (!(_c < services_1.length)) return [3 /*break*/, 6];
           service = services_1[_c];
+          const price = parsePrice(service.price);
+          const priceBgn = parseFloat((service.price * 1.95583).toFixed(2));
           return [
             4 /*yield*/,
             prisma.service.create({
               data: {
                 title: service.title || service.service || "",
-                price: parsePrice(service.price),
+                price: price,
+                price_bgn: priceBgn,
                 category: {
                   connect: { id: category.id },
                 },
