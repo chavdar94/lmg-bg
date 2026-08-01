@@ -9,7 +9,8 @@ export default function ProductImages({
   images: { main_pic: string; gallery: string[] };
 }) {
   const [current, setCurrent] = React.useState(0);
-  let displayedImage = images.gallery[current] || images.main_pic;
+  let displayedImage =
+    images.gallery[current] || images.main_pic || "/no-image.png";
 
   if (displayedImage.startsWith("uploads/")) {
     displayedImage = `/${displayedImage}`;

@@ -26,22 +26,16 @@ model Products {
     id                String    @id @default(uuid())
     name              String?
     product_status    String?
-    haspromo          Int?
     price             Float?    @db.Real
     price_eur    Float?    @db.Real
     price_bgn Float?    @db.Real
     currency          String?
-    main_picture_url  String?
-    manufacturer      String?
-    category          String?
-    subcategory       String?
-    partnum           String?
-    vendor_url        String?
-    properties        Json?     @db.Json
+    gallery           String[]
+    manufacturer    String?
+    category String?
+    properties        Json?
     created_at        DateTime? @default(now()) @db.Timestamp(6)
     slug              String
-    gallery_urls      Json?     @db.Json
-    on_focus          Boolean   @default(false)
 }
 
 model Category {
@@ -108,4 +102,5 @@ model UsedProduct {
     slug             String
     gallery_urls     Json     @db.Json
     on_focus         Boolean  @default(false)
+    gallery String[] @default([])
 }

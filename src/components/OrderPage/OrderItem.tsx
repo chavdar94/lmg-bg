@@ -3,9 +3,12 @@ import { formatPrice } from "@/lib/utils";
 import Image from "next/image";
 
 function OrderItem({ item }: { item: CartProduct }) {
-  const image = item.main_picture_url?.startsWith("http://www.mostcomputers.bg")
-    ? item.main_picture_url
-    : `${process.env.NEXT_PUBLIC_URL}/${item.main_picture_url}`;
+  const first = item.gallery?.[0];
+  const image = first
+    ? /^https?:\/\/www\.mostcomputers\.bg/.test(first)
+      ? first
+      : `/${first}`
+    : "/no-image.png";
 
   return (
     <div className="border-2 flex flex-col justify-between text-center hover:shadow-lg transition-all duration-300 ease-in-out w-full max-w-xs p-4">

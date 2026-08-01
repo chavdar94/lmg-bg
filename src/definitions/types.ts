@@ -6,16 +6,11 @@ export type Product = {
   id: string;
   name: string | null;
   product_status: string | null;
-  haspromo: number | null;
   price: number | null;
   currency: string | null;
-  main_picture_url: string | null;
+  gallery: string[] | null;
   manufacturer: string | null;
-  category: string | null;
-  subcategory: string | null;
-  partnum: string | null;
-  vendor_url: string | null;
-  properties: JsonArray | JsonValue;
+  properties: Record<string, string> | null;
   created_at: Date | null;
   slug: string;
   price_eur: number | null;
@@ -28,7 +23,7 @@ export type BriefProduct = {
   id: string;
   name: string | null;
   price: number | null;
-  main_picture_url: string;
+  gallery: string[];
   slug: string;
   category: string;
   price_eur: number | null;
@@ -36,7 +31,7 @@ export type BriefProduct = {
 };
 
 export type CartProduct = BriefProduct & {
-  main_picture_url: string | { data: Buffer };
+  gallery: string[] | { data: Buffer };
   quantity?: number;
 };
 
@@ -56,7 +51,9 @@ export type UsedCartProduct = UsedProduct & { quantity?: number };
 
 export type Currency = "USD" | "EUR" | "BGN";
 
-export type ProductCardType = Product & { quantity?: number };
+export type ProductCardType = Product & {
+  quantity?: number;
+};
 
 export type OrderBy = {
   price?: "asc" | "desc";

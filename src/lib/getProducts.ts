@@ -55,7 +55,7 @@ export const getAllProducts = async ({
   const filters: any = {};
 
   const filterCondition =
-    filterStatus === "Наличен" ? { product_status: "Наличен" } : {};
+    filterStatus === "В наличност" ? { product_status: "В наличност" } : {};
 
   if (query && query !== "all") {
     filters.name = {

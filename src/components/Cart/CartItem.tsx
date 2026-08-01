@@ -8,11 +8,13 @@ import { Plus, Minus, X } from "lucide-react";
 function CartProduct({ product }: { product: CartProductType }) {
   const { decreaseItem, addItem, removeItem } = useCart();
 
-  const image = product.main_picture_url?.startsWith(
-    "http://www.mostcomputers.bg",
-  )
-    ? product.main_picture_url
-    : `/${product.main_picture_url}`;
+  const first = product.gallery?.[0];
+
+  const image = first
+    ? /^https?:\/\/www\.mostcomputers\.bg/.test(first)
+      ? first
+      : `/${first}`
+    : "/no-image.png";
 
   return (
     <>

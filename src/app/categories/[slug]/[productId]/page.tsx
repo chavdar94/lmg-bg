@@ -31,18 +31,11 @@ export default async function ProcutDetails({ params }: Props) {
     }
   }
 
-  const disabled = product.product_status === "Наличен" ? false : true;
-  const galleryArray =
-    typeof product.gallery_urls === "string"
-      ? JSON.parse(product.gallery_urls) // Parse JSON string to array
-      : Array.isArray(product.gallery_urls)
-        ? product.gallery_urls.filter(
-            (url): url is string => typeof url === "string",
-          )
-        : [];
+  const disabled = product.product_status === "В наличност" ? false : true;
+
   const images = {
-    main_pic: product.main_picture_url ?? "",
-    gallery: [product.main_picture_url, ...galleryArray],
+    main_pic: product.gallery[0] ?? "",
+    gallery: [...product.gallery],
   };
 
   return (
@@ -74,8 +67,8 @@ export default async function ProcutDetails({ params }: Props) {
               <div className="text-sm text-muted-foreground flex gap-6">
                 <p>
                   Категория:{" "}
-                  <span className="text-slate-900">{product?.category}</span> /{" "}
-                  <span className="text-slate-900">{product?.subcategory}</span>
+                  <span className="text-slate-900">{product?.category}</span>{" "}
+                  /{" "}
                 </p>
                 <p>
                   Производител:{" "}
@@ -104,16 +97,16 @@ export default async function ProcutDetails({ params }: Props) {
                 </div>
                 <p
                   className={`text-sm inline-block px-3 py-1 mt-2 text-white ${
-                    product?.product_status === "Наличен"
+                    product?.product_status === "В наличност"
                       ? "bg-[#3c3]"
                       : "bg-red-500"
                   }`}
                 >
-                  {product?.product_status === "Наличен"
+                  {product?.product_status === "В наличност"
                     ? "В наличност"
                     : "Обадете се"}
                 </p>
-                {product.product_status !== "Наличен" && (
+                {product.product_status !== "В наличност" && (
                   <p className="mt-4">
                     Продукта в момента не е наличен. Моля обадете се или
                     напишете{" "}
@@ -134,26 +127,28 @@ export default async function ProcutDetails({ params }: Props) {
             </div>
           </div>
         </section>
-        <section className="w-full flex justify-start mt-4">
-          <div className="w-full">
-            <h2 className="font-bold uppercase pl-4 pb-2">Описание</h2>
-            <div className="border-b-2 border-black w-[35%] md:w-[20%] lg:w-[9%] ml-3" />
-            <div className="border-1-text-muted-foreground border p-3">
-              {typeof product?.properties === "string" && product?.properties}
-              {(Array.isArray(product?.properties) ? product?.properties : [])
-                .filter(
-                  (property: any) => property.value && property.value !== "-",
-                )
-                .map((property: any, index: number) => (
+        <section className="w-full flex flex-col justify-start mt-4">
+          <p className="text-xl ">Характеристики:</p>
+          <div className="border-1-text-muted-foreground border p-3">
+            {product?.properties &&
+            typeof product.properties === "object" &&
+            Object.keys(product.properties).length > 0 ? (
+              Object.entries(product.properties as Record<string, string>)
+                .filter(([name, value]) => value && value !== "-")
+                .map(([name, value]) => (
                   <div
                     className="flex justify-start text-muted-foreground mb-1"
-                    key={index}
+                    key={name}
                   >
-                    <span className="pr-1">{property.name}: </span>
-                    <span>{property.value}</span>
+                    <span className="pr-1">{name}: </span>
+                    <span>{value}</span>
                   </div>
-                ))}
-            </div>
+                ))
+            ) : (
+              <span className="text-muted-foreground">
+                Нямаме налични характеристики за този продукт.
+              </span>
+            )}
           </div>
         </section>
       </section>

@@ -33,7 +33,7 @@ const Category: FC<Props> = async ({ params, searchParams }: Props) => {
     }
   })();
 
-  const filterStatus = filter === "statusAsc" ? "Наличен" : undefined;
+  const filterStatus = filter === "statusAsc" ? "В наличност" : undefined;
 
   const [products, productsCount] = await Promise.all([
     await getProductsByCategory(params.slug, orderBy, page, filterStatus),

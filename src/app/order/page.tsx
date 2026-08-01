@@ -94,7 +94,7 @@ export default function OrderPage() {
             Цената е без включена доставка!
           </p>
           <p className="italic text-muted-foreground">
-            Всички цени са с включено ДДС!
+            Всички цени са с включен ДДС!
           </p>
         </div>
       ) : null}

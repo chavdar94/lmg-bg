@@ -15,6 +15,23 @@ const nextConfig = {
         hostname: "lmg-bg.com",
         pathname: "/uploads/**",
       },
+      // https variants
+      {
+        protocol: "https",
+        hostname: "www.mostcomputers.bg",
+        pathname: "/upload/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.mostcomputers.bg",
+        pathname: "/primotionupload/**",
+      },
+      {
+        protocol: "https",
+        hostname: "www.mostcomputers.bg",
+        pathname: "**",
+      },
+      // http variants
       {
         protocol: "http",
         hostname: "www.mostcomputers.bg",

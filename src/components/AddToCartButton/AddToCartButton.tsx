@@ -3,7 +3,11 @@
 import { useEffect } from "react";
 import { useState } from "react";
 import { useCart } from "@/hooks/use-cart";
-import { CartProduct, UsedCartProduct } from "@/definitions/types";
+import {
+  CartProduct,
+  ProductCardType,
+  UsedCartProduct,
+} from "@/definitions/types";
 import { cn } from "@/lib/utils";
 
 const AddToCartButton = ({
@@ -11,7 +15,7 @@ const AddToCartButton = ({
   className,
   disabled = false,
 }: {
-  product: CartProduct | UsedCartProduct;
+  product: CartProduct | UsedCartProduct | ProductCardType;
   className?: string;
   disabled?: boolean;
 }) => {
@@ -36,14 +40,14 @@ const AddToCartButton = ({
       className={cn(
         "border border-slate-200 text-sm cursor-pointer px-4 py-1 font-bold hover:bg-slate-600 transition-colors duration-300 ease-in-out",
         className,
-        disabled && "cursor-not-allowed hover:bg-transperant"
+        disabled && "cursor-not-allowed hover:bg-transperant",
       )}
     >
       {isSuccess
         ? "Добавено!"
         : disabled
-        ? "Няма в наличност"
-        : "Добави в количката"}
+          ? "Няма в наличност"
+          : "Добави в количката"}
     </button>
   );
 };

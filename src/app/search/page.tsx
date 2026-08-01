@@ -39,7 +39,7 @@ export default async function SearchPage({
     }
   })();
 
-  const filterStatus = filter === "statusAsc" ? "Наличен" : undefined;
+  const filterStatus = filter === "statusAsc" ? "В наличност" : undefined;
 
   const {
     data: products,
