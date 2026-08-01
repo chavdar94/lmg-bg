@@ -1,20 +1,6 @@
 import { Products } from "@/definitions/types";
 import db from "@/lib/client";
-import { Prisma } from "@prisma/client";
-
-function toProperties(value: Prisma.JsonValue): Record<string, string> | null {
-  if (value === null || typeof value !== "object" || Array.isArray(value)) {
-    return null;
-  }
-
-  const result: Record<string, string> = {};
-  for (const [key, val] of Object.entries(value)) {
-    if (typeof val === "string") {
-      result[key] = val;
-    }
-  }
-  return result;
-}
+import { toProperties } from "@/lib/utils";
 
 export const getLatestProducts = async (): Promise<Products> => {
   const products = await db.products.findMany({

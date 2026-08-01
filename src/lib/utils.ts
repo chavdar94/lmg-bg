@@ -4,7 +4,7 @@ import { currencies, redisExpire } from "./constants";
 import { Currency } from "@/definitions/types";
 import { fetchBNBExchangeRates } from "./parseXmlToJSON";
 import { AppRouterInstance } from "next/dist/shared/lib/app-router-context.shared-runtime";
-import { redis } from "./redis";
+import { Prisma } from "@prisma/client";
 
 export function cn(...inputs: ClassValue[]) {
   return twMerge(clsx(inputs));
@@ -104,4 +104,20 @@ export const formatError = (error: any) => {
 
 export function formatId(id: string) {
   return `..${id.substring(id.length - 6)}`;
+}
+
+export function toProperties(
+  value: Prisma.JsonValue,
+): Record<string, string> | null {
+  if (value === null || typeof value !== "object" || Array.isArray(value)) {
+    return null;
+  }
+
+  const result: Record<string, string> = {};
+  for (const [key, val] of Object.entries(value)) {
+    if (typeof val === "string") {
+      result[key] = val;
+    }
+  }
+  return result;
 }

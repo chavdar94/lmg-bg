@@ -1,6 +1,7 @@
-import { OrderBy } from "@/definitions/types";
+import { OrderBy, Products } from "@/definitions/types";
 import db from "@/lib/client";
 import { PAGE_SIZE } from "@/lib/constants";
+import { toProperties } from "@/lib/utils";
 
 export const getCategories = async () => {
   const categories = await db.products.findMany({
@@ -22,7 +23,7 @@ export const getProductsByCategory = async (
   orderBy: OrderBy,
   page: number,
   filterStatus?: string,
-) => {
+): Promise<Products> => {
   const filterCondition =
     filterStatus === "В наличност" ? { product_status: "В наличност" } : {};
 
@@ -36,7 +37,10 @@ export const getProductsByCategory = async (
     take: PAGE_SIZE,
   });
 
-  return products;
+  return products.map((product) => ({
+    ...product,
+    properties: toProperties(product.properties),
+  }));
 };
 
 export const getProductsCount = async (slug: string, filterStatus?: string) => {
