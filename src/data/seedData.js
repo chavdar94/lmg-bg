@@ -1,3 +1,5 @@
+const { PrismaClient } = require("@prisma/client");
+
 var __awaiter =
   (this && this.__awaiter) ||
   function (thisArg, _arguments, P, generator) {
@@ -132,8 +134,7 @@ var __generator =
     }
   };
 var _this = this;
-// import { PrismaClient } from "@prisma/client";
-var PrismaClient = require("@prisma/client").PrismaClient;
+
 var prisma = new PrismaClient();
 var servicesData = [
   {
@@ -368,86 +369,53 @@ var servicesData = [
     ],
   },
 ];
-function main() {
-  return __awaiter(this, void 0, void 0, function () {
-    var _i, _a, _b, categoryTitle, services, category, _c, services_1, service;
-    return __generator(this, function (_d) {
-      switch (_d.label) {
-        case 0:
-          ((_i = 0), (_a = Object.entries(servicesData[0])));
-          _d.label = 1;
-        case 1:
-          if (!(_i < _a.length)) return [3 /*break*/, 7];
-          ((_b = _a[_i]), (categoryTitle = _b[0]), (services = _b[1]));
-          return [
-            4 /*yield*/,
-            prisma.serviceCategory.create({
-              data: {
-                title: categoryTitle,
-              },
-            }),
-          ];
-        case 2:
-          category = _d.sent();
-          ((_c = 0), (services_1 = services));
-          _d.label = 3;
-        case 3:
-          if (!(_c < services_1.length)) return [3 /*break*/, 6];
-          service = services_1[_c];
-          const price = parsePrice(service.price);
-          const priceBgn = parseFloat((service.price * 1.95583).toFixed(2));
-          return [
-            4 /*yield*/,
-            prisma.service.create({
-              data: {
-                title: service.title || service.service || "",
-                price: price,
-                price_bgn: priceBgn,
-                category: {
-                  connect: { id: category.id },
-                },
-              },
-            }),
-          ];
-        case 4:
-          _d.sent();
-          _d.label = 5;
-        case 5:
-          _c++;
-          return [3 /*break*/, 3];
-        case 6:
-          _i++;
-          return [3 /*break*/, 1];
-        case 7:
-          return [2 /*return*/];
-      }
+async function main() {
+  for (const [categoryTitle, services] of Object.entries(servicesData[0])) {
+    const category = await prisma.serviceCategory.create({
+      data: {
+        title: categoryTitle,
+      },
     });
-  });
-}
-function parsePrice(price) {
-  if (!price || price === "N/A" || price === "Безплатна") return 0;
-  var prices = price.split("–").map(function (p) {
-    return parseInt(p.trim().replace(" лв.", ""), 10);
-  });
-  return prices[0]; // Returning the lower bound if a range is provided
-}
-main()
-  .catch(function (e) {
-    console.error(e);
-    process.exit(1);
-  })
-  .finally(function () {
-    return __awaiter(_this, void 0, void 0, function () {
-      return __generator(this, function (_a) {
-        switch (_a.label) {
-          case 0:
-            return [4 /*yield*/, prisma.$disconnect()];
-          case 1:
-            _a.sent();
-            return [2 /*return*/];
-        }
+
+    for (const service of services) {
+      const price = parsePrice(service.price);
+      const priceBgn = parseFloat((price * 1.95583).toFixed(2));
+
+      await prisma.service.create({
+        data: {
+          title: service.title || service.service || "",
+          price: price,
+          price_bgn: priceBgn,
+          category: {
+            connect: { id: category.id },
+          },
+        },
+      });
+    }
+  }
+  function parsePrice(price) {
+    if (!price || price === "N/A" || price === "Безплатна") return 0;
+    var prices = price.split("–").map(function (p) {
+      return parseInt(p.trim().replace(" лв.", ""), 10);
+    });
+    return prices[0]; // Returning the lower bound if a range is provided
+  }
+  main()
+    .catch(function (e) {
+      console.error(e);
+      process.exit(1);
+    })
+    .finally(function () {
+      return __awaiter(_this, void 0, void 0, function () {
+        return __generator(this, function (_a) {
+          switch (_a.label) {
+            case 0:
+              return [4 /*yield*/, prisma.$disconnect()];
+            case 1:
+              _a.sent();
+              return [2 /*return*/];
+          }
+        });
       });
     });
-  });
-
-// comment
+}
